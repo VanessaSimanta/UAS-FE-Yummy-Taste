@@ -28,6 +28,14 @@ body {
     border-color: #d9534f;
 }
 
+.btn-custom:disabled {
+    background-color: #734725 !important;
+    border-color: #734725 !important;
+    opacity: 1;  
+    color: #ececec;
+}
+
+
 
 @media only screen and (max-width: 768px){
      .box-area{

@@ -1,4 +1,4 @@
-angular.module('recipes').controller('signUpCtrl', ['$scope', '$http', function($scope, $http) {
+angular.module('recipes').controller('signUpCtrl', ['$scope', '$http', '$location', function($scope, $http, $location) {
     $scope.signup = function() {
         if ($scope.signupForm.$invalid) {
             alert('Please fill in all fields correctly');
@@ -26,6 +26,9 @@ angular.module('recipes').controller('signUpCtrl', ['$scope', '$http', function(
                 }
             });
     };
+
+    // Function untuk kembali ke login
+    $scope.login = function() {
+        $location.path('/login');  
+    };
 }]);
-
-
