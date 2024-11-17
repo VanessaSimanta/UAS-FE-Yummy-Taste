@@ -12,10 +12,12 @@ angular.module('recipes').controller('signUpCtrl', ['$scope', '$http', '$locatio
             password: $scope.user.password
         };
 
+
         $http.post('http://localhost:3000/api/signup', userData)
             .then(function(response) {
                 alert('User created successfully!');
-                window.location.href = '#/home'; // Redirect ke halaman home
+                // Redirect ke halaman home
+                $location.path('/home');
             })
             .catch(function(error) {
                 console.error('Error:', error);
