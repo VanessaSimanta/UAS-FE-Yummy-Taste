@@ -18,7 +18,8 @@
                 <div class="input-group mb-3">
                     <input type="text" class="form-control form-control-lg bg-light fs-6" placeholder="Full Name" ng-model="user.name" name="name" required ng-class="{'is-invalid': signupForm.name.$touched && signupForm.name.$invalid}">
                 </div>
-                <div ng-messages="signupForm.name.$error" ng-if="signupForm.name.$touched && signupForm.name.$invalid">
+                <div ng-messages="signupForm.name.$error" ng-if="signupForm.name.$touched && signupForm.name.$invalid" class="text-danger mt-3">
+
                     <div ng-message="required" class="text-danger">Full name is required</div>
                 </div>
             
