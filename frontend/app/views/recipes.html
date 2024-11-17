@@ -53,9 +53,10 @@
 <!-- Recipes Container -->
 <div class="recipes-container mt-4">
     <h1>Recipes</h1>
-    <ul>
+    <ul class="recipes-list">
         <li ng-repeat="recipe in recipes">
-            {{ recipe.name }}
+            <h2>{{ recipe.name }}</h2>
+            <span class="ingredients">{{ recipe.ingredients.join(', ') }}</span>
         </li>
     </ul>
 </div>
