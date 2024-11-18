@@ -43,7 +43,14 @@
             
                 <!-- Password -->
                 <div class="input-group mb-3">
-                    <input type="password" class="form-control form-control-lg bg-light fs-6" placeholder="Password" ng-model="user.password" name="password" required ng-minlength="6" ng-class="{'is-invalid': signupForm.password.$touched && signupForm.password.$invalid}">
+                    <input type="{{showPassword ? 'text' : 'password'}}" class="form-control form-control-lg bg-light fs-6" placeholder="Password" ng-model="user.password" name="password" required ng-minlength="6" ng-class="{'is-invalid': loginForm.password.$touched && loginForm.password.$invalid}">
+                    <span class="input-group-append">
+                    <button type="button" 
+                            class="btn btn-outline-secondary btn-custom" 
+                            ng-click="showPassword = !showPassword">
+                        <i class="fas" ng-class="{'fa-eye': !showPassword, 'fa-eye-slash': showPassword}"></i>
+                    </button>
+                </span>
                 </div>
                 <div ng-messages="signupForm.password.$error" ng-if="signupForm.password.$touched">
                     <div ng-message="required" class="text-danger" ng-if="signupForm.password.$error.required">Password is required</div>
