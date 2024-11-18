@@ -17,6 +17,11 @@ classApp.config(['$routeProvider', function($routeProvider) {
             templateUrl: 'app/views/login.html',
             controller: 'loginCtrl'
         })
+         //myaccount
+         .when('/', {
+            templateUrl: 'app/views/myaccount.html',
+            controller: 'recipesCtrl'
+        })
         .otherwise({
             redirectTo: '/'
         });
