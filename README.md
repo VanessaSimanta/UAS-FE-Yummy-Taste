@@ -4,9 +4,9 @@ Bertemakan lifestyle dimana kami memutuskan untuk membuat sebuah website yang be
 ## Cara Run Program
 Cara menjalankan program :
 1. pada terminal vs code run "npm install" 
-2. untuk run angular bisa run "npm install -g live-server" kemudian run "live-server"
+2. untuk run angular bisa run "cd frontend" kemudian "npm install -g live-server" kemudian run "live-server"
 3. setup env database pada file .env
-4. untuk run backend bisa run "nodemon server.js"
+4. untuk run backend bisa run "cd backend" kemudian run "nodemon server.js"
 
 
 ## Setup database di postgree SQL
