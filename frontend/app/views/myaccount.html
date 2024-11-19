@@ -54,7 +54,7 @@
 </nav>
 
 <!-- Secondary Navbar with Links (Non-sticky) -->
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #734725;" ng-controller="homeCtrl">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #734725;" ng-controller="getUserCtrl">
     <div class="container">
         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
             <ul class="navbar-nav">
@@ -85,32 +85,36 @@
 
 
 <div class="container my-5">
-    <h1 class="mb-4 text-center" style="font-family: 'Baloo 2', cursive; color: #734725;">My Account</h1>
+    <h1 class="mb-4 text-center font-weight-bold" style="font-family: 'Baloo 2', cursive; color: #734725;">My Account</h1>
 
-    <!-- Informasi Profil -->
-    <div class="profile-info mb-4 p-4" style="background-color: #f8ebe2; border-radius: 10px;">
-        <h3 class="section-title mb-3" style="color: #734725;">Informasi Profil</h3>
-        <div class="info-item mb-2"><strong>Nama:</strong> John Doe</div>
-        <div class="info-item mb-2"><strong>Email:</strong> john.doe@example.com</div>
-        <div class="info-item mb-2"><strong>Tanggal Lahir:</strong> 5 Maret 2005</div>
-        <div class="info-item mb-2"><strong>Tanggal Bergabung:</strong> 15 Januari 2023</div>
-    </div>
+    <div class="container mt-5">
+        <div class="profile-info mb-4 p-4" style="background-color: #f8ebe2; border-radius: 10px;">
+            <h3 class="section-title mb-3 font-weight-bolder" style="color: #734725;">Informasi Profil</h3>
+            <div ng-if="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+            <div ng-if="!errorMessage">
+                <div class="info-item mb-2"><strong>Nama :</strong> {{ profile.name || 'Loading...' }}</div>
+                <div class="info-item mb-2"><strong>Email :</strong> {{ profile.email || 'Loading...' }}</div>
+                <div class="info-item mb-2"><strong>Tanggal Lahir :</strong> {{ profile.date_of_birth || 'Loading...' }}</div>
+                <div class="info-item mb-2"><strong>Phone Number :</strong> {{ profile.phoneNumber || 'Loading...' }}</div>
+            </div>
+        </div>
+    </div>    
 
     <!-- Edit Profil -->
     <div class="account-settings mb-4 p-4" style="background-color: #f8ebe2; border-radius: 10px;">
-        <h3 class="section-title mb-3" style="color: #734725;">Edit Profil</h3>
+        <h3 class="section-title mb-3 font-weight-bolder" style="color: #734725;">Edit Profile</h3>
         <form action="#" method="post">
             <div class="mb-3">
                 <label for="name" class="form-label">Nama</label>
-                <input type="text" class="form-control" id="name" name="name" value="John Doe" required>
+                <input type="text" class="form-control" id="name" name="name" required>
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" name="email" value="john.doe@example.com" required>
+                <input type="email" class="form-control" id="email" name="email" required>
             </div>
             <div class="mb-3">
                 <label for="birthdate" class="form-label">Tanggal Lahir</label>
-                <input type="date" class="form-control" id="birthdate" name="birthdate" value="2005-03-05" required>
+                <input type="date" class="form-control" id="birthdate" name="birthdate" required>
             </div>
             <button type="submit" class="btn" style="background-color: #734725; color: #f8ebe2;">Simpan Perubahan</button>
         </form>
@@ -118,7 +122,7 @@
 
     <!-- Ganti Password -->
     <div class="change-password p-4" style="background-color: #f8ebe2; border-radius: 10px;">
-        <h3 class="section-title mb-3" style="color: #734725;">Ganti Password</h3>
+        <h3 class="section-title mb-3 font-weight-bolder" style="color: #734725;">Ganti Password</h3>
         <form action="#" method="post">
             <div class="mb-3">
                 <label for="current-password" class="form-label">Password Lama</label>

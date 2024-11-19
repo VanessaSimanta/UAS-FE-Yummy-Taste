@@ -1,4 +1,6 @@
 const client = require('../config/db');
+const bcrypt = require('bcrypt');
+const moment = require('moment');
 
 //SIGN UP
 // Cek apakah email sudah ada
@@ -15,23 +17,18 @@ const findUserByEmail = async (email) => {
 };
 
 // Membuat user baru
-const bcrypt = require('bcrypt');
-const moment = require('moment');
-
-// Membuat user baru
 const createUser = async (name, email, phoneNumber, dateOfBirth, password) => {
   //hashing password
-  const hashedPassword = await bcrypt.hash(password, 10); 
-  console.log('Received dateOfBirth:', dateOfBirth);
+  const hashedPassword = await bcrypt.hash(password, 10);
   
-  //format date of birth
+  // DOB Convertion
   const formattedDateOfBirth = moment(dateOfBirth).format('YYYY-MM-DD');
 
-  // Validate date format (optional, but recommended)
+  // Validate date format 
   if (!moment(formattedDateOfBirth, 'YYYY-MM-DD', true).isValid()) {
       return res.status(400).json({ message: 'Invalid date format. Use YYYY-MM-DD.' });
   }
-  
+  // Insert to DB
   const query = 'INSERT INTO users (name, email, phone_number, date_of_birth, password) VALUES ($1, $2, $3, $4, $5) RETURNING *';
   const values = [name, email, phoneNumber, formattedDateOfBirth, hashedPassword];
   
@@ -59,16 +56,13 @@ const checkUser = async (email, password) => {
     const isPasswordValid = await bcrypt.compare(password, user.password); // Cocokkan password
 
     if (!isPasswordValid) {
-      return null; // Password tidak cocok
+      return null; 
     }
 
-    return user; // Return user jika valid
+    return user; 
   } catch (err) {
     throw new Error('Error during user check: ' + err.message);
   }
 };
-
-
-
 
 module.exports = { findUserByEmail, createUser, checkUser };
