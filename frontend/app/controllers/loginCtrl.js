@@ -13,7 +13,10 @@ angular.module('recipes').controller('loginCtrl', ['$scope', '$http', '$location
 
         $http.post('http://localhost:3000/api/login', userData)
             .then(function(response) {
-                // Redirect ke halaman home
+               // Store the token in localStorage
+                localStorage.setItem('token', response.data.token);
+
+                // Redirect to the home page
                 $location.path('/home');
             })
             .catch(function(error) {
