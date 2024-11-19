@@ -89,12 +89,16 @@
     <div class="row">
         <div class="col-md-4 mb-4" ng-repeat="recipe in recipes">
             <div class="card shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title">{{ recipe.name }}</h5>
-                    <img src=" {{recipe.image }}" class="img-fluid">
+                <div class="card-body mb-2">
+                    <h5 class="card-title text-center font-weight-bold mt-2">{{ recipe.name }}</h5>
+                    <img src="{{recipe.image}}" class="img-fluid mt-3 mb-3">
                     <p class="card-text">
                         <br>
-                        <strong>Rating :</strong> {{recipe.rating}}
+                        <strong>Difficulty :</strong> {{ recipe.difficulty }} <br>
+                        <strong>Calories Per Serving :</strong> {{ recipe.caloriesPerServing }} cal <br>
+                        <strong>Cooking Time :</strong> {{ recipe.cookTimeMinutes }} minutes <br>
+                        <strong>Cuisine :</strong> {{ recipe.cuisine }} <br>
+                        <strong>Rating :</strong> {{ recipe.rating }} <br>
                     </p>
                     <button class="btn btn-primary btn-sm" ng-click="viewRecipe(recipe)">View Recipe</button>
                 </div>
@@ -102,6 +106,7 @@
         </div>
     </div>
 </div>
+
 
 <!-- Footer -->
 <footer style="background-color: #E4CCAC;">
@@ -146,7 +151,7 @@
     </div>
     <!-- Footer Bottom --> 
     <div class="text-center pt-3" style="background-color: #734725;">
-        <p class="mb-3" style="color: #E4CCAC;">© 2024 Your Website. All rights reserved.</p>
+        <p class="mb-0" style="color: #E4CCAC;">© 2024 Your Website. All rights reserved.</p>
     </div>
 </footer>
 

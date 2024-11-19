@@ -38,6 +38,7 @@ body {
     transition: opacity 0.3s ease-in-out;
   }
 
+
 @media only screen and (max-width: 768px){
      .box-area{
         margin: 0 10px;
