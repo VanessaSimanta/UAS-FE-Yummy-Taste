@@ -84,24 +84,59 @@
 </nav>
 
 
-<div class="container">
-    <h1>My Account</h1>
-    <div class="profile-info">
-        <div class="section-title">Informasi Profil</div>
-        <div class="info-item"><label>Nama:</label> John Doe</div>
-        <div class="info-item"><label>Email:</label> john.doe@example.com</div>
-        <div class="info-item"><label>Tanggal Lahir:</label> 5 Maret 2005</div>
-        <div class="info-item"><label>Tanggal Bergabung:</label> 15 Januari 2023</div>
+<div class="container my-5">
+    <h1 class="mb-4 text-center" style="font-family: 'Baloo 2', cursive; color: #734725;">My Account</h1>
+
+    <!-- Informasi Profil -->
+    <div class="profile-info mb-4 p-4" style="background-color: #f8ebe2; border-radius: 10px;">
+        <h3 class="section-title mb-3" style="color: #734725;">Informasi Profil</h3>
+        <div class="info-item mb-2"><strong>Nama:</strong> John Doe</div>
+        <div class="info-item mb-2"><strong>Email:</strong> john.doe@example.com</div>
+        <div class="info-item mb-2"><strong>Tanggal Lahir:</strong> 5 Maret 2005</div>
+        <div class="info-item mb-2"><strong>Tanggal Bergabung:</strong> 15 Januari 2023</div>
     </div>
 
-    <div class="account-settings">
-        <div class="section-title">Pengaturan Akun</div>
-        <a href="#" class="btn">Edit Profil</a>
-        <a href="#" class="btn">Keluar</a>
+    <!-- Edit Profil -->
+    <div class="account-settings mb-4 p-4" style="background-color: #f8ebe2; border-radius: 10px;">
+        <h3 class="section-title mb-3" style="color: #734725;">Edit Profil</h3>
+        <form action="#" method="post">
+            <div class="mb-3">
+                <label for="name" class="form-label">Nama</label>
+                <input type="text" class="form-control" id="name" name="name" value="John Doe" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" value="john.doe@example.com" required>
+            </div>
+            <div class="mb-3">
+                <label for="birthdate" class="form-label">Tanggal Lahir</label>
+                <input type="date" class="form-control" id="birthdate" name="birthdate" value="2005-03-05" required>
+            </div>
+            <button type="submit" class="btn" style="background-color: #734725; color: #f8ebe2;">Simpan Perubahan</button>
+        </form>
+    </div>
+
+    <!-- Ganti Password -->
+    <div class="change-password p-4" style="background-color: #f8ebe2; border-radius: 10px;">
+        <h3 class="section-title mb-3" style="color: #734725;">Ganti Password</h3>
+        <form action="#" method="post">
+            <div class="mb-3">
+                <label for="current-password" class="form-label">Password Lama</label>
+                <input type="password" class="form-control" id="current-password" name="current-password" required>
+            </div>
+            <div class="mb-3">
+                <label for="new-password" class="form-label">Password Baru</label>
+                <input type="password" class="form-control" id="new-password" name="new-password" required>
+            </div>
+            <div class="mb-3">
+                <label for="confirm-password" class="form-label">Konfirmasi Password Baru</label>
+                <input type="password" class="form-control" id="confirm-password" name="confirm-password" required>
+            </div>
+            <button type="submit" class="btn" style="background-color: #734725; color: #f8ebe2;">Ganti Password</button>
+        </form>
     </div>
 </div>
-</body>
-</html>
+
 
 <!-- Footer -->
 <footer style="background-color: #E4CCAC;">
