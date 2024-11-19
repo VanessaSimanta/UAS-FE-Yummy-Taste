@@ -6,6 +6,7 @@ const signup = [
   body('email').isEmail().withMessage('Invalid email format'),
   body('password').isLength({ min: 6 }).withMessage('Password must be at least 6 characters long'),
   body('name').notEmpty().withMessage('Name is required'),
+  body('dateOfBirth').notEmpty().withMessage('Date of birth is required'),
   body('phoneNumber').notEmpty().withMessage('Phone number is required'),
 
   // Fungsi utama
@@ -15,7 +16,7 @@ const signup = [
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { name, email, phoneNumber, password } = req.body;
+    const { name, email, phoneNumber, dateOfBirth, password } = req.body;
 
     try {
       // Cek apakah email sudah ada di database
@@ -25,7 +26,7 @@ const signup = [
       }
 
       // Buat user baru
-      const newUser = await createUser(name, email, phoneNumber, password);
+      const newUser = await createUser(name, email, phoneNumber, dateOfBirth, password);
       return res.status(201).json({ message: 'User created successfully', user: newUser });
     } catch (error) {
       console.error('Error creating user:', error.message);

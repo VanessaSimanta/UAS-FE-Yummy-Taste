@@ -16,12 +16,24 @@ const findUserByEmail = async (email) => {
 
 // Membuat user baru
 const bcrypt = require('bcrypt');
+const moment = require('moment');
 
-// Membuat user baru dengan hashing password
-const createUser = async (name, email, phoneNumber, password) => {
+// Membuat user baru
+const createUser = async (name, email, phoneNumber, dateOfBirth, password) => {
+  //hashing password
   const hashedPassword = await bcrypt.hash(password, 10); 
-  const query = 'INSERT INTO users (name, email, phone_number, password) VALUES ($1, $2, $3, $4) RETURNING *';
-  const values = [name, email, phoneNumber, hashedPassword];
+  console.log('Received dateOfBirth:', dateOfBirth);
+  
+  //format date of birth
+  const formattedDateOfBirth = moment(dateOfBirth).format('YYYY-MM-DD');
+
+  // Validate date format (optional, but recommended)
+  if (!moment(formattedDateOfBirth, 'YYYY-MM-DD', true).isValid()) {
+      return res.status(400).json({ message: 'Invalid date format. Use YYYY-MM-DD.' });
+  }
+  
+  const query = 'INSERT INTO users (name, email, phone_number, date_of_birth, password) VALUES ($1, $2, $3, $4, $5) RETURNING *';
+  const values = [name, email, phoneNumber, formattedDateOfBirth, hashedPassword];
   
   try {
     const res = await client.query(query, values);

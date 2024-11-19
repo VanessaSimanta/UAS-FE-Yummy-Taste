@@ -1,14 +1,10 @@
 angular.module('recipes').controller('signUpCtrl', ['$scope', '$http', '$location', function($scope, $http, $location) {
     $scope.signup = function() {
-        if ($scope.signupForm.$invalid) {
-            alert('Please fill in all fields correctly');
-            return;
-        }
-
         const userData = {
             name: $scope.user.name,
             email: $scope.user.email,
             phoneNumber: $scope.user.phoneNumber,
+            dateOfBirth: $scope.user.dateOfBirth,
             password: $scope.user.password
         };
 

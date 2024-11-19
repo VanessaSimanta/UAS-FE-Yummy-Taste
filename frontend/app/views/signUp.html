@@ -40,6 +40,19 @@
                     <div ng-message="required" class="text-danger" ng-if="signupForm.phoneNumber.$error.required">Phone number is required</div>
                     <div ng-message="pattern" class="text-danger" ng-if="signupForm.phoneNumber.$error.pattern">Phone number must be numeric</div>
                 </div>
+
+                <!-- Date of Birth -->
+                <div class="input-group mb-3">
+                    <input type="date" class="form-control form-control-lg bg-light fs-6" 
+                        placeholder="Date of Birth" 
+                        ng-model="user.dateOfBirth" 
+                        name="dateOfBirth" 
+                        required 
+                        ng-class="{'is-invalid': signupForm.dateOfBirth.$touched'}">
+                </div>
+                <div ng-messages="signupForm.dateOfBirth.$error" ng-if="signupForm.dateOfBirth.$touched">
+                    <div ng-message="required" class="text-danger" ng-if="signupForm.dateOfBirth.$error.required">Date of Birth is required</div>
+                </div>
             
                 <!-- Password -->
                 <div class="input-group mb-3">
@@ -56,7 +69,37 @@
                     <div ng-message="required" class="text-danger" ng-if="signupForm.password.$error.required">Password is required</div>
                     <div ng-message="minlength" class="text-danger" ng-if="signupForm.password.$error.minlength">Password must be at least 6 characters long</div>
                 </div>
-            
+
+               <!-- Confirm Password -->
+                <div class="input-group mb-3">
+                    <input type="{{showConfirmPassword ? 'text' : 'password'}}" 
+                        class="form-control form-control-lg bg-light fs-6" 
+                        placeholder="Confirm Password" 
+                        ng-model="user.confirmPassword" 
+                        name="confirmPassword" 
+                        required 
+                        ng-minlength="6">
+                    <span class="input-group-append">
+                        <button type="button" 
+                                class="btn btn-outline-secondary btn-custom" 
+                                ng-click="showConfirmPassword = !showConfirmPassword">
+                            <i class="fas" ng-class="{'fa-eye': !showConfirmPassword, 'fa-eye-slash': showConfirmPassword}"></i>
+                        </button>
+                    </span>
+                </div>
+                <div ng-messages="signupForm.confirmPassword.$error" ng-if="signupForm.confirmPassword.$touched">
+                    <div ng-message="required" class="text-danger" ng-if="signupForm.confirmPassword.$error.required">
+                        Confirm Password is required
+                    </div>
+                    <div ng-message="minlength" class="text-danger" ng-if="signupForm.confirmPassword.$error.minlength">
+                        Confirm Password must be at least 6 characters long
+                    </div>
+                    <div class="text-danger" ng-if="user.password !== user.confirmPassword">
+                        Passwords do not match
+                    </div>
+                </div>
+                
+                            
                 <!-- Submit Button -->
                 <button type="submit" class="btn btn-custom btn-lg w-100 mb-3" ng-disabled="signupForm.$invalid">Sign Up</button>
             </form>
