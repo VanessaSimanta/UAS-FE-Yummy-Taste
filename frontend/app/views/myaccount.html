@@ -107,9 +107,8 @@
         </div>
     </div>
 
-    <!-- Buttons Section -->
     <div class="mt-4">
-        <div class="d-flex flex-row gap-3">
+        <div class="d-flex flex-col gap-3">
             <!-- Edit Profile -->
             <button 
                 class="btn w-100 text-white m-2" 
@@ -126,63 +125,65 @@
                 Edit Password
             </button>
         </div>
-
-        <!-- Edit Profile Form -->
-        <div class="mt-4" ng-show="showEditProfile">
-            <div class="card p-4 shadow-lg" style="background-color: #f8ebe2; border-radius: 10px;">
-                <h3 class="text-center fw-bold" style="color: #734725;">Edit Profile</h3>
-                <form name="editProfileForm" ng-submit="updateProfile()" novalidate>
-                    <!-- Full Name -->
-                    <div class="mb-3">
-                        <label class="form-label fw-bold">Full Name</label>
-                        <input type="text" class="form-control" placeholder="Full Name" ng-model="user.name" required>
-                    </div>
-                    <!-- Email -->
-                    <div class="mb-3">
-                        <label class="form-label fw-bold">Email</label>
-                        <input type="email" class="form-control" placeholder="Email Address" ng-model="user.email" required>
-                    </div>
-                    <!-- Phone Number -->
-                    <div class="mb-3">
-                        <label class="form-label fw-bold">Phone Number</label>
-                        <input type="text" class="form-control" placeholder="Phone Number" ng-model="user.phoneNumber" required>
-                    </div>
-                    <!-- Date of Birth -->
-                    <div class="mb-3">
-                        <label class="form-label fw-bold">Date of Birth</label>
-                        <input type="date" class="form-control" ng-model="user.dateOfBirth" required>
-                    </div>
-                    <!-- Submit Button -->
-                    <button type="submit" class="btn btn-success w-100" style="background-color: #734725">Save Changes</button>
-                </form>
+        
+        <div class="mt-4">
+            <!-- Kontainer Flexbox -->
+            <div class="d-flex flex-row gap-3 justify-content-between align-items-start">
+                <!-- Edit Profile Form -->
+                <div class="card p-4 shadow-lg" ng-show="showEditProfile" style="background-color: #f8ebe2; border-radius: 10px; width: 48%;">
+                    <h3 class="text-center fw-bold" style="color: #734725;">Edit Profile</h3>
+                    <form name="editProfileForm" ng-submit="updateProfile()" novalidate>
+                        <!-- Full Name -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Full Name</label>
+                            <input type="text" class="form-control" placeholder="Full Name" ng-model="user.name" required>
+                        </div>
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Email</label>
+                            <input type="email" class="form-control" placeholder="Email Address" ng-model="user.email" required>
+                        </div>
+                        <!-- Phone Number -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Phone Number</label>
+                            <input type="text" class="form-control" placeholder="Phone Number" ng-model="user.phoneNumber" required>
+                        </div>
+                        <!-- Date of Birth -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Date of Birth</label>
+                            <input type="date" class="form-control" ng-model="user.dateOfBirth" required>
+                        </div>
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-success w-100" style="background-color: #734725;">Save Changes</button>
+                    </form>
+                </div>
+        
+                <!-- Edit Password Form -->
+                <div class="card p-4 shadow-lg" ng-show="showEditPassword" style="background-color: #f8ebe2; border-radius: 10px; width: 48%;">
+                    <h3 class="text-center fw-bold" style="color: #734725;">Edit Password</h3>
+                    <form name="editPasswordForm" ng-submit="updatePassword()" novalidate>
+                        <!-- Current Password -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Current Password</label>
+                            <input type="password" class="form-control" placeholder="Current Password" ng-model="user.currentPassword" required>
+                        </div>
+                        <!-- New Password -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">New Password</label>
+                            <input type="password" class="form-control" placeholder="New Password" ng-model="user.newPassword" required>
+                        </div>
+                        <!-- Confirm Password -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Confirm New Password</label>
+                            <input type="password" class="form-control" placeholder="Confirm Password" ng-model="user.confirmPassword" required>
+                        </div>
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-success w-100" style="background-color: #734725;">Save Changes</button>
+                    </form>
+                </div>
             </div>
         </div>
-
-        <!-- Edit Password Form -->
-        <div class="mt-4" ng-show="showEditPassword">
-            <div class="card p-4 shadow-lg" style="background-color: #f8ebe2; border-radius: 10px;">
-                <h3 class="text-center fw-bold" style="color: #734725;">Edit Password</h3>
-                <form name="editPasswordForm" ng-submit="updatePassword()" novalidate>
-                    <!-- Current Password -->
-                    <div class="mb-3">
-                        <label class="form-label fw-bold">Current Password</label>
-                        <input type="password" class="form-control" placeholder="Current Password" ng-model="user.currentPassword" required>
-                    </div>
-                    <!-- New Password -->
-                    <div class="mb-3">
-                        <label class="form-label fw-bold">New Password</label>
-                        <input type="password" class="form-control" placeholder="New Password" ng-model="user.newPassword" required>
-                    </div>
-                    <!-- Confirm Password -->
-                    <div class="mb-3">
-                        <label class="form-label fw-bold">Confirm New Password</label>
-                        <input type="password" class="form-control" placeholder="Confirm Password" ng-model="user.confirmPassword" required>
-                    </div>
-                    <!-- Submit Button -->
-                    <button type="submit" class="btn btn-success w-100" style="background-color: #734725">Save Changes</button>
-                </form>
-            </div>
-        </div>
+        
     
         <div class="text-center">
             <!-- Logout -->
