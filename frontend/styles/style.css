@@ -94,6 +94,11 @@ body {
     line-height: 1.5;
 }
 
+/* My account */
+.justify-content-center {
+    justify-content: center !important;
+}
+
 
 /* Gaya Tombol Konsisten */
 /* .btn {

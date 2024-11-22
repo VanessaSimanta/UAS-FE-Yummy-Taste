@@ -7,7 +7,9 @@ const authenticate = require('../middlewares/authenticate');
 // POST request untuk sign-up
 router.post('/signup', userController.signup);
 router.post('/login', userController.login);
-router.get('/account', authenticate, accountController.getUser)
+router.get('/account', authenticate, accountController.getUser);
+router.patch('/updateData', authenticate, accountController.updateUserData);
+router.patch('/updatePass', authenticate, accountController.updateUserPass);
 
 
 module.exports = router;

@@ -13,7 +13,7 @@ angular.module('recipes').controller('signUpCtrl', ['$scope', '$http', '$locatio
             .then(function(response) {
                 alert('User created successfully!');
                 // Redirect ke halaman home
-                $location.path('/home');
+                $location.path('/login');
             })
             .catch(function(error) {
                 console.error('Error:', error);
