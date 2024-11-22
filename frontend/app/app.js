@@ -28,8 +28,7 @@ classApp.config(function($routeProvider) {
     })
      //myaccount
      .when('/account', {
-        templateUrl: 'app/views/myaccount.html',
-        controller: 'getUserCtrl'
+        templateUrl: 'app/views/myaccount.html'
     })
     .otherwise({
         redirectTo: '/home'

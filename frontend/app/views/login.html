@@ -19,8 +19,8 @@
                     <input type="email" class="form-control form-control-lg bg-light fs-6" placeholder="Email Address" ng-model="user.email" name="email" required ng-class="{'is-invalid': loginForm.email.$touched && loginForm.email.$invalid}">
                 </div>
                 <div ng-messages="loginForm.email.$error" ng-if="loginForm.email.$touched">
-                    <div ng-message="required" class="text-danger" ng-if="loginForm.email.$error.required">Email is required</div>
-                    <div ng-message="email" class="text-danger" ng-if="loginForm.email.$error.email">Invalid email format</div>
+                    <div ng-message="required" class="text-danger mt-0 p-0 mb-3" ng-if="loginForm.email.$error.required">Email is required</div>
+                    <div ng-message="email" class="text-danger mt-0 p-0 mb-3" ng-if="loginForm.email.$error.email">Invalid email format</div>
                 </div>
                 
                 <!-- Password -->
@@ -35,8 +35,8 @@
                 </span>
                 </div>
                 <div ng-messages="loginForm.password.$error" ng-if="loginForm.password.$touched">
-                    <div ng-message="required" class="text-danger" ng-if="loginForm.password.$error.required">Password is required</div>
-                    <div ng-message="minlength" class="text-danger" ng-if="loginForm.password.$error.minlength">Password must be at least 6 characters long</div>
+                    <div ng-message="required" class="text-danger mt-0 p-0 mb-3" ng-if="loginForm.password.$error.required">Password is required</div>
+                    <div ng-message="minlength" class="text-danger mt-0 p-0 mb-3" ng-if="loginForm.password.$error.minlength">Password must be at least 6 characters long</div>
                 </div>
                 
                 <div class="d-flex justify-content-between align-items-center mb-4">
@@ -55,7 +55,7 @@
             
             <p class="text-center mt-4 mb-0">
                 <small class="text-muted">Don't have an account? 
-                    <button ng-click="signup()" class="btn btn-link" style="color: #734725;">Sign Up</button>
+                    <button ng-click="signup()" class="btn btn-link">Sign Up</button>
                 </small> 
             </p>            
         </div>

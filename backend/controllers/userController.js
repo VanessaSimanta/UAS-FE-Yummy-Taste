@@ -60,7 +60,7 @@ const login = [
       const token = jwt.sign(
         { id: existingUser.id, email: existingUser.email }, 
         process.env.JWT_SECRET,                            
-        { expiresIn: '1h' }                                
+        { expiresIn: '5h' }                                
       );
 
       return res.status(200).json({

@@ -100,19 +100,32 @@ body {
 }
 
 
-/* Gaya Tombol Konsisten */
-/* .btn {
-    display: inline-block;
-    width: 100%;
-    height: 45px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 5px;
-    text-align: center;
-    line-height: 45px;
-    transition: background-color 0.3s ease;
-} */
+/* Button  */
+.btn {
+    transition: all 0.3s ease; 
+    background-color: #734725;
+    height: 50px;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.btn-danger {
+    background-color:#e91d16 ;
+}
 
 .btn:hover {
     opacity: 0.9;
+    background-color: #7f5836; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    color: #ffffff;
+}
+
+.btn-danger:hover {
+    background-color: #ee4343; 
+}
+
+.btn-link {
+    background-color: #ffffff;
+    height: auto;
+    color: #734725;
 }
