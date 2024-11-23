@@ -1,4 +1,4 @@
-classApp.controller('recipesCtrl', ['$scope', 'recipesModel', function($scope, recipesModel) {
+classApp.controller('recipesCtrl', ['$scope', '$location', 'recipesModel', function($scope, $location, recipesModel) {
     $scope.recipes = [];
 
     recipesModel.getRecipes().then(function(data) {
@@ -7,4 +7,11 @@ classApp.controller('recipesCtrl', ['$scope', 'recipesModel', function($scope, r
     }).catch(function(error) {
         console.error('Error in controller:', error);
     });
+
+    // Fungsi untuk mengarahkan ke halaman detail resep
+    $scope.goToRecipeDetail = function(recipeId) {
+        console.log("Navigating to recipe detail for recipe ID:", recipeId);
+        $location.path('/recipesDetail/' + recipeId);
+    };
+    
 }]);

@@ -21,6 +21,11 @@ classApp.config(function($routeProvider) {
         templateUrl: 'app/views/recipes.html',
         controller: 'recipesCtrl'
     })
+    //recipes detail
+    .when('/recipesDetail/:recipeId', {
+        templateUrl: 'app/views/recipesDetail.html',
+        controller: 'recipesDetailCtrl'
+    })
     //saved recipes
     .when('/save', {
         templateUrl: 'app/views/save.html',
