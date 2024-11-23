@@ -1,6 +1,7 @@
 const { getUserByEmail } = require('../models/accountModel');
-const { updateUserDataByEmail, updateUserPassByEmail } = require('../models/accountModel');
+const { updateUserDataByEmail, updateUserPassByEmail, isTokenBlacklisted, addTokenToBlacklist, deleteUserByEmail } = require('../models/accountModel');
 const moment = require('moment');
+const jwt = require('jsonwebtoken');
 
 // Get User
 const getUser = async (req, res) => {
@@ -43,6 +44,7 @@ const updateUserData = async (req, res) => {
     }
 };
 
+//Update password user
 const updateUserPass = async (req, res) => {
     try {
         const email = req.user.email;
@@ -62,6 +64,54 @@ const updateUserPass = async (req, res) => {
     }
 }
 
+// Log out
+const logout = async (req, res) => {
+    try {
+        const token = req.headers.authorization;
+
+        if (!token) {
+            return res.status(401).json({ success: false, message: 'Authorization token is required' });
+        }
+
+        const jwtToken = token.startsWith('Bearer ') ? token.slice(7) : token;
+
+        // Verifikasi token
+        jwt.verify(jwtToken, process.env.JWT_SECRET, async (err, decoded) => {
+            if (err) {
+                return res.status(401).json({ success: false, message: 'Invalid or expired token' });
+            }
+
+            // Ambil user_id dari decoded token
+            const userId = decoded.id;  
+
+            await addTokenToBlacklist(jwtToken, userId);
+
+            res.status(200).json({ success: true, message: 'Successfully logged out' });
+        });
+    } catch (error) {
+        console.error('Error in logout controller:', error);
+        res.status(500).json({ success: false, message: 'Internal Server Error' });
+    }
+};
+
+// Delete Account
+const deleteAccount = async (req, res) => {
+    try {
+        const email = req.user.email;
+
+        const deleteUser = await deleteUserByEmail(email);
+
+        if (!deleteUser) {
+            return res.status(404).json({ success: false, message: "User not found" });
+        }
+
+        res.status(200).json({ success: true, message: "User account deleted successfully" });
+    } catch (error) {
+        console.error('Error in delete account controller:', error);
+        res.status(500).json({ success: false, message: "Internal Server Error" });
+    }
+};
+
 module.exports = {
-    getUser, updateUserData, updateUserPass
+    getUser, updateUserData, updateUserPass, logout, deleteAccount
 };

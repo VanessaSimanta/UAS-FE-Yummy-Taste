@@ -10,6 +10,8 @@ router.post('/login', userController.login);
 router.get('/account', authenticate, accountController.getUser);
 router.patch('/updateData', authenticate, accountController.updateUserData);
 router.patch('/updatePass', authenticate, accountController.updateUserPass);
+router.post('/logout', authenticate, accountController.logout);
+router.delete('/deleteUser', authenticate, accountController.deleteAccount);
 
 
 module.exports = router;

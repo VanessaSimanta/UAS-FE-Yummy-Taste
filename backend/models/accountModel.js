@@ -53,7 +53,47 @@ const updateUserPassByEmail = async (email, password) => {
         return result.rows[0];
 }
 
+// Memasukkan token untuk di blacklist (logout)
+const addTokenToBlacklist = async (token, userId) => {
+    try {
+        const result = await client.query(
+            'INSERT INTO blacklist_tokens (token, user_id) VALUES ($1, $2)', 
+            [token, userId]
+        );
+        return result;
+    } catch (error) {
+        console.error('Error adding token to blacklist:', error);
+        throw error;
+    }
+};
+
+
+// Cek token diblack list atau tidak
+const isTokenBlacklisted = async (token) => {
+    try {
+        const result = await client.query('SELECT * FROM blacklist_tokens WHERE token = $1', [token]);
+        return result.rows.length > 0;  // Jika ada, token terdaftar di blacklist
+    } catch (error) {
+        console.error('Error checking token blacklist:', error);
+        throw error;
+    }
+};
+
+// Delete user
+const deleteUserByEmail = async (email) => {
+    try {
+        // Query untuk delete data user
+        const query = `DELETE FROM users WHERE email = $1 RETURNING *`;
+        const result = await client.query(query, [email]);
+
+        return result.rows[0]; 
+    } catch (error) {
+        console.error('Error in delete user', error);
+        throw error;
+    }
+}
+
 
 module.exports = {
-    getUserByEmail, updateUserDataByEmail, updateUserPassByEmail
+    getUserByEmail, updateUserDataByEmail, updateUserPassByEmail, addTokenToBlacklist, isTokenBlacklisted, deleteUserByEmail
 };

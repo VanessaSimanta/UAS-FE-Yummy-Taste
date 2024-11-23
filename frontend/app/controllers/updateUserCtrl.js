@@ -27,12 +27,12 @@ angular.module('recipes').controller('updateUserCtrl', ['$scope', '$http', '$loc
         // Kirim data ke API
         $http.patch('http://localhost:3000/api/updateData', userData, {
             headers: {
-                'Authorization': 'Bearer ' + token // Add the token in the Authorization header
+                'Authorization': 'Bearer ' + token //memasukkan token untuk authorization
             }
             })
             .then(function(response) {
                 alert('User data updated successfully!');
-                $location.path('/profile');  // Redirect ke halaman profil setelah sukses
+                $location.path('/home');  // Redirect ke halaman home setelah sukses
             })
             .catch(function(error) {
                 console.error('Error:', error);
@@ -52,7 +52,7 @@ angular.module('recipes').controller('updateUserCtrl', ['$scope', '$http', '$loc
             return;
         }
     
-        const token = localStorage.getItem('token'); // Get token from localStorage
+        const token = localStorage.getItem('token'); //ambil token dari local storage
     
         if (!token) {
             alert('You are not logged in. Redirecting to login...');
@@ -60,26 +60,25 @@ angular.module('recipes').controller('updateUserCtrl', ['$scope', '$http', '$loc
             return;
         }
     
-        // Make sure both new password and confirm password are identical
+        // validasi agar password dan confrim password tidak beda
         if ($scope.user.newPassword !== $scope.user.confirmPassword) {
             alert('Passwords do not match!');
             return;
         }
     
-        // Prepare the password data to be updated
         const userPass = {
-            password: $scope.user.newPassword  // Send the new password
+            password: $scope.user.newPassword  
         };
     
-        // Send the data to API
+        // Panggil API update pass di backend
         $http.patch('http://localhost:3000/api/updatePass', userPass, {
             headers: {
-                'Authorization': 'Bearer ' + token  // Add the token in the Authorization header
+                'Authorization': 'Bearer ' + token  
             }
         })
         .then(function(response) {
             alert('User password updated successfully!');
-            $location.path('/profile');  // Redirect to profile page
+            $location.path('/home');  
         })
         .catch(function(error) {
             console.error('Error:', error);
