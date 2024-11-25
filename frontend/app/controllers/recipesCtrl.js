@@ -5,6 +5,11 @@ classApp.controller('recipesCtrl', ['$scope', '$location', 'recipesModel', funct
     $scope.totalItems = 0; 
     $scope.pages = []; 
 
+    const token = localStorage.getItem('token'); // Ambil token dari localStorage
+    
+    // Fungsi untuk memeriksa token dan membatasi akses
+    const isLoggedIn = () => !!token; 
+
     // Mengambil data resep dari model
     recipesModel.getRecipes().then(function(data) {
         console.log(data); 
@@ -17,14 +22,19 @@ classApp.controller('recipesCtrl', ['$scope', '$location', 'recipesModel', funct
 
     // Fungsi untuk mengarahkan ke halaman detail resep
     $scope.goToRecipeDetail = function(recipeId) {
-        console.log("Navigating to recipe detail for recipe ID:", recipeId);
+        if (!isLoggedIn()) {
+            alert('You need to log in to access recipe details.');
+            $location.path('/recipes');
+            return;
+        }
         $location.path('/recipesDetail/' + recipeId);
     };
 
     // Fungsi untuk menentukan item yang akan ditampilkan pada halaman tertentu
     $scope.setPagination = function() {
         $scope.pages = [];
-        for (let i = 1; i <= Math.ceil($scope.totalItems / $scope.itemsPerPage); i++) {
+        const maxPages = isLoggedIn() ? Math.ceil($scope.totalItems / $scope.itemsPerPage) : 1; 
+        for (let i = 1; i <= maxPages; i++) {
             $scope.pages.push(i);
         }
         $scope.changePage($scope.currentPage); 
@@ -32,6 +42,10 @@ classApp.controller('recipesCtrl', ['$scope', '$location', 'recipesModel', funct
 
     // Fungsi untuk mengganti halaman
     $scope.changePage = function(page) {
+        if (!isLoggedIn() && page > 1) {
+            alert('Please log in to access more pages.');
+            return;
+        }
         $scope.currentPage = page;
         let startIndex = (page - 1) * $scope.itemsPerPage;
         let endIndex = startIndex + $scope.itemsPerPage;

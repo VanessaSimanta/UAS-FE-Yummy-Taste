@@ -27,6 +27,6 @@ angular.module('recipes').controller('signUpCtrl', ['$scope', '$http', '$locatio
 
     // Function untuk kembali ke login
     $scope.login = function() {
-        $location.path('/');  
+        $location.path('/login');  
     };
 }]);

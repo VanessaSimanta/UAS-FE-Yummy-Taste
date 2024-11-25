@@ -3,7 +3,7 @@ var classApp = angular.module('recipes', ['ngRoute']);
 classApp.config(function($routeProvider) {
     $routeProvider
     //home
-    .when('/home', {
+    .when('/', {
         templateUrl: 'app/views/home.html',
     })
     //sign up
@@ -12,7 +12,7 @@ classApp.config(function($routeProvider) {
         controller: 'signUpCtrl'
     })
     //login
-    .when('/', {
+    .when('/login', {
         templateUrl: 'app/views/login.html',
         controller: 'loginCtrl'
     })
@@ -29,13 +29,13 @@ classApp.config(function($routeProvider) {
     //saved recipes
     .when('/save', {
         templateUrl: 'app/views/save.html',
-        controller: 'recipesCtrl'
+        controller: ''
     })
      //myaccount
      .when('/account', {
         templateUrl: 'app/views/myaccount.html'
     })
     .otherwise({
-        redirectTo: '/home'
+        redirectTo: '/'
     });
   });

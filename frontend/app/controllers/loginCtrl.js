@@ -17,7 +17,7 @@ angular.module('recipes').controller('loginCtrl', ['$scope', '$http', '$location
                 localStorage.setItem('token', response.data.token);
 
                 // Redirect to the home page
-                $location.path('/home');
+                $location.path('/');
             })
             .catch(function(error) {
                 console.error('Error:', error);

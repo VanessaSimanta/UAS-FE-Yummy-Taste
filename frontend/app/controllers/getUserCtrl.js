@@ -7,8 +7,8 @@ angular.module('recipes').controller('getUserCtrl', ['$scope', '$http', '$locati
         const token = localStorage.getItem('token'); // Ambil token dari localStorage
 
         if (!token) {
-            alert('You are not logged in. Redirecting to login...');
-            $location.path('/login');
+            alert('You are not logged in. Sign up or login first');
+            $location.path('/');
             return;
         }
 

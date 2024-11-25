@@ -14,7 +14,7 @@ angular.module('recipes').controller('logOutDeleteUserCtrl', ['$scope', '$http',
                 localStorage.removeItem('token');
 
                 // Redirect ke halaman login
-                $location.path('/');
+                $location.path('/login');
             })
             .catch(function(error) {
                 console.error('Error:', error);
