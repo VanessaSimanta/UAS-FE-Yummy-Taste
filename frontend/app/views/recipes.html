@@ -98,8 +98,8 @@
           <li><a class="dropdown-item" href="#">Cuisine</a></li>
         </ul>
       </div>
-    <div class="row">
-        <div class="col-md-4 mb-4" ng-repeat="recipe in recipes">
+      <div class="row">
+        <div class="col-md-4 mb-4" ng-repeat="recipe in paginatedRecipes">
             <div class="card shadow-sm">
                 <div class="card-body mb-2" style="background-color: #f8ebe2;">
                     <h5 class="card-title text-center font-weight-bold mt-2">{{ recipe.name }}</h5>
@@ -116,9 +116,18 @@
                 </div>
             </div>
         </div>
-    </div>
 </div>
 
+<!-- Pagination Controls -->
+<div class="d-flex justify-content-center mt-3">
+    <button class="btn me-2 mb-3" ng-click="previousPage()" ng-disabled="currentPage === 1">
+        Previous
+    </button>
+    <span class="align-self-center mr-3 ml-3 mb-3">Page {{ currentPage }} of {{ pages.length }}</span>
+    <button class="btn ms-2 mb-3" ng-click="nextPage()" ng-disabled="currentPage === pages.length">
+        Next
+    </button>
+</div>
 
 <!-- Footer -->
 <footer style="background-color: #E4CCAC;">
