@@ -83,6 +83,40 @@
     </div>
 </nav>
 
+<!-- Saved Recipes Container -->
+<div class="container mt-5" ng-controller="savedRecipesCtrl">
+    <h1 class="text-center mb-4">Saved Recipes</h1>
+    <!-- Message if no saved recipes -->
+    <p class="text-center" ng-if="savedRecipes.length === 0">No saved recipes yet!</p>
+
+    <!-- Recipes List -->
+    <div class="row">
+        <div class="col-md-4 mb-4" ng-repeat="recipe in savedRecipes">
+            <div class="card shadow-sm">
+                <div class="card-body mb-2" style="background-color: #f8ebe2;">
+                    <h5 class="card-title text-center font-weight-bold mt-2">{{ recipe.name }}</h5>
+                    <img src="{{recipe.image}}" class="img-fluid mt-3 mb-3">
+                    <p class="card-text">
+                        <strong>Difficulty :</strong> {{ recipe.difficulty }} <br>
+                        <strong>Calories Per Serving :</strong> {{ recipe.caloriesPerServing }} cal <br>
+                        <strong>Cooking Time :</strong> {{ recipe.cookTimeMinutes }} minutes <br>
+                        <strong>Cuisine :</strong> {{ recipe.cuisine }} <br>
+                        <strong>Rating :</strong> {{ recipe.rating }} <br>
+                    </p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <button 
+                            ng-click="removeSavedRecipe(recipe.id)" 
+                            class="btn btn-sm text-danger" 
+                            style="background-color: transparent; border: none;">
+                            <i class="fas fa-heart" style="font-size: 20px;"></i> Remove
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Footer -->
 <footer style="background-color: #E4CCAC;">
     <div class="container">
