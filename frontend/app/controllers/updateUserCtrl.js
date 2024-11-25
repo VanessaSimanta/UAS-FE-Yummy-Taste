@@ -78,7 +78,7 @@ angular.module('recipes').controller('updateUserCtrl', ['$scope', '$http', '$loc
         })
         .then(function(response) {
             alert('User password updated successfully!');
-            $location.path('/home');  
+            $location.path('/');  
         })
         .catch(function(error) {
             console.error('Error:', error);
