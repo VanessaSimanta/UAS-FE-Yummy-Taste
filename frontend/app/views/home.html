@@ -65,6 +65,50 @@
     </div>
 </nav>
 
+<!-- Trending Recipes Section -->
+<section class="container mt-5" ng-controller="recipesCtrl">
+    <h2 class="text-center mb-4" style="color: #734725; font-family: 'Baloo 2', cursive;">Trending Recipes</h2>
+    <div class="row">
+        <div class="col-md-4 mb-4" ng-repeat="recipe in recipes | orderBy:'-rating' | limitTo:3">
+            <div class="card shadow-sm">
+                <div class="card-body" style="background-color: #f8ebe2;">
+                    <h5 class="card-title text-center font-weight-bold">{{ recipe.name }}</h5>
+                    <img src="{{ recipe.image }}" class="img-fluid mt-3 mb-3">
+                    <p class="card-text">
+                        <strong>Rating:</strong> {{ recipe.rating }} ⭐<br>
+                        <strong>Difficulty:</strong> {{ recipe.difficulty }}<br>
+                        <strong>Cooking Time:</strong> {{ recipe.cookTimeMinutes }} mins<br>
+                    </p>
+                    <button ng-click="goToRecipeDetail(recipe.id)" class="btn" style="background-color: #734725; color: #E4CCAC;">View Recipe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Favorite Recipes Section -->
+<section class="container mt-5" ng-controller="recipesCtrl">
+    <h2 class="text-center mb-4" style="color: #734725; font-family: 'Baloo 2', cursive;">Favorite Recipes</h2>
+    <div class="row">
+        <div class="col-md-4 mb-4" ng-repeat="recipe in recipes | filter:{saved: true} | orderBy:'-rating'">
+            <div class="card shadow-sm">
+                <div class="card-body" style="background-color: #f8ebe2;">
+                    <h5 class="card-title text-center font-weight-bold">{{ recipe.name }}</h5>
+                    <img src="{{ recipe.image }}" class="img-fluid mt-3 mb-3">
+                    <p class="card-text">
+                        <strong>Rating:</strong> {{ recipe.rating }} ⭐<br>
+                        <strong>Difficulty:</strong> {{ recipe.difficulty }}<br>
+                        <strong>Cooking Time:</strong> {{ recipe.cookTimeMinutes }} mins<br>
+                    </p>
+                    <button ng-click="goToRecipeDetail(recipe.id)" class="btn" style="background-color: #734725; color: #E4CCAC;">View Recipe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
 <!-- Comment and Send Message Section -->
 <section class="container my-5">
     <div class="row">
