@@ -8,7 +8,18 @@ classApp.controller('recipesCtrl', ['$scope', '$location', 'recipesModel', funct
     const token = localStorage.getItem('token'); // Ambil token dari localStorage
     
     // Fungsi untuk memeriksa token dan membatasi akses
-    const isLoggedIn = () => !!token; 
+    const isLoggedIn = () => {
+        if (!token) return false;
+        //cek token exp atau tidak
+        try {
+            const decodedToken = jwt_decode(token); 
+            const currentTime = Date.now() / 1000; 
+            return decodedToken.exp > currentTime; 
+        } catch (error) {
+            console.error('Invalid token:', error);
+            return false;
+        }
+    };
 
     // Mengambil data resep dari model
     recipesModel.getRecipes().then(function(data) {
@@ -24,7 +35,7 @@ classApp.controller('recipesCtrl', ['$scope', '$location', 'recipesModel', funct
     $scope.goToRecipeDetail = function(recipeId) {
         if (!isLoggedIn()) {
             alert('You need to log in to access recipe details.');
-            $location.path('/recipes');
+            $location.path('/');
             return;
         }
         $location.path('/recipesDetail/' + recipeId);

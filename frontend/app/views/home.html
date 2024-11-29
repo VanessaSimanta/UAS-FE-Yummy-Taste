@@ -30,7 +30,7 @@
             <!-- Login and Signup Buttons -->
             <div class="d-flex align-items-center" style="gap: 10px;">
                 <a href="#!/login" class="btn btn-dark rounded-pill px-4" style="background-color: #734725; color: #E4CCAC;">Login</a>
-                <a href="#!/signup" class="btn btn-dark rounded-pill px-4" style="background-color: #734725; color: #E4CCAC;">Sign up</a>
+                <a href="#!/signUp" class="btn btn-dark rounded-pill px-4" style="background-color: #734725; color: #E4CCAC;">Sign up</a>
             </div>
         </div>
     </nav>
@@ -67,7 +67,7 @@
 
 <!-- Trending Recipes Section -->
 <section class="container mt-5" ng-controller="recipesCtrl">
-    <h2 class="text-center mb-4" style="color: #734725; font-family: 'Baloo 2', cursive;">Trending Recipes</h2>
+    <h2 class="text-center mb-4 font-weight-bold" style="color: #734725; font-family: 'Baloo 2', cursive;">Trending Recipes</h2>
     <div class="row">
         <div class="col-md-4 mb-4" ng-repeat="recipe in recipes | orderBy:'-rating' | limitTo:3">
             <div class="card shadow-sm">
@@ -88,7 +88,7 @@
 
 <!-- Favorite Recipes Section -->
 <section class="container mt-5" ng-controller="recipesCtrl">
-    <h2 class="text-center mb-4" style="color: #734725; font-family: 'Baloo 2', cursive;">Favorite Recipes</h2>
+    <h2 class="text-center mb-4 font-weight-bold" style="color: #734725; font-family: 'Baloo 2', cursive;">Favorite Recipes</h2>
     <div class="row">
         <div class="col-md-4 mb-4" ng-repeat="recipe in recipes | filter:{saved: true} | orderBy:'-rating'">
             <div class="card shadow-sm">

@@ -28,6 +28,13 @@ CREATE TABLE blacklist_tokens (
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
+CREATE TABLE comments (
+    id SERIAL PRIMARY KEY, 
+    name VARCHAR(255) NOT NULL, 
+    comment TEXT NOT NULL, 
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
+);
+
 
 ## Cara Run Program
 Cara menjalankan program :

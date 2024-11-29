@@ -2,15 +2,32 @@ angular.module('recipes').controller('getUserCtrl', ['$scope', '$http', '$locati
     $scope.profile = {};
     $scope.errorMessage = '';
 
+    // Fungsi untuk memeriksa token dan membatasi akses
+    const isLoggedIn = () => {
+        const token = localStorage.getItem('token'); // Ambil token dari localStorage
+        if (!token) return false;  // Jika tidak ada token, berarti belum login
+        try {
+            const decodedToken = jwt_decode(token); // Decode token
+            const currentTime = Date.now() / 1000; // Waktu saat ini dalam detik
+            // Cek apakah token sudah expired
+            return decodedToken.exp > currentTime; 
+        } catch (error) {
+            console.error('Invalid token:', error);
+            return false; // Jika token tidak valid, anggap belum login
+        }
+    };
+
+    // Jika tidak login, redirect ke halaman home
+    if (!isLoggedIn()) {
+        alert('You need to log in to access My Account.');
+        $location.path('/');
+        return;
+        
+    }
+
     // Fungsi untuk mengambil data profil
     $scope.fetchProfile = function () {
         const token = localStorage.getItem('token'); // Ambil token dari localStorage
-
-        if (!token) {
-            alert('You are not logged in. Sign up or login first');
-            $location.path('/');
-            return;
-        }
 
         $http({
             method: 'GET',
