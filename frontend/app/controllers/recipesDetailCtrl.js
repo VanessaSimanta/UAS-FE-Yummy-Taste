@@ -1,4 +1,4 @@
-classApp.controller('recipesDetailCtrl', ['$scope', '$routeParams', 'recipesModel', function($scope, $routeParams, recipesModel) {
+angular.module('recipes').controller('recipesDetailCtrl', ['$scope', '$routeParams', 'recipesModel', function($scope, $routeParams, recipesModel) {
     const recipeId = $routeParams.recipeId;
 
     // Ambil data resep berdasarkan ID

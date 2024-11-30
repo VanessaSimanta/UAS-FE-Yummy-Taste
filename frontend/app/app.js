@@ -35,6 +35,10 @@ classApp.config(function($routeProvider) {
      .when('/account', {
         templateUrl: 'app/views/myaccount.html'
     })
+    //admin
+    .when('/admin', {
+        templateUrl: 'app/views/admin.html'
+    })
     .otherwise({
         redirectTo: '/'
     });

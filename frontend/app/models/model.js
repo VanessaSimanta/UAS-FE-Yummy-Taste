@@ -1,4 +1,5 @@
-classApp.factory('recipesModel', ['$http', function($http) {
+angular.module('recipes').factory('recipesModel', ['$http', function($http) {
+    
     return {
         getRecipes: function() {
             return $http.get('https://dummyjson.com/recipes')

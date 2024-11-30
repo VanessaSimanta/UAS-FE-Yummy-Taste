@@ -1,4 +1,4 @@
-classApp.controller('recipesCtrl', ['$scope', '$location', 'recipesModel', function($scope, $location, recipesModel) {
+angular.module('recipes').controller('recipesCtrl', ['$scope', '$location', 'recipesModel', function($scope, $location, recipesModel) {
     $scope.recipes = [];
     $scope.itemsPerPage = 9; // Menentukan jumlah item per halaman
     $scope.currentPage = 1; 
