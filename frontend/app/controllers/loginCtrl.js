@@ -13,11 +13,16 @@ angular.module('recipes').controller('loginCtrl', ['$scope', '$http', '$location
 
         $http.post('http://localhost:3000/api/login', userData)
             .then(function(response) {
-               // Store the token in localStorage
-                localStorage.setItem('token', response.data.token);
+               //ambil role user
+               const decodedToken = jwt_decode(response.data.token);
 
-                // Redirect to the home page
-                $location.path('/');
+               if (decodedToken.role === 'admin') {
+                   // Redirect ke halaman admin jika admin
+                   $location.path('/admin');
+               } else {
+                   // Redirect ke halaman home jika bukan admin
+                   $location.path('/');
+               }
             })
             .catch(function(error) {
                 console.error('Error:', error);

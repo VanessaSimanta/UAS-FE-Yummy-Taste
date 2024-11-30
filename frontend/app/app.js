@@ -37,7 +37,8 @@ classApp.config(function($routeProvider) {
     })
     //admin
     .when('/admin', {
-        templateUrl: 'app/views/admin.html'
+        templateUrl: 'app/views/admin.html',
+        controller: 'AdminCtrl'
     })
     .otherwise({
         redirectTo: '/'

@@ -1,1 +1,32 @@
-<h1>ADMINNNN</h1>
+<div class="header text-center">
+    <h1>Admin Dashboard</h1>
+</div>
+
+<!-- Card untuk menampilkan tabel komentar -->
+<div class="container" ng-controller="AdminCtrl">
+    <div class="card">
+        <div class="card-header">
+            Comments
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark" style="background-color: #734725; color: #E4CCAC;">
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Comment</th>
+                        <th>Created At</th>
+                    </tr>
+                </thead>
+                <tbody style="background-color: #E4CCAC;">
+                    <tr ng-repeat="comment in comments">
+                        <td>{{ $index + 1 }}</td>
+                        <td>{{ comment.name }}</td>
+                        <td>{{ comment.comment }}</td>
+                        <td>{{ comment.created_at | date:'yyyy-MM-dd HH:mm' }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

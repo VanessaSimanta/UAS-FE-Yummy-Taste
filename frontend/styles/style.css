@@ -130,3 +130,42 @@ body {
     height: auto;
     color: #734725;
 }
+
+
+/* Admin Style */
+.header {
+    background-color: #734725;
+    color: #E4CCAC;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 36px;
+}
+
+.header p {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.table-bordered {
+    border: 2px solid #734725;  
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #F9F9F9;  
+}
+
+.table-bordered th {
+    border: 1px solid #734725;  
+}
+
+.table-striped tbody tr:hover {
+    background-color: #dcdcdc;  
+}

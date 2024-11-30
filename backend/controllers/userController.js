@@ -10,7 +10,6 @@ const signup = [
   body('dateOfBirth').notEmpty().withMessage('Date of birth is required'),
   body('phoneNumber').notEmpty().withMessage('Phone number is required'),
 
-  // Fungsi utama
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -26,8 +25,12 @@ const signup = [
         return res.status(400).json({ message: 'Email is already taken' });
       }
 
+      // Tentukan role berdasarkan email (admin atau user)
+      const role = email === 'admin@admin12.com' && password === 'sayaadmin12' ? 'admin' : 'user';
+
       // Buat user baru
-      const newUser = await createUser(name, email, phoneNumber, dateOfBirth, password);
+      const newUser = await createUser(name, email, phoneNumber, dateOfBirth, password, role);  
+
       return res.status(201).json({ message: 'User created successfully', user: newUser });
     } catch (error) {
       console.error('Error creating user:', error.message);
@@ -35,6 +38,7 @@ const signup = [
     }
   },
 ];
+
 
 const login = [
   body('email').isEmail().withMessage('Invalid email format'),
@@ -56,9 +60,14 @@ const login = [
         return res.status(404).json({ message: 'Account not found' });
       }
 
+      // Cek apakah email dan password adalah untuk admin
+      if (email === 'admin@admin12.com' && password === 'sayaadmin12') {
+        existingUser.role = 'admin'; 
+      }
+
       // Generate JWT token
       const token = jwt.sign(
-        { id: existingUser.id, email: existingUser.email }, 
+        { id: existingUser.id, email: existingUser.email, role: existingUser.role }, 
         process.env.JWT_SECRET,                            
         { expiresIn: '5h' }                                
       );
@@ -70,6 +79,7 @@ const login = [
           id: existingUser.id,
           name: existingUser.name,
           email: existingUser.email,
+          role: existingUser.role 
         },
       });
     } catch (err) {
@@ -78,6 +88,8 @@ const login = [
     }
   },
 ];
+
+
 
 module.exports = { signup, login };
 

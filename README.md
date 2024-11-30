@@ -18,6 +18,9 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+Update Tabel User
+ALTER TABLE users ADD COLUMN role VARCHAR(20) DEFAULT 'user';
+
 Tabel blacklist_tokens
 CREATE TABLE blacklist_tokens (
     id SERIAL PRIMARY KEY,

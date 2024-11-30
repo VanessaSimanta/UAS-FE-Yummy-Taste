@@ -1,21 +1,26 @@
 const Comment = require('../models/commentsModel');
 
-const commentController = {
-    addComment: async (req, res) => {
-        try {
-            const { name, comment } = req.body;
-
-            if (!name || !comment) {
-                return res.status(400).json({ error: 'Name and comment are required.' });
-            }
-
-            const newComment = await Comment.create(name, comment);
-            res.status(201).json({ message: 'Comment added successfully', comment: newComment });
-        } catch (err) {
-            res.status(500).json({ error: 'Error adding comment', details: err.message });
-        }
-    },
+// Endpoint untuk mendapatkan semua komentar
+const getAllComments = async (req, res) => {
+    try {
+        const comments = await Comment.getComments();
+        return res.status(200).json({ comments });
+    } catch (error) {
+        console.error('Error fetching comments:', error.message);
+        return res.status(500).json({ message: 'Error fetching comments' });
+    }
 };
 
-module.exports = commentController;
+// Endpoint untuk menambahkan komentar
+const createComment = async (req, res) => {
+    const { name, comment } = req.body;
+    try {
+        const newComment = await Comment.create(name, comment);
+        return res.status(201).json({ message: 'Comment created successfully', comment: newComment });
+    } catch (error) {
+        console.error('Error creating comment:', error.message);
+        return res.status(500).json({ message: 'Error creating comment' });
+    }
+};
 
+module.exports = { getAllComments, createComment };

@@ -17,28 +17,25 @@ const findUserByEmail = async (email) => {
 };
 
 // Membuat user baru
-const createUser = async (name, email, phoneNumber, dateOfBirth, password) => {
-  //hashing password
+const createUser = async (name, email, phoneNumber, dateOfBirth, password, role) => {
+  // Hash password
   const hashedPassword = await bcrypt.hash(password, 10);
-  
-  // DOB Convertion
+
+  // Format tanggal lahir
   const formattedDateOfBirth = moment(dateOfBirth).format('YYYY-MM-DD');
 
-  // Validate date format 
-  if (!moment(formattedDateOfBirth, 'YYYY-MM-DD', true).isValid()) {
-      return res.status(400).json({ message: 'Invalid date format. Use YYYY-MM-DD.' });
-  }
-  // Insert to DB
-  const query = 'INSERT INTO users (name, email, phone_number, date_of_birth, password) VALUES ($1, $2, $3, $4, $5) RETURNING *';
-  const values = [name, email, phoneNumber, formattedDateOfBirth, hashedPassword];
-  
+  // Query SQL untuk menyisipkan user baru
+  const query = 'INSERT INTO users (name, email, phone_number, date_of_birth, password, role) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *';
+  const values = [name, email, phoneNumber, formattedDateOfBirth, hashedPassword, role];
+
   try {
     const res = await client.query(query, values);
-    return res.rows[0];  
+    return res.rows[0];  // Mengembalikan user yang baru dibuat
   } catch (err) {
     throw new Error('Error creating user: ' + err.message);
   }
 };
+
 
 //LOGIN
 //cek email dan password sama dengan di db
@@ -49,20 +46,22 @@ const checkUser = async (email, password) => {
   try {
     const res = await client.query(query, values);
     if (res.rows.length === 0) {
-      return null; // User tidak ditemukan
+      return null; 
     }
 
+    // roles dari user
     const user = res.rows[0];
-    const isPasswordValid = await bcrypt.compare(password, user.password); // Cocokkan password
+    const isPasswordValid = await bcrypt.compare(password, user.password); 
 
     if (!isPasswordValid) {
       return null; 
     }
 
-    return user; 
+    return user;
   } catch (err) {
     throw new Error('Error during user check: ' + err.message);
   }
 };
+
 
 module.exports = { findUserByEmail, createUser, checkUser };
