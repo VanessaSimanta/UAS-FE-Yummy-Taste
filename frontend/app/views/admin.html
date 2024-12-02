@@ -30,3 +30,31 @@
         </div>
     </div>
 </div>
+
+<!-- Card untuk menampilkan tabel message -->
+<div class="container mt-3" ng-controller="messageCtrl">
+    <div class="card-header">
+        Messages
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark" style="background-color: #734725; color: #E4CCAC;">
+                <tr>
+                    <th>#</th>
+                    <th>Email</th>
+                    <th>Message</th>
+                    <th>Created At</th>
+                </tr>
+            </thead>
+            <tbody style="background-color: #E4CCAC;">
+                <tr ng-repeat="message in messages">
+                    <td>{{ $index + 1 }}</td>
+                    <td>{{ message.email }}</td>
+                    <td>{{ message.message }}</td>
+                    <td>{{ message.created_at | date:'yyyy-MM-dd HH:mm' }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>

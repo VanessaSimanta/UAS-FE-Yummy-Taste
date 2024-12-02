@@ -15,7 +15,10 @@ router.post('/logout', authenticate, accountController.logout);
 router.delete('/deleteUser', authenticate, accountController.deleteAccount);
 router.post('/comment', commentController.createComment);
 router.get('/comments', commentController.getAllComments);
+router.post('/message', commentController.createMessage);
+router.get('/message', commentController.getAllMessage);
 router.post('/save-recipe', authenticate, savedRecipesController.saveRecipe);
 router.post('/is-saved', authenticate, savedRecipesController.isRecipeSaved);
+
 
 module.exports = router;

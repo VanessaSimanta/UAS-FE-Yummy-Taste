@@ -29,7 +29,7 @@ classApp.config(function($routeProvider) {
     //saved recipes
     .when('/save', {
         templateUrl: 'app/views/save.html',
-        controller: 'savedCtrl'
+        controller: ''
     })
      //myaccount
      .when('/account', {
@@ -37,8 +37,7 @@ classApp.config(function($routeProvider) {
     })
     //admin
     .when('/admin', {
-        templateUrl: 'app/views/admin.html',
-        controller: 'AdminCtrl'
+        templateUrl: 'app/views/admin.html'
     })
     .otherwise({
         redirectTo: '/'
