@@ -65,6 +65,50 @@
     </div>
 </nav>
 
+<!-- Carousel Section -->
+<div id="homeCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2000">
+    <div class="carousel-inner">
+        <!-- Slide 1 -->
+        <div class="carousel-item active" style="background-image: url('/assets/slide1.jpg');">
+            <div class="carousel-caption text-white">
+                <h1 class="animate__animated animate__fadeInDown">Welcome to PATO PLACE</h1>
+                <a href="#menu-section" class="btn btn-danger btn-lg animate__animated animate__fadeInUp">Explore Now</a>
+            </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="carousel-item" style="background-image: url('/assets/slide2.jpg');">
+            <div class="carousel-caption text-white">
+                <h1 class="animate__animated animate__fadeInDown">Welcome to PATO PLACE</h1>
+                <a href="#menu-section" class="btn btn-danger btn-lg animate__animated animate__fadeInUp">Explore Now</a>
+            </div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="carousel-item" style="background-image: url('/assets/slide3.jpg');">
+            <div class="carousel-caption text-white">
+                <h1 class="animate__animated animate__fadeInDown">Welcome to PATO PLACE</h1>
+                <a href="#menu-section" class="btn btn-danger btn-lg animate__animated animate__fadeInUp">Explore Now</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Indicators -->
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#homeCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#homeCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
 <!-- Trending Recipes Section -->
 <section class="container mt-5" ng-controller="recipesCtrl">
     <h2 class="text-center mb-4 font-weight-bold" style="color: #734725; font-family: 'Baloo 2', cursive;">Trending Recipes</h2>
@@ -85,6 +129,7 @@
         </div>
     </div>
 </section>
+
 
 <!-- Favorite Recipes Section -->
 <section class="container mt-5" ng-controller="recipesCtrl">
