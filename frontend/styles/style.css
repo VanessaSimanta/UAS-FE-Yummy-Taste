@@ -34,60 +34,69 @@ body {
     color: #fff !important;
 }
 
-/* home style*/
+  /* Secondary Navbar Sticky Behavior */
+  .secondary-navbar {
+    top: 100px; /* Adjust to the height of the primary navbar */
+}
+
+.sticky-top {
+    transition: all 0.4s ease-in-out; /* Smooth transition */
+}
+
+
 .carousel-item {
     height: 100vh;
     background-size: cover;
     background-position: center;
     transition: opacity 1s ease-in-out;
 }
+
 .carousel-caption {
     top: 50%;
     transform: translateY(-50%);
     text-align: center;
 }
-.carousel-caption h1 {
+
+.carousel-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Layer gelap dengan transparansi (0.3 berarti agak gelap) */
+    z-index: 1;
+}
+
+.welcome-text {
     font-size: 4rem;
     font-weight: bold;
+    font-family: 'Courgette', cursive; /* Mengubah font menjadi Courgette */
+    letter-spacing: 8px;
+    color: #e9dcca;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.916); /* Bayangan teks */
 }
+
+.yummy-text {
+    font-size: 4.5rem;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    color: #e9dcca;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.916); /* Bayangan teks */
+}
+
+
+.carousel-caption h1, .carousel-caption h2 {
+    margin: 20px;
+    padding: 0;
+}
+
 .carousel-caption a {
     margin-top: 20px;
 }
 
-.carousel-control-prev-icon,
-    .carousel-control-next-icon {
-        background-color: rgba(0, 0, 0, 0.5); /* Warna gelap semi-transparan */
-        border-radius: 50%; /* Membuat tombol berbentuk bulat */
-        width: 50px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .carousel-control-prev,
-    .carousel-control-next {
-        width: auto; /* Menghapus lebar default yang memanjang */
-        height: auto;
-        top: 50%; /* Agar berada di tengah vertikal */
-        transform: translateY(-50%);
-    }
-
-    .carousel-control-prev:hover .carousel-control-prev-icon,
-    .carousel-control-next:hover .carousel-control-next-icon {
-        background-color: rgba(255, 0, 0, 0.8); /* Memberikan efek hover */
-    }
-
-    .carousel-control-prev-icon::after {
-        content: '\2039'; /* Simbol panah kiri */
-        font-size: 25px;
-        color: white;
-    }
-
-    .carousel-control-next-icon::after {
-        content: '\203A'; /* Simbol panah kanan */
-        font-size: 25px;
-        color: white;
+    .btn-explore {
+        background-color:#78542a ;
     }
 
 @media only screen and (max-width: 768px){
