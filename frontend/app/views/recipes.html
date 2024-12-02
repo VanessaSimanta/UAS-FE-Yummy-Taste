@@ -85,39 +85,36 @@
                 <div class="card-body mb-2" style="background-color: #f8ebe2;">
                     <h5 class="card-title text-center font-weight-bold mt-2">{{ recipe.name }}</h5>
                     <img src="{{recipe.image}}" class="img-fluid mt-3 mb-3">
-                    <p class="card-text">
+                     <p class="card-text">
                         <br>
                         <strong>Difficulty :</strong> {{ recipe.difficulty }} <br>
                         <strong>Calories Per Serving :</strong> {{ recipe.caloriesPerServing }} cal <br>
                         <strong>Cooking Time :</strong> {{ recipe.cookTimeMinutes }} minutes <br>
                         <strong>Cuisine :</strong> {{ recipe.cuisine }} <br>
                         <strong>Rating :</strong> {{ recipe.rating }} ⭐<br>
-                    </p>
+                    </p> 
                     <div class="d-flex justify-content-between align-items-center">
                         <button ng-click="goToRecipeDetail(recipe.id)" 
-                                class="btn btn-sm btn-primary mb-2" 
-                                style="outline: none; box-shadow: none;">View Recipe</button>
-                        <div class="d-flex align-items-center">
-                            <button ng-click="buyRecipe(recipe.id)" 
-                                    class="btn btn-sm btn-primary mb-2" 
-                                    style="outline: none; box-shadow: none;">Buy Recipe</button>
-                            <button 
-                                ng-click="toggleSaveRecipe(recipe.id)" 
-                                class="btn btn-sm" 
-                                style="background-color: transparent; border: none; outline: none; box-shadow: none;">
-                                <i 
-                                    class="fas" 
-                                    ng-class="{'fa-heart text-danger': isSaved(recipe.id), 'fa-heart text-muted': !isSaved(recipe.id)}" 
-                                    style="font-size: 20px;">
-                                </i>
-                            </button>
-                        </div>
-                    </div>
+                            class="btn btn-sm btn-primary mb-2" 
+                            style="outline: none; box-shadow: none;">View Recipe</button>
+                        <button ng-click="buyRecipe(recipe.id)" 
+                            class="btn btn-sm btn-primary mb-2" 
+                            style="outline: none; box-shadow: none;">Buy Recipe</button>
+                        <button ng-click="toggleSaveRecipe(recipe.id)" 
+                            class="btn btn-sm" 
+                            style="background-color: transparent; border: none; outline: none; box-shadow: none;"></button>
+                        <i 
+                            class="fas" 
+                            ng-class="{'fa-heart text-danger': isSaved(recipe.id), 'fa-heart text-muted': !isSaved(recipe.id)}" 
+                            style="font-size: 20px;">
+                        </i>
                 </div>
             </div>
-        </div>
+        </div> 
     </div>
 </div>
+
+    
 
 <!-- Pagination Controls -->
 <div class="d-flex justify-content-center mt-3">
