@@ -130,12 +130,12 @@
     </div>
 </section>
 
-
 <!-- Favorite Recipes Section -->
-<section class="container mt-5" ng-controller="recipesCtrl">
+<section class="container mt-5" ng-controller="getRandomRecipes">
     <h2 class="text-center mb-4 font-weight-bold" style="color: #734725; font-family: 'Baloo 2', cursive;">Favorite Recipes</h2>
     <div class="row">
-        <div class="col-md-4 mb-4" ng-repeat="recipe in recipes | filter:{saved: true} | orderBy:'-rating'">
+        <div class="col-md-4 mb-4" 
+             ng-repeat="recipe in recipes | filter:getFavoriteRecipes()">
             <div class="card shadow-sm">
                 <div class="card-body" style="background-color: #f8ebe2;">
                     <h5 class="card-title text-center font-weight-bold">{{ recipe.name }}</h5>
@@ -151,8 +151,6 @@
         </div>
     </div>
 </section>
-
-
 
 <!-- Comment and Send Message Section -->
 <section class="container my-5" ng-controller="commentCtrl"> 
