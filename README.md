@@ -31,6 +31,16 @@ CREATE TABLE blacklist_tokens (
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
+Tabel saved_recipes
+CREATE TABLE saved_recipes (
+    id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES users(id) ON DELETE CASCADE,
+    recipe_id INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+Tabel comments
 CREATE TABLE comments (
     id SERIAL PRIMARY KEY, 
     name VARCHAR(255) NOT NULL, 

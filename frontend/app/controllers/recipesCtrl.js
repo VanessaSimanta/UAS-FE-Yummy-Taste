@@ -4,6 +4,7 @@ angular.module('recipes').controller('recipesCtrl', ['$scope', '$location', 'rec
     $scope.currentPage = 1; 
     $scope.totalItems = 0; 
     $scope.pages = []; 
+    $scope.paginatedRecipes = []; // Inisialisasi untuk menyimpan resep yang dipilih per halaman
 
     const token = localStorage.getItem('token'); // Ambil token dari localStorage
     
@@ -44,11 +45,11 @@ angular.module('recipes').controller('recipesCtrl', ['$scope', '$location', 'rec
     // Fungsi untuk menentukan item yang akan ditampilkan pada halaman tertentu
     $scope.setPagination = function() {
         $scope.pages = [];
-        const maxPages = isLoggedIn() ? Math.ceil($scope.totalItems / $scope.itemsPerPage) : 1; 
+        const maxPages = Math.ceil($scope.totalItems / $scope.itemsPerPage); // Menghitung jumlah halaman
         for (let i = 1; i <= maxPages; i++) {
             $scope.pages.push(i);
         }
-        $scope.changePage($scope.currentPage); 
+        $scope.changePage($scope.currentPage); // Set default page untuk menampilkan resep yang sesuai
     };
 
     // Fungsi untuk mengganti halaman
@@ -60,7 +61,7 @@ angular.module('recipes').controller('recipesCtrl', ['$scope', '$location', 'rec
         $scope.currentPage = page;
         let startIndex = (page - 1) * $scope.itemsPerPage;
         let endIndex = startIndex + $scope.itemsPerPage;
-        $scope.paginatedRecipes = $scope.recipes.slice(startIndex, endIndex);
+        $scope.paginatedRecipes = $scope.recipes.slice(startIndex, endIndex); // Memilih resep yang sesuai dengan halaman
     };
 
     // Fungsi untuk berpindah ke halaman sebelumnya
