@@ -6,11 +6,12 @@ const jwt = require('jsonwebtoken');
 // Get User
 const getUser = async (req, res) => {
     try {
-        // Ambil email 
-        const email = req.user.email;
+        const email = req.user.email; 
+        console.log('Email from token:', email); // Log email
         const user = await getUserByEmail(email);
 
         if (!user) {
+            console.error('User not found for email:', email); // Log jika user tidak ditemukan
             return res.status(404).json({ success: false, message: "User not found" });
         }
 
@@ -20,6 +21,7 @@ const getUser = async (req, res) => {
         res.status(500).json({ success: false, message: "Internal Server Error" });
     }
 };
+
 
 //Update user data
 const updateUserData = async (req, res) => {

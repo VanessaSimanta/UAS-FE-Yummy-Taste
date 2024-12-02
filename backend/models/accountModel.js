@@ -71,13 +71,15 @@ const addTokenToBlacklist = async (token, userId) => {
 // Cek token diblack list atau tidak
 const isTokenBlacklisted = async (token) => {
     try {
-        const result = await client.query('SELECT * FROM blacklist_tokens WHERE token = $1', [token]);
-        return result.rows.length > 0;  // Jika ada, token terdaftar di blacklist
+        const query = `SELECT 1 FROM blacklist_tokens WHERE token = $1`;
+        const result = await client.query(query, [token]);
+        return result.rowCount > 0; // Token ditemukan di blacklist
     } catch (error) {
-        console.error('Error checking token blacklist:', error);
+        console.error('Error in isTokenBlacklisted:', error);
         throw error;
     }
 };
+
 
 // Delete user
 const deleteUserByEmail = async (email) => {
