@@ -137,81 +137,107 @@
 
 <!-- Comment and Send Message Section -->
 <section class="container my-5" ng-controller="commentCtrl">
-    <div class="row">
-      <!-- Comment Section -->
-      <div class="col-md-6">
-        <h3 class="mb-4" style="font-family: 'Baloo 2', cursive; color: #734725;">Leave a Comment</h3>
-        <form ng-submit="submitComment()">
-          <div class="mb-3">
-            <label for="commentName" class="form-label">Name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="commentName"
-              ng-model="commentData.name"
-              placeholder="Your Name"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <label for="commentText" class="form-label">Comment</label>
-            <textarea
-              class="form-control"
-              id="commentText"
-              ng-model="commentData.comment"
-              rows="4"
-              placeholder="Write your comment here..."
-              required
-            ></textarea>
-          </div>
-          <button
-            type="submit"
-            class="btn"
-            style="background-color: #734725; color: #E4CCAC;"
-          >
-            Submit Comment
-          </button>
-        </form>
-      </div>
-  
-      <!-- Send Message Section -->
-      <div class="col-md-6">
-        <h3 class="mb-4" style="font-family: 'Baloo 2', cursive; color: #734725;">Send Us a Message</h3>
-        <form ng-submit="sendMessage()">
-          <div class="mb-3">
-            <label for="messageEmail" class="form-label">Email</label>
-            <input
-              type="email"
-              class="form-control"
-              id="messageEmail"
-              ng-model="messageData.email"
-              placeholder="Your Email"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <label for="messageContent" class="form-label">Message</label>
-            <textarea
-              class="form-control"
-              id="messageContent"
-              ng-model="messageData.message"
-              rows="4"
-              placeholder="Write your message here..."
-              required
-            ></textarea>
-          </div>
-          <button
-            type="submit"
-            class="btn"
-            style="background-color: #734725; color: #E4CCAC;"
-          >
-            Send Message
-          </button>
-        </form>
-      </div>
+    <div class="row g-5">
+        <!-- Comment Section -->
+        <div class="col-md-6">
+            <div class="p-4" style="background-color: #F8EBE2; border-radius: 15px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+                <h3 class="mb-4" style="font-family: 'Baloo 2', cursive; color: #734725;">Leave a Comment</h3>
+                <form ng-submit="submitComment()">
+                    <div class="mb-3">
+                        <label for="commentName" class="form-label" style="font-weight: bold; color: #734725;">Name</label>
+                        <input
+                            type="text"
+                            class="form-control rounded-pill px-3"
+                            id="commentName"
+                            ng-model="commentData.name"
+                            placeholder="Your Name"
+                            style="height: 50px; background-color: #fff; border: 1px solid #734725;"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="commentText" class="form-label" style="font-weight: bold; color: #734725;">Comment</label>
+                        <textarea
+                            class="form-control rounded-3 px-3"
+                            id="commentText"
+                            ng-model="commentData.comment"
+                            rows="5"
+                            placeholder="Write your comment here..."
+                            style="background-color: #fff; border: 1px solid #734725;"
+                            required></textarea>
+                    </div>
+                    <button
+                        type="submit"
+                        class="btn w-100 py-2 rounded-pill"
+                        style="background-color: #734725; color: #E4CCAC; font-weight: bold; font-size: 16px;">
+                        Submit Comment
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Send Message Section -->
+        <div class="col-md-6">
+            <div class="p-4" style="background-color: #F8EBE2; border-radius: 15px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+                <h3 class="mb-4" style="font-family: 'Baloo 2', cursive; color: #734725;">Send Us a Message</h3>
+                <form ng-submit="sendMessage()">
+                    <div class="mb-3">
+                        <label for="messageEmail" class="form-label" style="font-weight: bold; color: #734725;">Email</label>
+                        <input
+                            type="email"
+                            class="form-control rounded-pill px-3"
+                            id="messageEmail"
+                            ng-model="messageData.email"
+                            placeholder="Your Email"
+                            style="height: 50px; background-color: #fff; border: 1px solid #734725;"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="messageContent" class="form-label" style="font-weight: bold; color: #734725;">Message</label>
+                        <textarea
+                            class="form-control rounded-3 px-3"
+                            id="messageContent"
+                            ng-model="messageData.message"
+                            rows="5"
+                            placeholder="Write your message here..."
+                            style="background-color: #fff; border: 1px solid #734725;"
+                            required></textarea>
+                    </div>
+                    <button
+                        type="submit"
+                        class="btn w-100 py-2 rounded-pill"
+                        style="background-color: #734725; color: #E4CCAC; font-weight: bold; font-size: 16px;">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
     </div>
-  </section>
+</section>
+
   
+<!-- Subscribe Section -->
+<section class="container mt-5 text-center">
+    <div class="p-5" style="background-color: #F8EBE2; border-radius: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+        <h3 class="mb-4" style="color: #734725; font-family: 'Baloo 2', cursive; font-size: 32px; font-weight: bold;">Subscribe to Our Yummy Paste</h3>
+        <p class="mb-5" style="color: #734725; font-size: 16px;">Get exclusive recipes, cooking tips, and special offers straight to your inbox.</p>
+        <form class="d-flex justify-content-center align-items-center flex-column flex-md-row gap-3" style="max-width: 600px; margin: 0 auto;">
+            <input
+                type="email"
+                class="form-control rounded-pill ps-4"
+                placeholder="Enter your email address"
+                style="height: 50px; background-color: #FFFFFF; border: 1px solid #734725; font-size: 16px; width: 100%; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);"
+                required>
+            <button
+                type="submit"
+                class="btn btn-lg rounded-pill"
+                style="background-color: #734725; color: #E4CCAC; height: 50px; width: 180px; font-weight: bold; font-size: 16px; box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.2);">
+                Subscribe
+            </button>
+        </form>
+        <p class="mt-4" style="color: #734725; font-size: 14px;">We respect your privacy. Unsubscribe anytime.</p>
+    </div>
+</section>
+
 
 
 <!-- Footer -->
