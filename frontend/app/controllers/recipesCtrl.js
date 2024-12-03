@@ -78,6 +78,8 @@ angular.module('recipes').controller('recipesCtrl', ['$scope', '$location', '$ht
         }
     };
 
+
+
     $scope.toggleSaveRecipe = function(recipe) {
         const apiUrl = recipe.isSaved ? 'http://localhost:3000/api/unsaveRecipe' : 'http://localhost:3000/api/save-recipe';
     
@@ -105,5 +107,29 @@ angular.module('recipes').controller('recipesCtrl', ['$scope', '$location', '$ht
             console.error('Error checking saved status:', err);
         });
     };    
+
+      //fungsi untuk sorting recipes by difficulty
+    // Sort by difficulty (Easy → Medium)
+    $scope.sortByDifficulty = () => {
+        $scope.recipes = $scope.recipes.filter(recipe => recipe.difficulty === 'Easy' || recipe.difficulty === 'Medium');
+        $scope.recipes.sort((a, b) => {
+            const difficultyOrder = { Easy: 1, Medium: 2 };
+            return difficultyOrder[a.difficulty] - difficultyOrder[b.difficulty];
+        });
+        $scope.setPagination();
+    };
+
+    //fungsi untuk sorting cooking time dengan ascending
+    $scope.sortByCookingTime = () => {
+        $scope.recipes.sort((a, b) => a.cookTimeMinutes - b.cookTimeMinutes);
+        $scope.setPagination();
+    };
+
+    // Sort by rating (descending)
+    $scope.sortByRating = () => {
+        $scope.recipes.sort((a, b) => b.rating - a.rating);
+        $scope.setPagination();
+    };
+
 }]);
 

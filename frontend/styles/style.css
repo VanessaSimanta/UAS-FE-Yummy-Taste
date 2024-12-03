@@ -99,6 +99,29 @@ body {
         background-color:#78542a ;
     }
 
+/* Menambahkan jarak lebih besar antar tombol */
+.sort-btn {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Animasi transisi */
+    margin: 0 50px;  /* Jarak antar tombol */
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;  /* Ukuran font tombol */
+    padding: 10px 20px;  /* Padding tombol agar lebih besar */
+    text-transform: uppercase;  /* Ubah semua teks menjadi huruf kapital */
+}
+
+/* Efek zoom in dan shadow saat hover */
+.sort-btn:hover {
+    transform: scale(1.1);  /* Zoom in */
+    box-shadow: 0px 9px 20px rgba(0, 0, 0, 5);  /* Menambahkan shadow lebih besar saat hover */
+    border-color: #3e1f18c1;  /* Ubah border color saat hover */
+}
+
+/* Menambahkan shadow pada tombol dasar (default state) */
+.sort-btn {
+    box-shadow: 0px 4px 8px rgb(111, 62, 34);  /* Shadow default tombol */
+}
+
+
 @media only screen and (max-width: 768px){
      .box-area{
         margin: 0 10px;
