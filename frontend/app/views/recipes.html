@@ -63,17 +63,22 @@
 <!-- Recipes Container -->
 <div class="container mt-5" ng-controller="recipesCtrl">
     <h1 class="text-center mb-4">Recipes</h1>
-    <!-- Sorting -->
-    <div class="d-flex justify-content-end mb-3">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Sort By
-        </a>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Difficulty</a></li>
-            <li><a class="dropdown-item" href="#">Cooking Time</a></li>
-            <li><a class="dropdown-item" href="#">Cuisine</a></li>
-        </ul>
-    </div>
+
+<!-- Sorting Buttons -->
+<div class="d-flex justify-content-center gap-5 mb-4">
+    <button class="btn btn-outline sort-btn" ng-click="sortByDifficulty()">
+        Difficulty <i class="fas fa-tasks mr-1"></i> 
+    </button>
+    <button class="btn btn-outline sort-btn" ng-click="sortByCookingTime()">
+        Cooking Time <i class="fas fa-clock mr-1"></i> 
+    </button>
+    <button class="btn btn-outline sort-btn" ng-click="sortByRating()">
+        Rating <i class="fas fa-star mr-1"></i>
+    </button>
+</div>
+
+   
+
     <div class="row">
         <div class="col-md-4 mb-4" ng-repeat="recipe in paginatedRecipes">
             <div class="card shadow-sm">

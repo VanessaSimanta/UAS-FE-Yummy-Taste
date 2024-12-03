@@ -77,4 +77,29 @@ angular.module('recipes').controller('recipesCtrl', ['$scope', '$location', 'rec
             $scope.changePage($scope.currentPage + 1);
         }
     };
+
+
+    //fungsi untuk sorting recipes by difficulty
+    // Sort by difficulty (Easy → Medium)
+    $scope.sortByDifficulty = () => {
+        $scope.recipes = $scope.recipes.filter(recipe => recipe.difficulty === 'Easy' || recipe.difficulty === 'Medium');
+        $scope.recipes.sort((a, b) => {
+            const difficultyOrder = { Easy: 1, Medium: 2 };
+            return difficultyOrder[a.difficulty] - difficultyOrder[b.difficulty];
+        });
+        $scope.setPagination();
+    };
+
+    //fungsi untuk sorting cooking time dengan ascending
+    $scope.sortByCookingTime = () => {
+        $scope.recipes.sort((a, b) => a.cookTimeMinutes - b.cookTimeMinutes);
+        $scope.setPagination();
+    };
+
+    // Sort by rating (descending)
+    $scope.sortByRating = () => {
+        $scope.recipes.sort((a, b) => b.rating - a.rating);
+        $scope.setPagination();
+    };
+
 }]);
