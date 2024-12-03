@@ -49,8 +49,26 @@ const getSavedRecipes = async (req, res) => {
     }
 };
 
+// Menghapus resep yang disimpan
+const deleteSavedRecipe = (req, res) => {
+    console.log(req.user + "test");  
+    const userId = req.user.id;  
+    const recipeId = req.query.recipeId; 
+
+    savedRecipesModel.deleteSavedRecipe(userId, recipeId)
+        .then(() => {
+            res.json({ success: true, message: 'Recipe deleted successfully!' });
+        })
+        .catch((err) => {
+            console.error('Error deleting saved recipe:', err);
+            res.status(500).json({ success: false, message: 'Error deleting recipe.' });
+        });
+};
+
+
 module.exports = {
     saveRecipe,
     isRecipeSaved,
-    getSavedRecipes
+    getSavedRecipes,
+    deleteSavedRecipe
 };

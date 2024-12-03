@@ -87,4 +87,39 @@ angular.module('recipes').controller('savedRecipesController', ['$scope', '$http
         }
         $location.path('/recipesDetail/' + recipeId);
     };
+
+    $scope.deleteFromSaved = function(recipeId) {
+        const token = localStorage.getItem('token');
+        if (!recipeId) {
+            console.error('Recipe ID is not available.');
+            return;
+        }
+   
+        $scope.deleteFromSaved = function(recipeId) {
+            const token = localStorage.getItem('token');
+            if (!recipeId) {
+                console.error('Recipe ID is not available.');
+                return;
+            }
+           
+            $http.delete(`http://localhost:3000/api/saved-recipes?recipeId=${recipeId}`, {
+                headers: {
+                    'Authorization': 'Bearer ' + token  // Ensure token is being passed correctly
+                }
+            })
+            .then(function(response) {
+                if (response.data.success) {
+                    alert('Recipe deleted from saved recipes!');
+                    loadSavedRecipes();  // Refresh the list after deletion
+                } else {
+                    alert('Failed to delete recipe');
+                }
+            })
+            .catch(function(error) {
+                console.error('Error deleting recipe:', error);
+                alert('Error deleting recipe');
+            });
+        };  
+    }      
+   
 }]);

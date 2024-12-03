@@ -79,9 +79,13 @@
         <button ng-click="goToRecipeDetail(savedRecipe.details.id)" 
             class="btn btn-sm btn-primary mb-2" 
             style="outline: none; box-shadow: none;">View Recipe</button>
-
+        <!-- Button to delete from saved recipes -->
+        <div class="text-center mt-4">
+            <button class="btn btn-danger" ng-click="deleteFromSaved(savedRecipe.details.id)">Delete from Saved</button>
+        </div>
     </div>
 </div>
+
 
 <!-- Footer -->
 <footer class="pt-3" style="background-color: #E4CCAC;">

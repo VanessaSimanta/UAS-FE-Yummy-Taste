@@ -50,10 +50,24 @@ const getSavedRecipesByUserId = async (userId) => {
     }
 };
 
+const deleteSavedRecipe = (userId, recipeId) => {
+    return new Promise((resolve, reject) => {
+        const query = 'DELETE FROM saved_recipes WHERE user_id = $1 AND recipe_id = $2';
+        const values = [userId, recipeId];
+
+        client.query(query, values, (err, result) => {
+            if (err) {
+                return reject(err);
+            }
+            resolve(result);
+        });
+    });
+};
 
 
 module.exports = {
     saveRecipe,
     isRecipeSaved,
-    getSavedRecipesByUserId
+    getSavedRecipesByUserId,
+    deleteSavedRecipe
 };
