@@ -97,16 +97,14 @@
                         <button ng-click="goToRecipeDetail(recipe.id)" 
                             class="btn btn-sm btn-primary mb-2" 
                             style="outline: none; box-shadow: none;">View Recipe</button>
-                        <button ng-click="buyRecipe(recipe.id)" 
-                            class="btn btn-sm btn-primary mb-2" 
-                            style="outline: none; box-shadow: none;">Buy Recipe</button>
                         <button ng-click="toggleSaveRecipe(recipe.id)" 
                             class="btn btn-sm" 
                             style="background-color: transparent; border: none; outline: none; box-shadow: none;"></button>
-                        <i 
+                            <i 
                             class="fas" 
-                            ng-class="{'fa-heart text-danger': isSaved(recipe.id), 'fa-heart text-muted': !isSaved(recipe.id)}" 
-                            style="font-size: 20px;">
+                            ng-class="{'fa-heart text-danger': recipe.isSaved, 'fa-heart text-muted': !recipe.isSaved}" 
+                            style="font-size: 20px; cursor: pointer;"
+                            ng-click="toggleSaveRecipe(recipe)">
                         </i>
                 </div>
             </div>

@@ -7,7 +7,6 @@ const jwt = require('jsonwebtoken');
 const getUser = async (req, res) => {
     try {
         const email = req.user.email; 
-        console.log('Email from token:', email); // Log email
         const user = await getUserByEmail(email);
 
         if (!user) {

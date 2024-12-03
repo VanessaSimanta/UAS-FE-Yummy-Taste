@@ -28,7 +28,8 @@ angular.module('recipes').controller('loginCtrl', ['$scope', '$http', '$location
                     if (decodedToken.role === 'admin') {
                         $location.path('/admin');  // Redirect ke halaman admin
                     } else {
-                        $location.path('/');  // Redirect ke halaman home untuk user biasa
+                        $location.path('/'); // Redirect ke halaman home untuk user biasa
+                        alert ("Log In Successfull !") 
                     }
                 } else {
                     alert('Login failed, no token received.');

@@ -30,7 +30,45 @@ const isRecipeSaved = (req, res) => {
         });
 };
 
+// Mengambil resep yang disimpan oleh pengguna
+const getSavedRecipes = async (req, res) => {
+    try {
+        const userId = req.user.id; // Dapatkan user_id dari token autentikasi
+        const savedRecipes = await savedRecipesModel.getSavedRecipesByUserId(userId);
+
+        res.status(200).json({
+            success: true,
+            recipes: savedRecipes,
+        });
+    } catch (error) {
+        console.error('Error in getSavedRecipes controller:', error);
+        res.status(500).json({
+            success: false,
+            message: 'Failed to fetch saved recipes',
+        });
+    }
+};
+
+// Menghapus resep yang disimpan
+const deleteSavedRecipe = (req, res) => {
+    console.log(req.user + "test");  
+    const userId = req.user.id;  
+    const recipeId = req.query.recipeId; 
+
+    savedRecipesModel.deleteSavedRecipe(userId, recipeId)
+        .then(() => {
+            res.json({ success: true, message: 'Recipe deleted successfully!' });
+        })
+        .catch((err) => {
+            console.error('Error deleting saved recipe:', err);
+            res.status(500).json({ success: false, message: 'Error deleting recipe.' });
+        });
+};
+
+
 module.exports = {
     saveRecipe,
-    isRecipeSaved
+    isRecipeSaved,
+    getSavedRecipes,
+    deleteSavedRecipe
 };
