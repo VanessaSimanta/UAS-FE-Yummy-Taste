@@ -1,12 +1,12 @@
-angular.module('recipes').controller('recipesCtrl', ['$scope', '$location', 'recipesModel', function($scope, $location, recipesModel) {
+angular.module('recipes').controller('recipesCtrl', ['$scope', '$location', '$http', 'recipesModel', function($scope, $location, $http, recipesModel) {
     $scope.recipes = [];
-    $scope.itemsPerPage = 9; // Menentukan jumlah item per halaman
+    $scope.itemsPerPage = 9; 
     $scope.currentPage = 1; 
     $scope.totalItems = 0; 
     $scope.pages = []; 
-    $scope.paginatedRecipes = []; // Inisialisasi untuk menyimpan resep yang dipilih per halaman
+    $scope.paginatedRecipes = []; 
 
-    const token = localStorage.getItem('token'); // Ambil token dari localStorage
+    const token = localStorage.getItem('token'); 
     
     // Fungsi untuk memeriksa token dan membatasi akses
     const isLoggedIn = () => {
@@ -45,11 +45,11 @@ angular.module('recipes').controller('recipesCtrl', ['$scope', '$location', 'rec
     // Fungsi untuk menentukan item yang akan ditampilkan pada halaman tertentu
     $scope.setPagination = function() {
         $scope.pages = [];
-        const maxPages = Math.ceil($scope.totalItems / $scope.itemsPerPage); // Menghitung jumlah halaman
+        const maxPages = Math.ceil($scope.totalItems / $scope.itemsPerPage); 
         for (let i = 1; i <= maxPages; i++) {
             $scope.pages.push(i);
         }
-        $scope.changePage($scope.currentPage); // Set default page untuk menampilkan resep yang sesuai
+        $scope.changePage($scope.currentPage); 
     };
 
     // Fungsi untuk mengganti halaman
@@ -61,7 +61,7 @@ angular.module('recipes').controller('recipesCtrl', ['$scope', '$location', 'rec
         $scope.currentPage = page;
         let startIndex = (page - 1) * $scope.itemsPerPage;
         let endIndex = startIndex + $scope.itemsPerPage;
-        $scope.paginatedRecipes = $scope.recipes.slice(startIndex, endIndex); // Memilih resep yang sesuai dengan halaman
+        $scope.paginatedRecipes = $scope.recipes.slice(startIndex, endIndex); 
     };
 
     // Fungsi untuk berpindah ke halaman sebelumnya
@@ -77,4 +77,33 @@ angular.module('recipes').controller('recipesCtrl', ['$scope', '$location', 'rec
             $scope.changePage($scope.currentPage + 1);
         }
     };
+
+    $scope.toggleSaveRecipe = function(recipe) {
+        const apiUrl = recipe.isSaved ? 'http://localhost:3000/api/unsaveRecipe' : 'http://localhost:3000/api/save-recipe';
+    
+        $http.post(apiUrl, 
+            { recipeId: recipe.id }, 
+            { headers: { Authorization: `Bearer ${token}` } }
+        ).then((response) => {
+            if (response.data.success) {
+                recipe.isSaved = !recipe.isSaved;
+            } else {
+                alert('Failed to update saved recipes.');
+            }
+        }).catch((err) => {
+            console.error('Error toggling save recipe:', err);
+        });
+    };
+    
+    $scope.isRecipeSaved = function(recipe) {
+        $http.post('http://localhost:3000/api/is-saved', 
+            { recipeId: recipe.id }, 
+            { headers: { Authorization: `Bearer ${token}` } }
+        ).then((response) => {
+            recipe.isSaved = response.data.isSaved;
+        }).catch((err) => {
+            console.error('Error checking saved status:', err);
+        });
+    };    
 }]);
+

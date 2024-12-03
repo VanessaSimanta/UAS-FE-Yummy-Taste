@@ -30,8 +30,30 @@ const isRecipeSaved = (userId, recipeId) => {
     });
 };
 
+const getSavedRecipesByUserId = async (userId) => {
+    try {
+        // Pastikan query ditulis dengan benar
+        const query = `
+            SELECT *
+            FROM saved_recipes
+            WHERE user_id = $1;
+        `;
+        
+        // Eksekusi query dengan parameter userId
+        const result = await client.query(query, [userId]);
+        
+        // Mengembalikan hasil query
+        return result.rows;
+    } catch (error) {
+        console.error('Error fetching saved recipes:', error);
+        throw new Error('Database query failed');
+    }
+};
+
+
 
 module.exports = {
     saveRecipe,
-    isRecipeSaved
+    isRecipeSaved,
+    getSavedRecipesByUserId
 };

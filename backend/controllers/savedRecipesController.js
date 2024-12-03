@@ -30,7 +30,27 @@ const isRecipeSaved = (req, res) => {
         });
 };
 
+// Mengambil resep yang disimpan oleh pengguna
+const getSavedRecipes = async (req, res) => {
+    try {
+        const userId = req.user.id; // Dapatkan user_id dari token autentikasi
+        const savedRecipes = await savedRecipesModel.getSavedRecipesByUserId(userId);
+
+        res.status(200).json({
+            success: true,
+            recipes: savedRecipes,
+        });
+    } catch (error) {
+        console.error('Error in getSavedRecipes controller:', error);
+        res.status(500).json({
+            success: false,
+            message: 'Failed to fetch saved recipes',
+        });
+    }
+};
+
 module.exports = {
     saveRecipe,
-    isRecipeSaved
+    isRecipeSaved,
+    getSavedRecipes
 };
