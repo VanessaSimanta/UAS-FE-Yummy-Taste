@@ -49,6 +49,15 @@ CREATE TABLE comments (
 );
 
 
+Tabel message
+CREATE TABLE message (
+    id SERIAL PRIMARY KEY, 
+    email VARCHAR(255) NOT NULL, 
+    message TEXT NOT NULL, 
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
+);
+
+
 ## Cara Run Program
 Cara menjalankan program :
 1. pada terminal vs code run "npm install" 
