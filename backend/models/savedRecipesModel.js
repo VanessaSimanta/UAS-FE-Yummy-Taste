@@ -30,19 +30,17 @@ const isRecipeSaved = (userId, recipeId) => {
     });
 };
 
+// Function untuk mengecek resep apa aja yang disimpan user
 const getSavedRecipesByUserId = async (userId) => {
     try {
-        // Pastikan query ditulis dengan benar
         const query = `
             SELECT *
             FROM saved_recipes
             WHERE user_id = $1;
         `;
         
-        // Eksekusi query dengan parameter userId
         const result = await client.query(query, [userId]);
         
-        // Mengembalikan hasil query
         return result.rows;
     } catch (error) {
         console.error('Error fetching saved recipes:', error);
@@ -50,6 +48,7 @@ const getSavedRecipesByUserId = async (userId) => {
     }
 };
 
+// Function untuk menghapus resep yang disimpan user
 const deleteSavedRecipe = (userId, recipeId) => {
     return new Promise((resolve, reject) => {
         const query = 'DELETE FROM saved_recipes WHERE user_id = $1 AND recipe_id = $2';

@@ -73,7 +73,7 @@ const isTokenBlacklisted = async (token) => {
     try {
         const query = `SELECT 1 FROM blacklist_tokens WHERE token = $1`;
         const result = await client.query(query, [token]);
-        return result.rowCount > 0; // Token ditemukan di blacklist
+        return result.rowCount > 0; 
     } catch (error) {
         console.error('Error in isTokenBlacklisted:', error);
         throw error;

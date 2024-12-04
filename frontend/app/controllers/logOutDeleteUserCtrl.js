@@ -25,27 +25,24 @@ angular.module('recipes').controller('logOutDeleteUserCtrl', ['$scope', '$http',
                 }
             });
         } else {
-            alert('No token found. Please login again.');
+            alert("You haven't login yet. Please login first !");
         }
     };
 
     $scope.deleteAccount = function() {
-        // Get the token from localStorage
         const token = localStorage.getItem('token');
         
         if (!token) {
-            alert('No token found. Please login again.');
+            alert("You haven't login yet. Please login first !");
             return;
         }
     
-        // Make the DELETE request with the Authorization header
         $http.delete('http://localhost:3000/api/deleteUser', {
             headers: {
                 'Authorization': 'Bearer ' + token
             }
         })
         .then(function(response) {
-            // Redirect to the home page after successful account deletion
             $location.path('/');
         })
         .catch(function(error) {

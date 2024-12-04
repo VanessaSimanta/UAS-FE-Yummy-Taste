@@ -23,6 +23,7 @@ const createComment = async (req, res) => {
     }
 };
 
+// Endpoint untuk menndapatkan message
 const getAllMessage = async (req, res) => {
     try {
         const messages = await Message.getMessage();  
@@ -33,6 +34,7 @@ const getAllMessage = async (req, res) => {
     }
 };
 
+// Endpoint untuk menambahkan message
 const createMessage = async (req, res) => {
     const { email, message } = req.body;
     try {

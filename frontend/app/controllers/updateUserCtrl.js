@@ -7,7 +7,7 @@ angular.module('recipes').controller('updateUserCtrl', ['$scope', '$http', '$loc
             alert('Please fill in all fields correctly');
             return;
         }
-        const token = localStorage.getItem('token'); // Ambil token dari localStorage
+        const token = localStorage.getItem('token'); 
 
         if (!token) {
             alert('You are not logged in. Redirecting to login...');
@@ -27,12 +27,12 @@ angular.module('recipes').controller('updateUserCtrl', ['$scope', '$http', '$loc
         // Kirim data ke API
         $http.patch('http://localhost:3000/api/updateData', userData, {
             headers: {
-                'Authorization': 'Bearer ' + token //memasukkan token untuk authorization
+                'Authorization': 'Bearer ' + token 
             }
             })
             .then(function(response) {
                 alert('User data updated successfully!');
-                $location.path('/home');  // Redirect ke halaman home setelah sukses
+                $location.path('/home');  
             })
             .catch(function(error) {
                 console.error('Error:', error);
@@ -52,7 +52,7 @@ angular.module('recipes').controller('updateUserCtrl', ['$scope', '$http', '$loc
             return;
         }
     
-        const token = localStorage.getItem('token'); //ambil token dari local storage
+        const token = localStorage.getItem('token'); 
     
         if (!token) {
             alert('You are not logged in. Redirecting to login...');

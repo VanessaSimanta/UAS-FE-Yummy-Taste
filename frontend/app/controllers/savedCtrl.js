@@ -1,6 +1,7 @@
 angular.module('recipes').controller('savedRecipesController', ['$scope', '$http', '$location', 'recipeModel', function($scope, $http, $location, recipeModel) {
     var token = localStorage.getItem('token'); 
 
+    // Cek apakah user sudah login atau belum
     const isLoggedIn = () => {
         if (!token) return false;
         try {
@@ -25,7 +26,7 @@ angular.module('recipes').controller('savedRecipesController', ['$scope', '$http
                 $scope.savedRecipes = response.data.recipes;
                 // Menambahkan status isSaved
                 $scope.savedRecipes.forEach(function(savedRecipe) {
-                    savedRecipe.isSaved = true;  // Status resep disimpan
+                    savedRecipe.isSaved = true;  
                     recipeModel.getRecipeDetails(savedRecipe.recipe_id)
                         .then(function(recipeDetails) {
                             savedRecipe.details = recipeDetails;
@@ -41,8 +42,8 @@ angular.module('recipes').controller('savedRecipesController', ['$scope', '$http
         });
     };
 
-    loadSavedRecipes(); // Memuat resep yang disimpan saat controller dimuat
-
+    loadSavedRecipes(); 
+    
     // Fungsi untuk toggle saved recipe
     $scope.toggleSavedRecipe = function(recipe) {
         if (recipe.isSaved) {
