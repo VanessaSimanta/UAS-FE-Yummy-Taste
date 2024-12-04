@@ -16,6 +16,20 @@ const getUserByEmail = async (email) => {
     }
 };
 
+// get user data
+const fetchAllUsers = async () => {
+    try {
+        const query = `SELECT id, name, email, date_of_birth, phone_number, role, subscription FROM users`;
+        const result = await client.query(query);
+
+        return result.rows; // Mengembalikan semua baris, bukan hanya satu
+    } catch (error) {
+        console.error('Error in fetchAllUsers:', error);
+        throw error;
+    }
+};
+
+
 //Update data user
 const updateUserDataByEmail = async (email, name, phoneNumber, formattedDateOfBirth) => {
     try {
@@ -97,5 +111,5 @@ const deleteUserByEmail = async (email) => {
 
 
 module.exports = {
-    getUserByEmail, updateUserDataByEmail, updateUserPassByEmail, addTokenToBlacklist, isTokenBlacklisted, deleteUserByEmail
+    getUserByEmail, updateUserDataByEmail, updateUserPassByEmail, addTokenToBlacklist, isTokenBlacklisted, deleteUserByEmail, fetchAllUsers
 };

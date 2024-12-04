@@ -1,9 +1,10 @@
 const { getUserByEmail } = require('../models/accountModel');
-const { updateUserDataByEmail, updateUserPassByEmail, isTokenBlacklisted, addTokenToBlacklist, deleteUserByEmail } = require('../models/accountModel');
+const { updateUserDataByEmail, updateUserPassByEmail, isTokenBlacklisted, addTokenToBlacklist, deleteUserByEmail, fetchAllUsers } = require('../models/accountModel');
 const moment = require('moment');
 const jwt = require('jsonwebtoken');
+const { get } = require('../routes/userRoutes');
 
-// Get User
+// Get User By Email
 const getUser = async (req, res) => {
     try {
         const email = req.user.email; 
@@ -20,6 +21,23 @@ const getUser = async (req, res) => {
         res.status(500).json({ success: false, message: "Internal Server Error" });
     }
 };
+
+// Get All User
+const getAllUser = async (req, res) => {
+    try {
+        const users = await fetchAllUsers(); 
+
+        if (!users || users.length === 0) {
+            return res.status(404).json({ success: false, message: "No users found" });
+        }
+
+        res.status(200).json({ success: true, data: users });
+    } catch (error) {
+        console.error('Error in getAllUser controller:', error);
+        res.status(500).json({ success: false, message: "Internal Server Error" });
+    }
+};
+
 
 
 //Update user data
@@ -114,5 +132,5 @@ const deleteAccount = async (req, res) => {
 };
 
 module.exports = {
-    getUser, updateUserData, updateUserPass, logout, deleteAccount
+    getUser, updateUserData, updateUserPass, logout, deleteAccount, getAllUser
 };

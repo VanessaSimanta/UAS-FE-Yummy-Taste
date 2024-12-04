@@ -53,8 +53,6 @@ angular.module('recipes').controller('recipesCtrl', ['$scope', '$location', '$ht
             try {
                 const decodedToken = jwt_decode(token);
                 subscriptionType = decodedToken.subscription ;
-                console.error(decodedToken)
-                console.log(subscriptionType)
             } catch (error) {
                 console.error('Error decoding token:', error);
             }

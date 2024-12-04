@@ -15,6 +15,7 @@ router.patch('/updateData', authenticate, accountController.updateUserData);
 router.patch('/updatePass', authenticate, accountController.updateUserPass);
 router.post('/logout', authenticate, accountController.logout);
 router.delete('/deleteUser', authenticate, accountController.deleteAccount);
+router.get('/users', accountController.getAllUser)
 
 router.post('/comment', commentController.createComment);
 router.get('/comments', commentController.getAllComments);

@@ -1,16 +1,54 @@
-<div class="header text-center">
-    <h1>Admin Dashboard</h1>
+<div class="header text-center my-4">
+    <h1 class="text-white font font-weight-bold">Admin Dashboard</h1>
 </div>
 
-<!-- Card untuk menampilkan tabel komentar -->
-<div class="container" ng-controller="AdminCtrl">
-    <div class="card">
-        <div class="card-header">
-            Comments
+<!-- User Data -->
+<div class="container mt-4" ng-controller="getUserAdminCtrl">
+    <div class="card shadow-sm">
+        <div class="card-header bg-success text-white">
+            <h4>Users List</h4>
         </div>
         <div class="card-body">
-            <table class="table table-bordered table-striped">
-                <thead class="thead-dark" style="background-color: #734725; color: #E4CCAC;">
+            <table class="table table-bordered table-striped table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Date of Birth</th>
+                        <th>Phone Number</th>
+                        <th>Role</th>
+                        <th>Subscription</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="user in users">
+                        <td>{{ $index + 1 }}</td>
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.date_of_birth | date:'dd MMM yyyy' }}</td>
+                        <td>{{ user.phone_number }}</td>
+                        <td>{{ user.role }}</td>
+                        <td>{{ user.subscription }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="alert alert-danger" ng-if="errorMessage">
+            {{ errorMessage }}
+        </div>
+    </div>
+</div>
+
+<!-- User Comments -->
+<div class="container" ng-controller="AdminCtrl">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h5>Comments</h5>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-striped table-hover">
+                <thead class="thead-dark">
                     <tr>
                         <th>#</th>
                         <th>Name</th>
@@ -18,7 +56,7 @@
                         <th>Created At</th>
                     </tr>
                 </thead>
-                <tbody style="background-color: #E4CCAC;">
+                <tbody>
                     <tr ng-repeat="comment in comments">
                         <td>{{ $index + 1 }}</td>
                         <td>{{ comment.name }}</td>
@@ -31,30 +69,32 @@
     </div>
 </div>
 
-<!-- Card untuk menampilkan tabel message -->
-<div class="container mt-3" ng-controller="messageCtrl">
-    <div class="card-header">
-        Messages
-    </div>
-    <div class="card-body">
-        <table class="table table-bordered table-striped">
-            <thead class="thead-dark" style="background-color: #734725; color: #E4CCAC;">
-                <tr>
-                    <th>#</th>
-                    <th>Email</th>
-                    <th>Message</th>
-                    <th>Created At</th>
-                </tr>
-            </thead>
-            <tbody style="background-color: #E4CCAC;">
-                <tr ng-repeat="message in messages">
-                    <td>{{ $index + 1 }}</td>
-                    <td>{{ message.email }}</td>
-                    <td>{{ message.message }}</td>
-                    <td>{{ message.created_at | date:'yyyy-MM-dd HH:mm' }}</td>
-                </tr>
-            </tbody>
-        </table>
+<!-- User Message -->
+<div class="container mt-4" ng-controller="messageCtrl">
+    <div class="card shadow-sm">
+        <div class="card-header bg-info text-white">
+            <h5>Messages</h5>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-striped table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Email</th>
+                        <th>Message</th>
+                        <th>Created At</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="message in messages">
+                        <td>{{ $index + 1 }}</td>
+                        <td>{{ message.email }}</td>
+                        <td>{{ message.message }}</td>
+                        <td>{{ message.created_at | date:'yyyy-MM-dd HH:mm' }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
-</div>
+
