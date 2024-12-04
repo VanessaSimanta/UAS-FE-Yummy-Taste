@@ -220,6 +220,57 @@
     <div class="p-5" style="background-color: #F8EBE2; border-radius: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
         <h3 class="mb-4" style="color: #734725; font-family: 'Baloo 2', cursive; font-size: 32px; font-weight: bold;">Subscribe to Our Yummy Paste</h3>
         <p class="mb-5" style="color: #734725; font-size: 16px;">Get exclusive recipes, cooking tips, and special offers straight to your inbox.</p>
+        
+        <!-- Subscription Plans -->
+        <div class="mb-4">
+            <h5 style="color: #734725; font-size: 20px; font-weight: bold;">Choose Your Subscription Plan:</h5>
+            <div class="row justify-content-center g-3">
+                <!-- Basic Plan -->
+                <div class="col-12 col-md-4">
+                    <label for="basicPlan" class="card border-0 shadow-sm p-3 text-center" style="background-color: #FDF6F2; border-radius: 15px; cursor: pointer;">
+                        <input 
+                            type="radio" 
+                            name="subscriptionPlan" 
+                            id="basicPlan" 
+                            value="Basic" 
+                            class="form-check-input me-2"
+                            style="position: absolute; opacity: 0; pointer-events: none;">
+                        <h6 class="mb-2" style="color: #734725; font-size: 18px; font-weight: bold;">Basic</h6>
+                        <p style="color: #734725; font-size: 14px;">Free</p>
+                    </label>
+                </div>
+                <!-- Pro Plan -->
+                <div class="col-12 col-md-4">
+                    <label for="proPlan" class="card border-0 shadow-sm p-3 text-center" style="background-color: #FDF6F2; border-radius: 15px; cursor: pointer;">
+                        <input 
+                            type="radio" 
+                            name="subscriptionPlan" 
+                            id="proPlan" 
+                            value="Pro" 
+                            class="form-check-input me-2"
+                            style="position: absolute; opacity: 0; pointer-events: none;">
+                        <h6 class="mb-2" style="color: #734725; font-size: 18px; font-weight: bold;">Pro</h6>
+                        <p style="color: #734725; font-size: 14px;">$9.99/month</p>
+                    </label>
+                </div>
+                <!-- Premium Plan -->
+                <div class="col-12 col-md-4">
+                    <label for="premiumPlan" class="card border-0 shadow-sm p-3 text-center" style="background-color: #FDF6F2; border-radius: 15px; cursor: pointer;">
+                        <input 
+                            type="radio" 
+                            name="subscriptionPlan" 
+                            id="premiumPlan" 
+                            value="Premium" 
+                            class="form-check-input me-2"
+                            style="position: absolute; opacity: 0; pointer-events: none;">
+                        <h6 class="mb-2" style="color: #734725; font-size: 18px; font-weight: bold;">Premium</h6>
+                        <p style="color: #734725; font-size: 14px;">$19.99/month</p>
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Subscription Form -->
         <form class="d-flex justify-content-center align-items-center flex-column flex-md-row gap-3" style="max-width: 600px; margin: 0 auto;">
             <input
                 type="email"
@@ -234,11 +285,10 @@
                 Subscribe
             </button>
         </form>
+        
         <p class="mt-4" style="color: #734725; font-size: 14px;">We respect your privacy. Unsubscribe anytime.</p>
     </div>
 </section>
-
-
 
 <!-- Footer -->
 <footer class="pt-3" style="background-color: #E4CCAC;">
