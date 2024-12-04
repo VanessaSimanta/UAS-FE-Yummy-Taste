@@ -1,16 +1,33 @@
-<div class="header text-center my-4">
-    <h1 class="text-white font font-weight-bold">Admin Dashboard</h1>
+<!DOCTYPE html>
+<html lang="en" ng-app="adminApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-light text-dark">
+
+<!-- Header -->
+<div class="bg-brown-dark text-white py-3 px-4 d-flex justify-content-between align-items-center shadow-sm">
+    <h1 class="mb-0"><i class="fas fa-cogs"></i> Admin Dashboard</h1>
+    <div>
+        <a href="#!/login" class="btn btn-outline-light btn-sm rounded-pill me-2"><i class="fas fa-sign-in-alt"></i> Login</a>
+        <a href="#!/signUp" class="btn btn-outline-light btn-sm rounded-pill"><i class="fas fa-user-plus"></i> Sign Up</a>
+    </div>
 </div>
 
 <!-- User Data -->
-<div class="container mt-4" ng-controller="getUserAdminCtrl">
-    <div class="card shadow-sm">
-        <div class="card-header bg-success text-white">
-            <h4>Users List</h4>
+<div class="container mt-5" ng-controller="getUserAdminCtrl">
+    <div class="card shadow-lg border-0 bg-brown-light text-dark">
+        <div class="card-header bg-brown-dark text-white">
+            <h4 class="mb-0"><i class="fas fa-users"></i> Users List</h4>
         </div>
-        <div class="card-body">
-            <table class="table table-bordered table-striped table-hover">
-                <thead class="thead-dark">
+        <div class="card-body p-0">
+            <table class="table table-hover table-responsive-md table-bordered text-center mb-0">
+                <thead class="bg-brown-dark text-white">
                     <tr>
                         <th>#</th>
                         <th>Name</th>
@@ -34,21 +51,21 @@
                 </tbody>
             </table>
         </div>
-        <div class="alert alert-danger" ng-if="errorMessage">
-            {{ errorMessage }}
+        <div class="alert alert-danger m-3" ng-if="errorMessage">
+            <i class="fas fa-exclamation-circle"></i> {{ errorMessage }}
         </div>
     </div>
 </div>
 
 <!-- User Comments -->
-<div class="container" ng-controller="AdminCtrl">
-    <div class="card shadow-sm">
-        <div class="card-header bg-primary text-white">
-            <h5>Comments</h5>
+<div class="container mt-5" ng-controller="AdminCtrl">
+    <div class="card shadow-lg border-0 bg-brown-light text-dark">
+        <div class="card-header bg-brown-dark text-white">
+            <h5 class="mb-0"><i class="fas fa-comments"></i> Comments</h5>
         </div>
-        <div class="card-body">
-            <table class="table table-bordered table-striped table-hover">
-                <thead class="thead-dark">
+        <div class="card-body p-0">
+            <table class="table table-hover table-responsive-md table-bordered text-center mb-0">
+                <thead class="bg-brown-dark text-white">
                     <tr>
                         <th>#</th>
                         <th>Name</th>
@@ -69,15 +86,15 @@
     </div>
 </div>
 
-<!-- User Message -->
-<div class="container mt-4" ng-controller="messageCtrl">
-    <div class="card shadow-sm">
-        <div class="card-header bg-info text-white">
-            <h5>Messages</h5>
+<!-- User Messages -->
+<div class="container mt-5" ng-controller="messageCtrl">
+    <div class="card shadow-lg border-0 bg-brown-light text-dark">
+        <div class="card-header bg-brown-dark text-white">
+            <h5 class="mb-0"><i class="fas fa-envelope"></i> Messages</h5>
         </div>
-        <div class="card-body">
-            <table class="table table-bordered table-striped table-hover">
-                <thead class="thead-dark">
+        <div class="card-body p-0">
+            <table class="table table-hover table-responsive-md table-bordered text-center mb-0">
+                <thead class="bg-brown-dark text-white">
                     <tr>
                         <th>#</th>
                         <th>Email</th>
@@ -98,3 +115,37 @@
     </div>
 </div>
 
+<!-- Footer -->
+<footer class="bg-brown-dark text-white text-center py-4 mt-5">
+    <p>&copy; 2024 Yummy Taste. All rights reserved.</p>
+    <p><a href="#" class="text-white text-decoration-underline">Privacy Policy</a> | <a href="#" class="text-white text-decoration-underline">Terms of Service</a></p>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- AngularJS -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+<style>
+    .bg-brown-dark {
+        background-color: #5C4033; /* Coklat gelap */
+    }
+
+    .bg-brown-light {
+        background-color: #D2B48C; /* Coklat muda */
+    }
+
+    .btn-outline-light {
+        color: #FFF;
+        border-color: #FFF;
+    }
+
+    .btn-outline-light:hover {
+        background-color: #FFF;
+        color: #5C4033;
+    }
+</style>
+</body>
+</html>
