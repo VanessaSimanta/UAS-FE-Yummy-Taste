@@ -115,67 +115,50 @@
 
 <!-- Favorite Recipes Section -->
 <section class="container mt-5" ng-controller="getRandomRecipes">
-    <h2 class="text-center mb-4 font-weight-bold" style="color: #734725; font-family: 'Baloo 2', cursive;">
-      Favorite Recipes
+    <h2 class="text-center mb-4 fw-bold text-primary" style="font-family: 'Baloo 2', cursive;">
+        Favorite Recipes
     </h2>
-    <div id="recipesCarousel" class="carousel slide" data-bs-ride="carousel">
-      <!-- Carousel Indicators -->
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#recipesCarousel" data-bs-slide-to="0" class="active"></button>
-        <button type="button" data-bs-target="#recipesCarousel" data-bs-slide-to="1"></button>
-        <button type="button" data-bs-target="#recipesCarousel" data-bs-slide-to="2"></button>
-      </div>
-  
-      <!-- Carousel Items -->
-      <section class="container mt-5" ng-controller="getRandomRecipes">
-        <h2 class="text-center mb-4 font-weight-bold" style="color: #734725; font-family: 'Baloo 2', cursive;">
-          Favorite Recipes
-        </h2>
-      
-        <div id="recipesCarousel" class="carousel slide" data-bs-ride="carousel">
-          <!-- Carousel Indicators -->
-          <div class="carousel-indicators">
-            <button type="button" data-bs-target="#recipesCarousel" data-bs-slide-to="0" class="active"></button>
-            <button type="button" data-bs-target="#recipesCarousel" data-bs-slide-to="1"></button>
-            <button type="button" data-bs-target="#recipesCarousel" data-bs-slide-to="2"></button>
-          </div>
-      
-          <!-- Carousel Items -->
-          <div class="carousel-inner">
+    <div id="recipesCarousel" class="carousel slide" data-bs-ride="carousel" aria-label="Favorite Recipes Carousel">
+        <!-- Carousel Indicators -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#recipesCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#recipesCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#recipesCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+
+        <!-- Carousel Items -->
+        <div class="carousel-inner">
             <div class="carousel-item" ng-class="{'active': $index === 0}" ng-repeat="chunk in chunkedRecipes">
-              <div class="row">
-                <div class="col-md-4 mb-4" ng-repeat="recipe in chunk">
-                  <div class="card shadow-sm">
-                    <div class="card-body">
-                      <h5 class="card-title text-center font-weight-bold">{{ recipe.name }}</h5>
-                      <img src="{{ recipe.image }}" class="img-fluid mt-3 mb-3">
-                      <p class="card-text">
-                        <strong>Rating:</strong> {{ recipe.rating }} ⭐<br>
-                        <strong>Difficulty:</strong> {{ recipe.difficulty }}<br>
-                        <strong>Cooking Time:</strong> {{ recipe.cookTimeMinutes }} mins<br>
-                      </p>
-                      <button class="btn">View Recipe</button>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col" ng-repeat="recipe in chunk">
+                        <div class="card border-0 shadow-sm h-100 rounded">
+                            <img src="{{ recipe.image }}" class="card-img-top img-fluid rounded" alt="{{ recipe.name }}">
+                            <div class="card-body text-center">
+                                <h5 class="card-title fw-bold text-truncate">{{ recipe.name }}</h5>
+                                <p class="card-text">
+                                    <strong>Rating:</strong> {{ recipe.rating }} ⭐<br>
+                                    <strong>Difficulty:</strong> {{ recipe.difficulty }}<br>
+                                    <strong>Cooking Time:</strong> {{ recipe.cookTimeMinutes }} mins
+                                </p>
+                                <button class="btn btn-primary btn-sm">View Recipe</button>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </div>
             </div>
-          </div>
-      
-          <!-- Carousel Controls -->
-          <button class="carousel-control-prev" type="button" data-bs-target="#recipesCarousel" data-bs-slide="prev">
+        </div>
+
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#recipesCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#recipesCarousel" data-bs-slide="next">
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#recipesCarousel" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
-          </button>
-        </div>
-      </section>
-      
-  
-  
+        </button>
+    </div>
+</section>
 
 <!-- Comment and Send Message Section -->
 <section class="container my-5" ng-controller="commentCtrl">
@@ -317,11 +300,10 @@
                 Subscribe
             </button>
         </form>
+        
         <p class="mt-4" style="color: #734725; font-size: 14px;">We respect your privacy. Unsubscribe anytime.</p>
     </div>
 </section>
-
-
 
 <!-- Footer -->
 <footer class="pt-3" style="background-color: #E4CCAC;">
