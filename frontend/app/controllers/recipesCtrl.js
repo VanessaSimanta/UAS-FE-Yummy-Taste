@@ -48,12 +48,13 @@ angular.module('recipes').controller('recipesCtrl', ['$scope', '$location', '$ht
     // Fungsi untuk mengganti halaman
     $scope.changePage = function(page) {
         // Decode token untuk mendapatkan tipe langganan
-        let subscriptionType = 'Basic'; 
+        let subscriptionType; 
         if (isLoggedIn()) {
             try {
                 const decodedToken = jwt_decode(token);
-                console.log(decodedToken)
-                subscriptionType = decodedToken.subscriptionType;
+                subscriptionType = decodedToken.subscription ;
+                console.error(decodedToken)
+                console.log(subscriptionType)
             } catch (error) {
                 console.error('Error decoding token:', error);
             }
