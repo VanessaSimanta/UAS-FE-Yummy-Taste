@@ -11,9 +11,8 @@ angular.module('recipes').controller('recipesCtrl', ['$scope', '$location', '$ht
     // Fungsi untuk memeriksa token dan membatasi akses
     const isLoggedIn = () => {
         if (!token) return false;
-        //cek token exp atau tidak
         try {
-            const decodedToken = jwt_decode(token); 
+            const decodedToken = jwt_decode(token);
             const currentTime = Date.now() / 1000; 
             return decodedToken.exp > currentTime; 
         } catch (error) {
@@ -24,7 +23,6 @@ angular.module('recipes').controller('recipesCtrl', ['$scope', '$location', '$ht
 
     // Mengambil data resep dari model
     recipesModel.getRecipes().then(function(data) {
-        console.log(data); 
         $scope.recipes = data.recipes; 
         $scope.totalItems = $scope.recipes.length; 
         $scope.setPagination(); // Mengatur pagination
@@ -34,11 +32,6 @@ angular.module('recipes').controller('recipesCtrl', ['$scope', '$location', '$ht
 
     // Fungsi untuk mengarahkan ke halaman detail resep
     $scope.goToRecipeDetail = function(recipeId) {
-        if (!isLoggedIn()) {
-            alert('You need to log in to access recipe details.');
-            $location.path('/');
-            return;
-        }
         $location.path('/recipesDetail/' + recipeId);
     };
 
@@ -54,10 +47,24 @@ angular.module('recipes').controller('recipesCtrl', ['$scope', '$location', '$ht
 
     // Fungsi untuk mengganti halaman
     $scope.changePage = function(page) {
-        if (!isLoggedIn() && page > 1) {
-            alert('Please log in to access more pages.');
-            return;
+        // Decode token untuk mendapatkan tipe langganan
+        let subscriptionType = 'Basic'; 
+        if (isLoggedIn()) {
+            try {
+                const decodedToken = jwt_decode(token);
+                console.log(decodedToken)
+                subscriptionType = decodedToken.subscriptionType;
+            } catch (error) {
+                console.error('Error decoding token:', error);
+            }
         }
+
+        // Batasi akses halaman untuk pengguna "Basic"
+        if (subscriptionType === 'Basic' && page > 1) {
+            alert('Upgrade your subscription to access more pages.');
+            return; 
+        }
+
         $scope.currentPage = page;
         let startIndex = (page - 1) * $scope.itemsPerPage;
         let endIndex = startIndex + $scope.itemsPerPage;
@@ -89,7 +96,7 @@ angular.module('recipes').controller('recipesCtrl', ['$scope', '$location', '$ht
             if (response.data.success) {
                 recipe.isSaved = !recipe.isSaved;
             } else {
-                alert('Failed to saved the recipes. Try Again');
+                alert('Failed to save the recipes. Try Again');
             }
         }).catch((err) => {
             console.error('Error toggling save recipe:', err);
@@ -107,8 +114,7 @@ angular.module('recipes').controller('recipesCtrl', ['$scope', '$location', '$ht
         });
     };    
 
-      //fungsi untuk sorting recipes by difficulty
-    // Sort by difficulty (Easy → Medium)
+    // Fungsi untuk sorting recipes by difficulty
     $scope.sortByDifficulty = () => {
         $scope.recipes = $scope.recipes.filter(recipe => recipe.difficulty === 'Easy' || recipe.difficulty === 'Medium');
         $scope.recipes.sort((a, b) => {
@@ -118,7 +124,7 @@ angular.module('recipes').controller('recipesCtrl', ['$scope', '$location', '$ht
         $scope.setPagination();
     };
 
-    //fungsi untuk sorting cooking time dengan ascending
+    // Fungsi untuk sorting cooking time dengan ascending
     $scope.sortByCookingTime = () => {
         $scope.recipes.sort((a, b) => a.cookTimeMinutes - b.cookTimeMinutes);
         $scope.setPagination();
@@ -129,6 +135,4 @@ angular.module('recipes').controller('recipesCtrl', ['$scope', '$location', '$ht
         $scope.recipes.sort((a, b) => b.rating - a.rating);
         $scope.setPagination();
     };
-
 }]);
-
