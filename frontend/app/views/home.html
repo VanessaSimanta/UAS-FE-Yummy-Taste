@@ -1,340 +1,686 @@
 <!-- Sticky Primary Navbar -->
-<nav class="navbar navbar-light sticky-top primary-navbar" style="background-color: #E4CCAC; padding: 5px 0; z-index: 1030;">
-    <div class="container d-flex align-items-center justify-content-between">
-        <a class="navbar-brand d-flex align-items-center" href="#">
-            <img src="/assets/navlog.png" alt="Logo" style="width: 80px; height: 80px; margin-right: 5px; margin-left: 90px;">
-            <span class="ms-2" style="font-family: 'Baloo 2', cursive; font-size: 40px; font-weight: bold; color: #734725; margin-top: 10px; margin-right: 180px;">Yummy Taste</span>
-        </a>
-        <div class="d-flex align-items-center ms-auto me-3">
-            <form class="d-flex align-items-center" style="max-width: 400px;">
-                <div class="input-group rounded-pill w-140" style="background-color: #f8ebe2; border: 1px solid #734725; height: 40px;">
-                    <input 
-                        class="form-control border-0 rounded-pill ps-3" 
-                        type="search" 
-                        placeholder="Search Recipes..." 
-                        aria-label="Search" 
-                        style="background-color: transparent; box-shadow: none; height: 100%;">
-                    <button 
-                        class="btn d-flex justify-content-center align-items-center" 
-                        type="submit" 
-                        style="background-color: #734725; border-radius: 50%; width: 40px; height: 40px;">
-                        <i class="fas fa-search text-white"></i>
-                    </button>
-                </div>
-            </form>
+<nav
+  class="navbar navbar-light sticky-top primary-navbar"
+  style="background-color: #e4ccac; padding: 5px 0; z-index: 1030"
+>
+  <div class="container d-flex align-items-center justify-content-between">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img
+        src="/assets/navlog.png"
+        alt="Logo"
+        style="width: 80px; height: 80px; margin-right: 5px; margin-left: 90px"
+      />
+      <span
+        class="ms-2"
+        style="
+          font-family: 'Baloo 2', cursive;
+          font-size: 40px;
+          font-weight: bold;
+          color: #734725;
+          margin-top: 10px;
+          margin-right: 180px;
+        "
+        >Yummy Taste</span
+      >
+    </a>
+    <div class="d-flex align-items-center ms-auto me-3">
+      <form class="d-flex align-items-center" style="max-width: 400px">
+        <div
+          class="input-group rounded-pill w-140"
+          style="
+            background-color: #f8ebe2;
+            border: 1px solid #734725;
+            height: 40px;
+          "
+        >
+          <input
+            class="form-control border-0 rounded-pill ps-3"
+            type="search"
+            placeholder="Search Recipes..."
+            aria-label="Search"
+            style="
+              background-color: transparent;
+              box-shadow: none;
+              height: 100%;
+            "
+          />
+          <button
+            class="btn d-flex justify-content-center align-items-center"
+            type="submit"
+            style="
+              background-color: #734725;
+              border-radius: 50%;
+              width: 40px;
+              height: 40px;
+            "
+          >
+            <i class="fas fa-search text-white"></i>
+          </button>
         </div>
-        <div class="d-flex align-items-center" style="gap: 10px;">
-            <a href="#!/login" class="btn btn-dark rounded-pill px-4" style="background-color: #734725; color: #E4CCAC;">Login</a>
-            <a href="#!/signUp" class="btn btn-dark rounded-pill px-4" style="background-color: #734725; color: #E4CCAC;">Sign up</a>
-        </div>
+      </form>
     </div>
+    <div class="d-flex align-items-center" style="gap: 10px">
+      <a
+        href="#!/login"
+        class="btn btn-dark rounded-pill px-4"
+        style="background-color: #734725; color: #e4ccac"
+        >Login</a
+      >
+      <a
+        href="#!/signUp"
+        class="btn btn-dark rounded-pill px-4"
+        style="background-color: #734725; color: #e4ccac"
+        >Sign up</a
+      >
+    </div>
+  </div>
 </nav>
 
 <!-- Sticky Secondary Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top secondary-navbar" style="background-color: #734725; z-index: 1020;">
-    <div class="container">
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item mx-3"> 
-                    <a class="nav-link" href="#!/home">
-                        Home <i class="fas fa-home mr-1"></i>
-                    </a>
-                </li>
-                <li class="nav-item mx-3"> 
-                    <a class="nav-link" href="#!/recipes">
-                        Our Recipes <i class="fas fa-utensils mr-1"></i>
-                    </a>
-                </li>
-                <li class="nav-item mx-3"> 
-                    <a class="nav-link" href="#!/save">
-                        Saved Recipes <i class="fas fa-heart mr-1"></i>
-                    </a>
-                </li>
-                <li class="nav-item mx-3"> 
-                    <a class="nav-link" href="#!/account">
-                        My Account <i class="fas fa-user-circle mr-1"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
+<nav
+  class="navbar navbar-expand-lg navbar-dark sticky-top secondary-navbar"
+  style="background-color: #734725; z-index: 1020"
+>
+  <div class="container">
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item mx-3">
+          <a class="nav-link" href="#!/home">
+            Home <i class="fas fa-home mr-1"></i>
+          </a>
+        </li>
+        <li class="nav-item mx-3">
+          <a class="nav-link" href="#!/recipes">
+            Our Recipes <i class="fas fa-utensils mr-1"></i>
+          </a>
+        </li>
+        <li class="nav-item mx-3">
+          <a class="nav-link" href="#!/save">
+            Saved Recipes <i class="fas fa-heart mr-1"></i>
+          </a>
+        </li>
+        <li class="nav-item mx-3">
+          <a class="nav-link" href="#!/account">
+            My Account <i class="fas fa-user-circle mr-1"></i>
+          </a>
+        </li>
+      </ul>
     </div>
+  </div>
 </nav>
 
-
 <!--Welcome page-->
-<div id="homeCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2000">
-    <div class="carousel-inner">
-        <!-- Slide 1 -->
-        <div class="carousel-item active" style="background-image: url('/assets/slide1.jpg');">
-            <div class="carousel-caption text-white">
-                <h1 class="animate__animated animate__fadeInDown welcome-text">
-                    Welcome to
-                </h1>
-                <h2 class="animate__animated animate__fadeInUp yummy-text">
-                    YUMMY TASTE
-                </h2>
-                <a href="#menu-section" class="btn btn-explore btn-lg animate__animated animate__zoomIn">Explore Now</a>
-            </div>
-        </div>
+<div
+  id="homeCarousel"
+  class="carousel slide carousel-fade"
+  data-bs-ride="carousel"
+  data-bs-interval="2000"
+>
+  <div class="carousel-inner">
+    <!-- Slide 1 -->
+    <div
+      class="carousel-item active"
+      style="background-image: url('/assets/slide1.jpg')"
+    >
+      <div class="carousel-caption text-white">
+        <h1 class="animate__animated animate__fadeInDown welcome-text">
+          Welcome to
+        </h1>
+        <h2 class="animate__animated animate__fadeInUp yummy-text">
+          YUMMY TASTE
+        </h2>
+        <a
+          href="#menu-section"
+          class="btn btn-explore btn-lg animate__animated animate__zoomIn"
+          >Explore Now</a
+        >
+      </div>
     </div>
-        
-    <!-- Hero Section -->
+  </div>
+
+  <!-- Hero Section -->
   <div class="container mt-5">
     <div class="row align-items-center">
       <div class="col-md-6">
         <h1 class="display-4">Welcome to Pato</h1>
-        <p class="lead">Experience the best Italian cuisine with fresh ingredients and authentic flavors.</p>
+        <p class="lead">
+          Experience the best Italian cuisine with fresh ingredients and
+          authentic flavors.
+        </p>
       </div>
       <div class="col-md-6">
-        <img src="https://via.placeholder.com/400x300" class="img-fluid rounded" alt="Delicious Food">
+        <img
+          src="https://via.placeholder.com/400x300"
+          class="img-fluid rounded"
+          alt="Delicious Food"
+        />
       </div>
     </div>
   </div>
-  
 
-<!-- Trending Recipes Section -->
-<section class="container mt-5" ng-controller="recipesCtrl">
-    <h2 class="text-center mb-4 font-weight-bold" style="color: #734725; font-family: 'Baloo 2', cursive;">Trending Recipes</h2>
-    <div class="row">
-        <div class="col-md-4 mb-4" ng-repeat="recipe in recipes | orderBy:'-rating' | limitTo:3">
-            <div class="card shadow-sm">
-                <div class="card-body" style="background-color: #f8ebe2;">
-                    <h5 class="card-title text-center font-weight-bold">{{ recipe.name }}</h5>
-                    <img src="{{ recipe.image }}" class="img-fluid mt-3 mb-3">
-                    <p class="card-text">
-                        <strong>Rating:</strong> {{ recipe.rating }} ⭐<br>
-                        <strong>Difficulty:</strong> {{ recipe.difficulty }}<br>
-                        <strong>Cooking Time:</strong> {{ recipe.cookTimeMinutes }} mins<br>
-                    </p>
-                    <button ng-click="goToRecipeDetail(recipe.id)" class="btn" style="background-color: #734725; color: #E4CCAC;">View Recipe</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Favorite Recipes Section -->
-<section class="container mt-5" ng-controller="getRandomRecipes">
-    <h2 class="text-center mb-4 fw-bold text-primary" style="font-family: 'Baloo 2', cursive;">
-        Favorite Recipes
+  <!-- Trending Recipes Section -->
+  <section class="container mt-5" ng-controller="recipesCtrl">
+    <h2
+      class="text-center mb-4 font-weight-bold"
+      style="color: #734725; font-family: 'Baloo 2', cursive"
+    >
+      Trending Recipes
     </h2>
-    <div id="recipesCarousel" class="carousel slide" data-bs-ride="carousel" aria-label="Favorite Recipes Carousel">
-        <!-- Carousel Indicators -->
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#recipesCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#recipesCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#recipesCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-
-        <!-- Carousel Items -->
-        <div class="carousel-inner">
-            <div class="carousel-item" ng-class="{'active': $index === 0}" ng-repeat="chunk in chunkedRecipes">
-                <div class="row row-cols-1 row-cols-md-3 g-4">
-                    <div class="col" ng-repeat="recipe in chunk">
-                        <div class="card border-0 shadow-sm h-100 rounded">
-                            <img src="{{ recipe.image }}" class="card-img-top img-fluid rounded" alt="{{ recipe.name }}">
-                            <div class="card-body text-center">
-                                <h5 class="card-title fw-bold text-truncate">{{ recipe.name }}</h5>
-                                <p class="card-text">
-                                    <strong>Rating:</strong> {{ recipe.rating }} ⭐<br>
-                                    <strong>Difficulty:</strong> {{ recipe.difficulty }}<br>
-                                    <strong>Cooking Time:</strong> {{ recipe.cookTimeMinutes }} mins
-                                </p>
-                                <button class="btn btn-primary btn-sm">View Recipe</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Carousel Controls -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#recipesCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#recipesCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-</section>
-
-<!-- Comment and Send Message Section -->
-<section class="container my-5" ng-controller="commentCtrl">
-    <div class="row g-5">
-        <!-- Comment Section -->
-        <div class="col-md-6">
-            <div class="p-4" style="background-color: #F8EBE2; border-radius: 15px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
-                <h3 class="mb-4" style="font-family: 'Baloo 2', cursive; color: #734725;">Leave a Comment</h3>
-                <form ng-submit="submitComment()">
-                    <div class="mb-3">
-                        <label for="commentName" class="form-label" style="font-weight: bold; color: #734725;">Name</label>
-                        <input
-                            type="text"
-                            class="form-control rounded-pill px-3"
-                            id="commentName"
-                            ng-model="commentData.name"
-                            placeholder="Your Name"
-                            style="height: 50px; background-color: #fff; border: 1px solid #734725;"
-                            required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="commentText" class="form-label" style="font-weight: bold; color: #734725;">Comment</label>
-                        <textarea
-                            class="form-control rounded-3 px-3"
-                            id="commentText"
-                            ng-model="commentData.comment"
-                            rows="5"
-                            placeholder="Write your comment here..."
-                            style="background-color: #fff; border: 1px solid #734725;"
-                            required></textarea>
-                    </div>
-                    <button
-                        type="submit"
-                        class="btn w-100 py-2 rounded-pill"
-                        style="background-color: #734725; color: #E4CCAC; font-weight: bold; font-size: 16px;">
-                        Submit Comment
-                    </button>
-                </form>
-            </div>
-        </div>
-
-        <!-- Send Message Section -->
-        <div class="col-md-6">
-            <div class="p-4" style="background-color: #F8EBE2; border-radius: 15px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
-                <h3 class="mb-4" style="font-family: 'Baloo 2', cursive; color: #734725;">Send Us a Message</h3>
-                <form ng-submit="sendMessage()">
-                    <div class="mb-3">
-                        <label for="messageEmail" class="form-label" style="font-weight: bold; color: #734725;">Email</label>
-                        <input
-                            type="email"
-                            class="form-control rounded-pill px-3"
-                            id="messageEmail"
-                            ng-model="messageData.email"
-                            placeholder="Your Email"
-                            style="height: 50px; background-color: #fff; border: 1px solid #734725;"
-                            required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="messageContent" class="form-label" style="font-weight: bold; color: #734725;">Message</label>
-                        <textarea
-                            class="form-control rounded-3 px-3"
-                            id="messageContent"
-                            ng-model="messageData.message"
-                            rows="5"
-                            placeholder="Write your message here..."
-                            style="background-color: #fff; border: 1px solid #734725;"
-                            required></textarea>
-                    </div>
-                    <button
-                        type="submit"
-                        class="btn w-100 py-2 rounded-pill"
-                        style="background-color: #734725; color: #E4CCAC; font-weight: bold; font-size: 16px;">
-                        Send Message
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
-
-  
-<!-- Subscribe Section -->
-<section class="text-center">
-    <div class="p-5" style="background-color: #F8EBE2; border-radius: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
-        <h3 class="mb-4" style="color: #734725; font-family: 'Baloo 2', cursive; font-size: 32px; font-weight: bold;">Subscribe to Our Yummy Paste</h3>
-        <p class="mb-5" style="color: #734725; font-size: 16px;">Get exclusive recipes, cooking tips, and special offers straight to your inbox.</p>
-        
-        <!-- Subscription Plans -->
-        <div class="mb-4">
-            <h5 style="color: #734725; font-size: 20px; font-weight: bold;">Choose Your Subscription Plan:</h5>
-            <div class="row justify-content-center g-3">
-                <!-- Basic Plan -->
-                <div class="col-12 col-md-4">
-                    <button 
-                        id="basicPlan" 
-                        class="btn btn-outline-secondary w-100 p-4 text-center" 
-                        style="background-color: #FDF6F2; border-radius: 15px; color: #734725; font-size: 18px; font-weight: bold; cursor: pointer; margin: 10px;">
-                        <h6 class="mb-2">Basic</h6>
-                        <p style="font-size: 14px;">Free</p>
-                    </button>
-                </div>
-
-                <!-- Pro Plan -->
-                <div class="col-12 col-md-4">
-                    <button 
-                        id="proPlan" 
-                        class="btn btn-outline-secondary w-100 p-4 text-center" 
-                        style="background-color: #FDF6F2; border-radius: 15px; color: #734725; font-size: 18px; font-weight: bold; cursor: pointer; margin: 10px;">
-                        <h6 class="mb-2">Pro</h6>
-                        <p style="font-size: 14px;">$9.99/month</p>
-                    </button>
-                </div>
-
-                <!-- Premium Plan -->
-                <div class="col-12 col-md-4">
-                    <button 
-                        id="premiumPlan" 
-                        class="btn btn-outline-secondary w-100 p-4 text-center" 
-                        style="background-color: #FDF6F2; border-radius: 15px; color: #734725; font-size: 18px; font-weight: bold; cursor: pointer; margin: 10px;">
-                        <h6 class="mb-2">Premium</h6>
-                        <p style="font-size: 14px;">$19.99/month</p>
-                    </button>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Subscription Form -->
-        <form class="d-flex justify-content-center align-items-center flex-column flex-md-row gap-3" style="max-width: 600px; margin: 0 auto;">
-            <input
-                type="email"
-                class="form-control rounded-pill ps-4 "
-                placeholder="Enter your email address"
-                style="height: 50px; background-color: #FFFFFF; border: 1px solid #734725; font-size: 16px; width: 100%; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);"
-                required>
+    <div class="row">
+      <div
+        class="col-md-4 mb-4"
+        ng-repeat="recipe in recipes | orderBy:'-rating' | limitTo:3"
+      >
+        <div class="card shadow-sm">
+          <div class="card-body" style="background-color: #f8ebe2">
+            <h5 class="card-title text-center font-weight-bold">
+              {{ recipe.name }}
+            </h5>
+            <img src="{{ recipe.image }}" class="img-fluid mt-3 mb-3" />
+            <p class="card-text">
+              <strong>Rating:</strong> {{ recipe.rating }} ⭐<br />
+              <strong>Difficulty:</strong> {{ recipe.difficulty }}<br />
+              <strong>Cooking Time:</strong> {{ recipe.cookTimeMinutes }}
+              mins<br />
+            </p>
             <button
-                type="submit"
-                class="btn btn-lg rounded-pill"
-                style="background-color: #734725; color: #E4CCAC; height: 50px; width: 180px; font-weight: bold; font-size: 16px; box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.2);">
-                Subscribe
+              ng-click="goToRecipeDetail(recipe.id)"
+              class="btn"
+              style="background-color: #734725; color: #e4ccac"
+            >
+              View Recipe
             </button>
-        </form>
-        
-        <p class="mt-4" style="color: #734725; font-size: 14px;">We respect your privacy. Unsubscribe anytime.</p>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer class="pt-3" style="background-color: #E4CCAC;">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <a href="#" class="navbar-brand">
-                    <img src="/assets/logoo.png" alt="Logo" style="width: 150px;">
-                </a>
-            </div>
-            <div class="col-md-4">
-                <h5>Quick Links</h5>
-                <ul class="list-unstyled">
-                    <li><a href="#" class="text-dark text-decoration-none">Home</a></li>
-                    <li><a href="#" class="text-dark text-decoration-none">Our Recipes</a></li>
-                    <li><a href="#" class="text-dark text-decoration-none">Saved Recipes</a></li>
-                    <li><a href="#" class="text-dark text-decoration-none">My Account</a></li>
-                </ul>
-            </div>
-            <div class="col-md-4">
-                <h5>Follow Us</h5>
-                <div>
-                    <a href="#" class="text-dark mx-2"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-dark mx-2"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="text-dark mx-2"><i class="fab fa-pinterest"></i></a>
-                    <a href="#" class="text-dark mx-2"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
     </div>
-    <div class="text-center pt-3 pb-3" style="background-color: #734725;">
-        <p class="mb-0" style="color: #E4CCAC;">© 2024 Yummy Taste. All rights reserved.</p>
+  </section>
+
+  <!-- Favorite Recipes Section -->
+  <section class="container mt-5" ng-controller="getRandomRecipes">
+    <h2
+      class="text-center mb-4 fw-bold text-primary"
+      style="font-family: 'Baloo 2', cursive"
+    >
+      Favorite Recipes
+    </h2>
+    <div
+      id="recipesCarousel"
+      class="carousel slide"
+      data-bs-ride="carousel"
+      aria-label="Favorite Recipes Carousel"
+    >
+      <!-- Carousel Indicators -->
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#recipesCarousel"
+          data-bs-slide-to="0"
+          class="active"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#recipesCarousel"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#recipesCarousel"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+      </div>
+
+      <!-- Carousel Items -->
+      <div class="carousel-inner">
+        <div
+          class="carousel-item"
+          ng-class="{'active': $index === 0}"
+          ng-repeat="chunk in chunkedRecipes"
+        >
+          <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col" ng-repeat="recipe in chunk">
+              <div class="card border-0 shadow-sm h-100 rounded">
+                <img
+                  src="{{ recipe.image }}"
+                  class="card-img-top img-fluid rounded"
+                  alt="{{ recipe.name }}"
+                />
+                <div class="card-body text-center">
+                  <h5 class="card-title fw-bold text-truncate">
+                    {{ recipe.name }}
+                  </h5>
+                  <p class="card-text">
+                    <strong>Rating:</strong> {{ recipe.rating }} ⭐<br />
+                    <strong>Difficulty:</strong> {{ recipe.difficulty }}<br />
+                    <strong>Cooking Time:</strong> {{ recipe.cookTimeMinutes }}
+                    mins
+                  </p>
+                  <button class="btn btn-primary btn-sm">View Recipe</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carousel Controls -->
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#recipesCarousel"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#recipesCarousel"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
-</footer>
+  </section>
+
+  <!-- Comment and Send Message Section -->
+  <section class="container my-5" ng-controller="commentCtrl">
+    <div class="row g-5">
+      <!-- Comment Section -->
+      <div class="col-md-6">
+        <div
+          class="p-4"
+          style="
+            background-color: #f8ebe2;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+          "
+        >
+          <h3
+            class="mb-4 font-weight-bold"
+            style="font-family: 'Baloo 2', cursive; color: #734725"
+          >
+            Leave a Comment
+          </h3>
+          <form ng-submit="submitComment()">
+            <div class="mb-3">
+              <label
+                for="commentName"
+                class="form-label"
+                style="font-weight: bold; color: #734725"
+                >Name</label
+              >
+              <input
+                type="text"
+                class="form-control rounded-pill px-3"
+                id="commentName"
+                ng-model="commentData.name"
+                placeholder="Your Name"
+                style="
+                  height: 50px;
+                  background-color: #fff;
+                  border: 1px solid #734725;
+                "
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label
+                for="commentText"
+                class="form-label"
+                style="font-weight: bold; color: #734725"
+                >Comment</label
+              >
+              <textarea
+                class="form-control rounded-3 px-3"
+                id="commentText"
+                ng-model="commentData.comment"
+                rows="5"
+                placeholder="Write your comment here..."
+                style="background-color: #fff; border: 1px solid #734725"
+                required
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="btn w-100 py-2 rounded-pill"
+              style="
+                background-color: #734725;
+                color: #e4ccac;
+                font-weight: bold;
+                font-size: 16px;
+              "
+            >
+              Submit Comment
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Send Message Section -->
+      <div class="col-md-6">
+        <div
+          class="p-4"
+          style="
+            background-color: #f8ebe2;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+          "
+        >
+          <h3
+            class="mb-4 font-weight-bold"
+            style="font-family: 'Baloo 2', cursive; color: #734725"
+          >
+            Send Us a Message
+          </h3>
+          <form ng-submit="sendMessage()">
+            <div class="mb-3">
+              <label
+                for="messageEmail"
+                class="form-label"
+                style="font-weight: bold; color: #734725"
+                >Email</label
+              >
+              <input
+                type="email"
+                class="form-control rounded-pill px-3"
+                id="messageEmail"
+                ng-model="messageData.email"
+                placeholder="Your Email"
+                style="
+                  height: 50px;
+                  background-color: #fff;
+                  border: 1px solid #734725;
+                "
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label
+                for="messageContent"
+                class="form-label"
+                style="font-weight: bold; color: #734725"
+                >Message</label
+              >
+              <textarea
+                class="form-control rounded-3 px-3"
+                id="messageContent"
+                ng-model="messageData.message"
+                rows="5"
+                placeholder="Write your message here..."
+                style="background-color: #fff; border: 1px solid #734725"
+                required
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="btn w-100 py-2 rounded-pill"
+              style="
+                background-color: #734725;
+                color: #e4ccac;
+                font-weight: bold;
+                font-size: 16px;
+              "
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subscribe Section -->
+  <section class="text-center" ng-controller="SubscriptionController">
+    <div
+      class="p-5"
+      style="
+        background-color: #f8ebe2;
+        border-radius: 20px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      "
+    >
+      <h3
+        class="mb-4"
+        style="
+          color: #734725;
+          font-family: 'Baloo 2', cursive;
+          font-size: 32px;
+          font-weight: bold;
+        "
+      >
+        Subscribe to Our Yummy Paste
+      </h3>
+      <p class="mb-5" style="color: #734725; font-size: 16px">
+        Get exclusive recipes, cooking tips, and special offers straight to your
+        inbox.
+      </p>
+
+      <!-- Email Input -->
+    <form
+        class="d-flex justify-content-center align-items-center flex-column flex-md-row gap-3 mb-4"
+        style="max-width: 600px; margin: 0 auto"
+        >
+        <input
+            type="email"
+            class="form-control rounded-pill ps-4"
+            placeholder="Enter your email address"
+            ng-model="email"
+            style="
+            height: 50px;
+            background-color: #ffffff;
+            border: 1px solid #734725;
+            font-size: 16px;
+            width: 100%;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            "
+            required
+        />
+    </form>
+      <!-- Subscription Plans -->
+      <div class="mb-4">
+        <h5 style="color: #734725; font-size: 20px; font-weight: bold">
+          Choose Your Subscription Plan:
+        </h5>
+        <div class="row justify-content-center g-3">
+          <!-- Basic Plan -->
+          <div class="col-12 col-md-4">
+            <button
+              class="btn btn-outline-secondary w-100 p-4 text-center"
+              style="
+                background-color: #fdf6f2;
+                border-radius: 15px;
+                color: #734725;
+                font-size: 18px;
+                font-weight: bold;
+                cursor: pointer;
+                margin: 10px;
+              "
+              ng-click="openPaymentModal('Basic')"
+            >
+              <h6 class="mb-2">Basic</h6>
+              <p style="font-size: 14px">Free</p>
+            </button>
+          </div>
+
+          <!-- Pro Plan -->
+          <div class="col-12 col-md-4">
+            <button
+              class="btn btn-outline-secondary w-100 p-4 text-center"
+              style="
+                background-color: #fdf6f2;
+                border-radius: 15px;
+                color: #734725;
+                font-size: 18px;
+                font-weight: bold;
+                cursor: pointer;
+                margin: 10px;
+              "
+              ng-click="openPaymentModal('Pro')"
+            >
+              <h6 class="mb-2">Pro</h6>
+              <p style="font-size: 14px">$9.99/month</p>
+            </button>
+          </div>
+
+          <!-- Premium Plan -->
+          <div class="col-12 col-md-4">
+            <button
+              class="btn btn-outline-secondary w-100 p-4 text-center"
+              style="
+                background-color: #fdf6f2;
+                border-radius: 15px;
+                color: #734725;
+                font-size: 18px;
+                font-weight: bold;
+                cursor: pointer;
+                margin: 10px;
+              "
+              ng-click="openPaymentModal('Premium')"
+            >
+              <h6 class="mb-2">Premium</h6>
+              <p style="font-size: 14px">$19.99/month</p>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment Modal -->
+      <div
+        class="modal fade"
+        id="paymentModal"
+        tabindex="-1"
+        aria-labelledby="paymentModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content" style="border-radius: 15px">
+            <div
+              class="modal-header"
+              style="background-color: #fdf6f2; border-bottom: none"
+            >
+              <h5
+                class="modal-title"
+                id="paymentModalLabel"
+                style="color: #734725; font-size: 24px; font-weight: bold"
+              >
+                Complete Your Payment
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body" style="background-color: #f8ebe2">
+              <p style="color: #734725; font-size: 16px; text-align: center">
+                You are subscribing to the <b>{{ selectedPlan }}</b> plan with
+                email: <b>{{ email }}</b>.
+              </p>
+              <!-- Payment Options -->
+              <div class="mb-4">
+                <h6 style="color: #734725; font-size: 18px; font-weight: bold">
+                  Choose Payment Method:
+                </h6>
+                <div class="d-flex justify-content-around">
+                  <button
+                    class="btn btn-outline-secondary"
+                    style="width: 100px; border-radius: 15px"
+                  >
+                    Credit Card
+                  </button>
+                  <button
+                    class="btn btn-outline-secondary"
+                    style="width: 100px; border-radius: 15px"
+                  >
+                    PayPal
+                  </button>
+                  <button
+                    class="btn btn-outline-secondary"
+                    style="width: 100px; border-radius: 15px"
+                  >
+                    Bank Transfer
+                  </button>
+                </div>
+              </div>
+              <!-- Confirm Button -->
+              <div class="text-center">
+                <button
+                  class="btn btn-lg rounded-pill"
+                  style="
+                    background-color: #734725;
+                    color: #e4ccac;
+                    font-weight: bold;
+                    font-size: 16px;
+                    box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.2);
+                  "
+                  ng-click="confirmSubscription()"
+                >
+                  Confirm Payment
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="pt-3" style="background-color: #e4ccac">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <a href="#" class="navbar-brand">
+            <img src="/assets/logoo.png" alt="Logo" style="width: 150px" />
+          </a>
+        </div>
+        <div class="col-md-4">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-dark text-decoration-none">Home</a></li>
+            <li>
+              <a href="#" class="text-dark text-decoration-none">Our Recipes</a>
+            </li>
+            <li>
+              <a href="#" class="text-dark text-decoration-none"
+                >Saved Recipes</a
+              >
+            </li>
+            <li>
+              <a href="#" class="text-dark text-decoration-none">My Account</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Follow Us</h5>
+          <div>
+            <a href="#" class="text-dark mx-2"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" class="text-dark mx-2"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="text-dark mx-2"
+              ><i class="fab fa-pinterest"></i
+            ></a>
+            <a href="#" class="text-dark mx-2"
+              ><i class="fab fa-youtube"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center pt-3 pb-3" style="background-color: #734725">
+      <p class="mb-0" style="color: #e4ccac">
+        © 2024 Yummy Taste. All rights reserved.
+      </p>
+    </div>
+  </footer>
+</div>

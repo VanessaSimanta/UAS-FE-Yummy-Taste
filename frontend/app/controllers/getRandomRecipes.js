@@ -1,10 +1,8 @@
-angular
-  .module('recipes')
-  .controller('getRandomRecipes', ['$scope', 'recipesModel', function ($scope, recipesModel) {
-    $scope.recipes = []; // Semua resep
-    $scope.chunkedRecipes = []; // Resep dibagi per 3
+angular.module('recipes').controller('getRandomRecipes', ['$scope', 'recipesModel', function ($scope, recipesModel) {
+    $scope.recipes = []; 
+    $scope.chunkedRecipes = [];
 
-    // Fungsi untuk membagi array menjadi kelompok
+    // Memecah recipes agar tidak ditampilkan semua dalam 1 page
     function chunkArray(array, chunkSize) {
       let results = [];
       for (let i = 0; i < array.length; i += chunkSize) {
@@ -18,7 +16,7 @@ angular
       .then(function (data) {
         if (data && data.recipes) {
           $scope.recipes = data.recipes; // Simpan semua resep
-          $scope.chunkedRecipes = chunkArray($scope.recipes, 3); // Bagi menjadi grup 3
+          $scope.chunkedRecipes = chunkArray($scope.recipes, 4); // Bagi menjadi 4
         } else {
           console.error('No recipes found in the response.');
         }

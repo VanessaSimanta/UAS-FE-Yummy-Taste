@@ -36,7 +36,6 @@ const createUser = async (name, email, phoneNumber, dateOfBirth, password, role)
   }
 };
 
-
 //LOGIN
 //cek email dan password sama dengan di db
 const checkUser = async (email, password) => {
@@ -63,5 +62,10 @@ const checkUser = async (email, password) => {
   }
 };
 
+// Fungsi untuk memperbarui subscription
+async function updateSubscription(email, subscription) {
+  await client.query('UPDATE users SET subscription = $1 WHERE email = $2', [subscription, email]);
+}
 
-module.exports = { findUserByEmail, createUser, checkUser };
+
+module.exports = { findUserByEmail, createUser, checkUser, updateSubscription };

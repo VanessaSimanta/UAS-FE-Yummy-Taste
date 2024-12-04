@@ -2,11 +2,10 @@ angular.module('recipes').controller('messageCtrl', ['$scope', '$http', 'Message
     // Mengambil data dari model
     $scope.messageData = MessageModel.getMessageData();
 
-    // Fetch messages from backend API
-    $http.get('http://localhost:3000/api/message')  // Change to correct backend endpoint if necessary
+    //Panggil API backend
+    $http.get('http://localhost:3000/api/message')  
         .then(function(response) {
-            // Assign messages from backend to the scope
-            $scope.messages = response.data.messages; // assuming response.data.messages contains the messages
+            $scope.messages = response.data.messages; 
         }, function(error) {
             console.error('Error:', error);
             alert('Error fetching messages.');
@@ -19,7 +18,6 @@ angular.module('recipes').controller('messageCtrl', ['$scope', '$http', 'Message
                 .then(function(response) {
                     alert('Message submitted successfully!');
                     MessageModel.resetMessageData();
-                    // After submitting a message, refetch the list of messages
                     $http.get('http://localhost:3000/api/message')
                         .then(function(response) {
                             $scope.messages = response.data.messages;
@@ -29,7 +27,7 @@ angular.module('recipes').controller('messageCtrl', ['$scope', '$http', 'Message
                     alert('Error submitting message.');
                 });
         } else {
-            alert('Both email and message are required!');
+            alert('Please enter your name and the message !');
         }
     };
 }]);

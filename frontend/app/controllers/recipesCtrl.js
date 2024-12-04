@@ -78,8 +78,7 @@ angular.module('recipes').controller('recipesCtrl', ['$scope', '$location', '$ht
         }
     };
 
-
-
+    // Fungsi untuk memanggil API save recipes saat resep ingin disimpan
     $scope.toggleSaveRecipe = function(recipe) {
         const apiUrl = recipe.isSaved ? 'http://localhost:3000/api/unsaveRecipe' : 'http://localhost:3000/api/save-recipe';
     
@@ -90,7 +89,7 @@ angular.module('recipes').controller('recipesCtrl', ['$scope', '$location', '$ht
             if (response.data.success) {
                 recipe.isSaved = !recipe.isSaved;
             } else {
-                alert('Failed to update saved recipes.');
+                alert('Failed to saved the recipes. Try Again');
             }
         }).catch((err) => {
             console.error('Error toggling save recipe:', err);

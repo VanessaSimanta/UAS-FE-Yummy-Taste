@@ -32,7 +32,7 @@ angular.module('recipes').controller('loginCtrl', ['$scope', '$http', '$location
                         alert ("Log In Successfull !") 
                     }
                 } else {
-                    alert('Login failed, no token received.');
+                    alert('Login failed, please try again');
                 }
             })
             .catch(function(error) {
@@ -45,7 +45,7 @@ angular.module('recipes').controller('loginCtrl', ['$scope', '$http', '$location
             });
     };
 
-    // Aksi untuk redirect ke halaman signup jika diperlukan
+    // Redirect ke halaman signup 
     $scope.signup = function() {
         $location.path('/signUp');
     };

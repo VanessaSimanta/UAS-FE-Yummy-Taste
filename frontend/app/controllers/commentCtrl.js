@@ -7,13 +7,13 @@ angular.module('recipes').controller('commentCtrl', ['$scope', '$http', 'Comment
         if ($scope.commentData.name && $scope.commentData.comment) {
             $http.post('http://localhost:3000/api/comment', $scope.commentData)
                 .then(function(response) {
-                    alert('Comment submitted successfully!');
+                    alert('Comment submitted successfully! Thank You');
                     CommentModel.resetCommentData(); 
                 }, function(error) {
-                    alert('Error submitting comment.');
+                    alert('There has been an error. Please try again later');
                 });
         } else {
-            alert('Both name and comment are required!');
+            alert('Please enter your name and the comment !');
         }
     };
 }]);

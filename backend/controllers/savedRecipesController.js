@@ -2,7 +2,7 @@ const savedRecipesModel = require('../models/savedRecipesModel');
 
 // Menyimpan resep yang disukai
 const saveRecipe = (req, res) => {
-    const userId = req.user.id;  // Pastikan token sudah terverifikasi dan `user.id` ada di req.user
+    const userId = req.user.id;  
     const { recipeId } = req.body;
 
     savedRecipesModel.saveRecipe(userId, recipeId)
@@ -17,7 +17,7 @@ const saveRecipe = (req, res) => {
 
 // Mengecek apakah resep sudah disimpan
 const isRecipeSaved = (req, res) => {
-    const userId = req.user.id;  // Pastikan token sudah terverifikasi
+    const userId = req.user.id;  
     const { recipeId } = req.body;
 
     savedRecipesModel.isRecipeSaved(userId, recipeId)
@@ -33,7 +33,7 @@ const isRecipeSaved = (req, res) => {
 // Mengambil resep yang disimpan oleh pengguna
 const getSavedRecipes = async (req, res) => {
     try {
-        const userId = req.user.id; // Dapatkan user_id dari token autentikasi
+        const userId = req.user.id;
         const savedRecipes = await savedRecipesModel.getSavedRecipesByUserId(userId);
 
         res.status(200).json({

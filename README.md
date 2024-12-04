@@ -20,6 +20,10 @@ CREATE TABLE users (
 
 Update Tabel User
 ALTER TABLE users ADD COLUMN role VARCHAR(20) DEFAULT 'user';
+ALTER TABLE users
+ADD COLUMN subscription VARCHAR(20) DEFAULT 'Basic';
+
+
 
 Tabel blacklist_tokens
 CREATE TABLE blacklist_tokens (
