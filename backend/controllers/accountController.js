@@ -2,7 +2,6 @@ const { getUserByEmail } = require('../models/accountModel');
 const { updateUserDataByEmail, updateUserPassByEmail, isTokenBlacklisted, addTokenToBlacklist, deleteUserByEmail, fetchAllUsers } = require('../models/accountModel');
 const moment = require('moment');
 const jwt = require('jsonwebtoken');
-const { get } = require('../routes/userRoutes');
 
 // Get User By Email
 const getUser = async (req, res) => {
