@@ -262,10 +262,51 @@
     <div class="p-5" style="background-color: #F8EBE2; border-radius: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
         <h3 class="mb-4" style="color: #734725; font-family: 'Baloo 2', cursive; font-size: 32px; font-weight: bold;">Subscribe to Our Yummy Paste</h3>
         <p class="mb-5" style="color: #734725; font-size: 16px;">Get exclusive recipes, cooking tips, and special offers straight to your inbox.</p>
+        
+        <!-- Subscription Plans -->
+        <div class="mb-4">
+            <h5 style="color: #734725; font-size: 20px; font-weight: bold;">Choose Your Subscription Plan:</h5>
+            <div class="row justify-content-center g-3">
+                <!-- Basic Plan -->
+                <div class="col-12 col-md-4">
+                    <button 
+                        id="basicPlan" 
+                        class="btn btn-outline-secondary w-100 p-4 text-center" 
+                        style="background-color: #FDF6F2; border-radius: 15px; color: #734725; font-size: 18px; font-weight: bold; cursor: pointer; margin: 10px;">
+                        <h6 class="mb-2">Basic</h6>
+                        <p style="font-size: 14px;">Free</p>
+                    </button>
+                </div>
+
+                <!-- Pro Plan -->
+                <div class="col-12 col-md-4">
+                    <button 
+                        id="proPlan" 
+                        class="btn btn-outline-secondary w-100 p-4 text-center" 
+                        style="background-color: #FDF6F2; border-radius: 15px; color: #734725; font-size: 18px; font-weight: bold; cursor: pointer; margin: 10px;">
+                        <h6 class="mb-2">Pro</h6>
+                        <p style="font-size: 14px;">$9.99/month</p>
+                    </button>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="col-12 col-md-4">
+                    <button 
+                        id="premiumPlan" 
+                        class="btn btn-outline-secondary w-100 p-4 text-center" 
+                        style="background-color: #FDF6F2; border-radius: 15px; color: #734725; font-size: 18px; font-weight: bold; cursor: pointer; margin: 10px;">
+                        <h6 class="mb-2">Premium</h6>
+                        <p style="font-size: 14px;">$19.99/month</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Subscription Form -->
         <form class="d-flex justify-content-center align-items-center flex-column flex-md-row gap-3" style="max-width: 600px; margin: 0 auto;">
             <input
                 type="email"
-                class="form-control rounded-pill ps-4"
+                class="form-control rounded-pill ps-4 "
                 placeholder="Enter your email address"
                 style="height: 50px; background-color: #FFFFFF; border: 1px solid #734725; font-size: 16px; width: 100%; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);"
                 required>
