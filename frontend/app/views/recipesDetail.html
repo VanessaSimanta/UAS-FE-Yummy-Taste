@@ -1,41 +1,152 @@
-<div class="container mt-5" ng-controller="recipesDetailCtrl">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yummy Taste - Recipe Details</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body style="background-color: #F4E4D3;">
 
-    <div class="recipe-card">
-        <h1 class="text-center mb-lg-4 font-weight-bold"> {{ recipe.name }}</h1>
-        <div class="text-center mb-4">
+<!-- Sticky Primary Navbar -->
+<nav class="navbar navbar-light sticky-top primary-navbar" style="background-color: #E4CCAC; padding: 5px 0; z-index: 1030;">
+    <div class="container d-flex align-items-center justify-content-between">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="/assets/navlog.png" alt="Logo" style="width: 80px; height: 80px; margin-right: 5px; margin-left: 90px;">
+            <span class="ms-2" style="font-family: 'Baloo 2', cursive; font-size: 40px; font-weight: bold; color: #734725; margin-top: 10px; margin-right: 180px;">Yummy Taste</span>
+        </a>
+        <div class="d-flex align-items-center ms-auto me-3">
+            <form class="d-flex align-items-center" style="max-width: 400px;">
+                <div class="input-group rounded-pill w-140" style="background-color: #f8ebe2; border: 1px solid #734725; height: 40px;">
+                    <input 
+                        class="form-control border-0 rounded-pill ps-3" 
+                        type="search" 
+                        placeholder="Search Recipes..." 
+                        aria-label="Search" 
+                        style="background-color: transparent; box-shadow: none; height: 100%;">
+                    <button 
+                        class="btn d-flex justify-content-center align-items-center" 
+                        type="submit" 
+                        style="background-color: #734725; border-radius: 50%; width: 40px; height: 40px;">
+                        <i class="fas fa-search text-white"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="d-flex align-items-center" style="gap: 10px;">
+            <a href="#!/login" class="btn btn-dark rounded-pill px-4" style="background-color: #734725; color: #E4CCAC;">Login</a>
+            <a href="#!/signUp" class="btn btn-dark rounded-pill px-4" style="background-color: #734725; color: #E4CCAC;">Sign up</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Sticky Secondary Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top secondary-navbar" style="background-color: #734725; z-index: 1020;">
+    <div class="container">
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item mx-3"> 
+                    <a class="nav-link" href="#!/home">
+                        Home <i class="fas fa-home mr-1"></i>
+                    </a>
+                </li>
+                <li class="nav-item mx-3"> 
+                    <a class="nav-link" href="#!/recipes">
+                        Our Recipes <i class="fas fa-utensils mr-1"></i>
+                    </a>
+                </li>
+                <li class="nav-item mx-3"> 
+                    <a class="nav-link" href="#!/save">
+                        Saved Recipes <i class="fas fa-heart mr-1"></i>
+                    </a>
+                </li>
+                <li class="nav-item mx-3"> 
+                    <a class="nav-link" href="#!/account">
+                        My Account <i class="fas fa-user-circle mr-1"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Recipe Details -->
+<div class="container mt-5">
+    <div class="card shadow-lg" style="background-color: #D9BBA9; color: #734725;">
+        <div class="card-header text-center" style="background-color: #C6A388;">
+            <h1>{{ recipe.name }}</h1>
+        </div>
+        <div class="card-body text-center">
             <p><strong>Cuisine :</strong> {{ recipe.cuisine }}</p>
             <p><strong>Difficulty :</strong> {{ recipe.difficulty }}</p>
             <p><strong>Prep Time :</strong> {{ recipe.prepTimeMinutes }} Minutes</p>
             <p><strong>Cooking Time :</strong> {{ recipe.cookTimeMinutes }} Minutes</p>
             <p><strong>Servings :</strong> {{ recipe.servings }} Servings</p>
             <p><strong>Calories per Servings :</strong> {{ recipe.caloriesPerServing }} Kkal</p>
-            <p><strong>Rating :</strong> {{ recipe.rating }} Out of {{ recipe.reviewCount }} Reviews</p>
+            <p><strong>Rating :</strong> {{ recipe.rating }} out of {{ recipe.reviewCount }} reviews</p>
+            <img class="img-fluid rounded my-4" src="{{ recipe.image }}" style="max-width: 600px;">
         </div>
-        <div class="text-center">
-            <img class="img-fluid" style="width: 500px;" src= "{{recipe.image}}">
-        </div>
-    </div>
-
-        <!-- Ingredients Section -->
-        <div class="mt-5">
-            <h2 class="text-center mb-4">Ingredients</h2>
-            <ul class="list-group">
-                <li class="list-group-item" ng-repeat="ingredient in recipe.ingredients">
+        <div class="card-footer">
+            <h5 class="text-center">Ingredients</h5>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" ng-repeat="ingredient in recipe.ingredients" style="background-color: #F4E4D3; color: #734725;">
                     <input type="checkbox" id="ingredient-{{$index}}">
-                    <label for="ingredient-{{$index}}">{{ ingredient }}</label>
+                    <label for="ingredient-{{$index}}" class="ms-2">{{ ingredient }}</label>
                 </li>
             </ul>
         </div>
+    </div>
 
-        <!-- Instructions Section -->
-        <div class="mt-5">
-            <h2 class="text-center mb-4">Instructions</h2>
+    <!-- Instructions Section -->
+    <div class="card mt-4 shadow-lg" style="background-color: #D9BBA9; color: #734725;">
+        <div class="card-header text-center" style="background-color: #C6A388;">
+            <h2>Instructions</h2>
+        </div>
+        <div class="card-body">
             <ol>
-                <li class="list-group-item" ng-repeat="instruction in recipe.instructions">
-                    <label id="instruction{{$index}}">{{ instruction }}</label>
-                </li>
+                <li class="mb-2" ng-repeat="instruction in recipe.instructions">{{ instruction }}</li>
             </ol>
-        </div>           
-
+        </div>
     </div>
 </div>
+
+<!-- Footer -->
+<footer class="pt-3" style="background-color: #E4CCAC;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <a href="#" class="navbar-brand">
+                    <img src="/assets/logoo.png" alt="Logo" style="width: 150px;">
+                </a>
+            </div>
+            <div class="col-md-4">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-dark text-decoration-none">Home</a></li>
+                    <li><a href="#" class="text-dark text-decoration-none">Our Recipes</a></li>
+                    <li><a href="#" class="text-dark text-decoration-none">Saved Recipes</a></li>
+                    <li><a href="#" class="text-dark text-decoration-none">My Account</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5>Follow Us</h5>
+                <div>
+                    <a href="#" class="text-dark mx-2"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-dark mx-2"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-dark mx-2"><i class="fab fa-pinterest"></i></a>
+                    <a href="#" class="text-dark mx-2"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center pt-3 pb-3" style="background-color: #734725;">
+        <p class="mb-0" style="color: #E4CCAC;">© 2024 Yummy Taste. All rights reserved.</p>
+    </div>
+</footer>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
