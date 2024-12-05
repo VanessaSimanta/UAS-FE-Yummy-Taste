@@ -1,23 +1,15 @@
 <!-- Sticky Primary Navbar -->
 <nav class="navbar navbar-light sticky-top primary-navbar" style="background-color: #E4CCAC; padding: 5px 0; z-index: 1030;">
-    <div class="container d-flex align-items-center justify-content-between">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
         <a class="navbar-brand d-flex align-items-center" href="#">
-            <img src="/assets/navlog.png" alt="Logo" style="width: 80px; height: 80px; margin-right: 5px; margin-left: 90px;">
-            <span class="ms-2" style="font-family: 'Baloo 2', cursive; font-size: 40px; font-weight: bold; color: #734725; margin-top: 10px; margin-right: 180px;">Yummy Taste</span>
+            <img src="/assets/navlog.png" alt="Logo" class="img-fluid" style="width: 80px; height: 80px; margin-right: 5px;">
+            <span class="ms-2" style="font-family: 'Baloo 2', cursive; font-size: 40px; font-weight: bold; color: #734725; margin-top: 10px;">Yummy Taste</span>
         </a>
         <div class="d-flex align-items-center ms-auto me-3">
             <form class="d-flex align-items-center" style="max-width: 400px;">
-                <div class="input-group rounded-pill w-140" style="background-color: #f8ebe2; border: 1px solid #734725; height: 40px;">
-                    <input 
-                        class="form-control border-0 rounded-pill ps-3" 
-                        type="search" 
-                        placeholder="Search Recipes..." 
-                        aria-label="Search" 
-                        style="background-color: transparent; box-shadow: none; height: 100%;">
-                    <button 
-                        class="btn d-flex justify-content-center align-items-center" 
-                        type="submit" 
-                        style="background-color: #734725; border-radius: 50%; width: 40px; height: 40px;">
+                <div class="input-group rounded-pill w-100" style="background-color: #f8ebe2; border: 1px solid #734725; height: 40px;">
+                    <input class="form-control border-0 rounded-pill ps-3" type="search" placeholder="Search Recipes..." aria-label="Search" style="background-color: transparent; box-shadow: none; height: 100%;">
+                    <button class="btn d-flex justify-content-center align-items-center" type="submit" style="background-color: #734725; border-radius: 50%; width: 40px; height: 40px;">
                         <i class="fas fa-search text-white"></i>
                     </button>
                 </div>
@@ -32,7 +24,10 @@
 
 <!-- Sticky Secondary Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top secondary-navbar" style="background-color: #734725; z-index: 1020;">
-    <div class="container">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item mx-3"> 
@@ -63,8 +58,7 @@
 <!-- Content Section -->
 <div class="container my-5">
     <div ng-controller="getUserCtrl">
-        <h1 class="mb-4 text-center font-weight-bold" style="font-family: 'Baloo 2', cursive; color: #734725;">My
-            Account</h1>
+        <h1 class="mb-4 text-center font-weight-bold" style="font-family: 'Baloo 2', cursive; color: #734725;">My Account</h1>
 
         <!-- Profile Information -->
         <div class="card p-4 rounded shadow-lg" style="background-color: #f8ebe2">
@@ -89,7 +83,7 @@
 
     <div ng-controller="updateUserCtrl">
         <div class="mt-4">
-            <div class="d-flex flex-col gap-3">
+            <div class="d-flex flex-column gap-3">
                 <!-- Edit Profile -->
                 <button class="btn w-100 text-white m-2" ng-click="showEditProfile = !showEditProfile">
                     Edit Profile
@@ -102,12 +96,12 @@
             </div>
 
             <div class="mt-4">
-                <div class="d-flex flex-row gap-3 justify-content-between align-items-start"
+                <div class="d-flex flex-column flex-lg-row gap-3 justify-content-between align-items-start"
                     ng-class="{'justify-content-center': showEditProfile != showEditPassword}">
 
                     <!-- Edit Profile Form -->
                     <div class="card p-4 shadow-lg mb-5" ng-show="showEditProfile"
-                        style="background-color: #f8ebe2; border-radius: 10px; width: 48%;">
+                        style="background-color: #f8ebe2; border-radius: 10px; width: 100%; max-width: 48%;">
                         <h3 class="text-center font-weight-bolder" style="color: #734725;">Edit Profile</h3>
                         <form name="updateDataForm" ng-submit="updateUser()" novalidate>
                             <!-- Full Name -->
@@ -120,7 +114,6 @@
                             <div ng-messages="updateDataForm.name.$error"
                                 ng-if="updateDataForm.name.$touched && updateDataForm.name.$invalid"
                                 class="text-danger mt-0 p-0 mb-3 mt-3">
-
                                 <div ng-message="required" class="text-danger mt-0 p-0 mb-3">Full name is required</div>
                             </div>
                             <!-- Email -->
@@ -145,136 +138,52 @@
                                     ng-class="{'is-invalid': updateDataForm.phoneNumber.$touched && updateDataForm.phoneNumber.$invalid}">
                             </div>
                             <div ng-messages="updateDataForm.phoneNumber.$error"
-                                ng-if="updateDataForm.phoneNumber.$touched">
-                                <div ng-message="required" class="text-danger mt-0 p-0 mb-3"
-                                    ng-if="updateDataForm.phoneNumber.$error.required">Phone number is required</div>
-                                <div ng-message="pattern" class="text-danger mt-0 p-0 mb-3"
-                                    ng-if="updateDataForm.phoneNumber.$error.pattern">Phone number must be numeric</div>
-                                <div ng-message="minlength" class="text-danger mt-0 p-0 mb-3"
-                                    ng-if="updateDataForm.phoneNumber.$error.minlength">Phone number must be at least 10</div>
-                            </div>
-                            <!-- Date of Birth -->
-                            <div class="mb-3">
-                                <label class="form-label font-weight-bolder">Date of Birth</label>
-                                <input type="date" class="form-control form-control-lg bg-light fs-6"
-                                    placeholder="Date of Birth" ng-model="user.dateOfBirth" name="dateOfBirth" required
-                                    ng-class="{'is-invalid': updateDataForm.dateOfBirth.$touched'}">
-                            </div>
-                            <div ng-messages="updateDataForm.dateOfBirth.$error"
-                                ng-if="updateDataForm.dateOfBirth.$touched">
-                                <div ng-message="required" class="text-danger mt-0 p-0 mb-3"
-                                    ng-if="updateDataForm.dateOfBirth.$error.required">Date of Birth is required</div>
+                                ng-if="updateDataForm.phoneNumber.$touched" class="text-danger mt-0 p-0 mb-3 mt-3">
+                                <div ng-message="pattern" class="text-danger mt-0 p-0 mb-3">Invalid phone number</div>
+                                <div ng-message="minlength" class="text-danger mt-0 p-0 mb-3">
+                                    Phone number must be at least 10 digits</div>
                             </div>
                             <!-- Submit Button -->
-                            <button type="submit" class="btn w-100" ng-disabled="updateDataForm.$invalid">Save
-                                Changes</button>
+                            <button class="btn btn-dark w-100" ng-disabled="updateDataForm.$invalid">Save Changes</button>
                         </form>
                     </div>
 
-                    <!-- Edit Password Form -->
-                    <div class="card p-4 shadow-lg mb-3" ng-show="showEditPassword"
-                        style="background-color: #f8ebe2; border-radius: 10px; width: 48%;">
+                    <!-- Change Password Form -->
+                    <div class="card p-4 shadow-lg" ng-show="showEditPassword"
+                        style="background-color: #f8ebe2; border-radius: 10px; width: 100%; max-width: 48%;">
                         <h3 class="text-center font-weight-bolder" style="color: #734725;">Change Password</h3>
-                        <form name="updatePassForm" ng-submit="updatePass()" novalidate>
-                            <label class="form-label font-weight-bolder">Current Password</label>
-                            <div class="input-group mb-3">
-                                <input type="{{showPassword ? 'text' : 'password'}}"
-                                    class="form-control form-control-lg bg-light fs-6" placeholder="Password"
-                                    ng-model="user.password" name="password" required ng-minlength="6"
-                                    ng-class="{'is-invalid': updatePassForm.password.$touched && updatePassForm.password.$invalid}"
-                                    ng-pattern="/[A-Za-z]/">
-                                <span class="input-group-append">
-                                    <button type="button" class="btn btn-outline-secondary btn-custom"
-                                        ng-click="showPassword = !showPassword">
-                                        <i class="fas"
-                                            ng-class="{'fa-eye': !showPassword, 'fa-eye-slash': showPassword}"></i>
-                                    </button>
-                                </span>
+                        <form name="changePasswordForm" ng-submit="changePassword()" novalidate>
+                            <!-- Current Password -->
+                            <div class="mb-3">
+                                <label class="form-label font-weight-bolder">Current Password</label>
+                                <input type="password" class="form-control form-control-lg bg-light fs-6"
+                                    placeholder="Current Password" ng-model="user.currentPassword" name="currentPassword"
+                                    required ng-class="{'is-invalid': changePasswordForm.currentPassword.$touched && changePasswordForm.currentPassword.$invalid}">
                             </div>
-                            <div ng-messages="updatePassForm.password.$error" ng-if="updatePassForm.password.$touched">
-                                <div ng-message="required" class="text-danger mt-0 p-0 mb-3"
-                                    ng-if="updatePassForm.password.$error.required">Password is required</div>
-                                <div ng-message="minlength" class="text-danger mt-0 p-0 mb-3"
-                                    ng-if="updatePassForm.password.$error.minlength">Password must be at least 6
-                                    characters long</div>
-                                    <div ng-message="pattern" class="text-danger mt-0 p-0 mb-3"
-                                    ng-if="updatePassForm.password.$error.pattern">
-                                    Password must have at least 1 alphabet
-                                </div>
+                            <div ng-messages="changePasswordForm.currentPassword.$error"
+                                ng-if="changePasswordForm.currentPassword.$touched">
+                                <div ng-message="required" class="text-danger">Current password is required</div>
                             </div>
-                            <!-- New Password-->
-                            <label class="form-label font-weight-bolder">New Password</label>
-                            <div class="input-group mb-3">
-                                <input type="{{showNewPassword ? 'text' : 'password'}}"
-                                    class="form-control form-control-lg bg-light fs-6" placeholder="New Password"
-                                    ng-model="user.newPassword" name="newPassword" required ng-minlength="6"
-                                    ng-class="{'is-invalid': updatePassForm.newPassword.$touched && updatePassForm.newPassword.$invalid}"
-                                    ng-pattern="/[A-Za-z]/">
-                                <span class="input-group-append">
-                                    <button type="button" class="btn btn-outline-secondary btn-custom"
-                                        ng-click="showNewPassword = !showNewPassword">
-                                        <i class="fas"
-                                            ng-class="{'fa-eye': !showNewPassword, 'fa-eye-slash': showNewPassword}"></i>
-                                    </button>
-                                </span>
+                            <!-- New Password -->
+                            <div class="mb-3">
+                                <label class="form-label font-weight-bolder">New Password</label>
+                                <input type="password" class="form-control form-control-lg bg-light fs-6"
+                                    placeholder="New Password" ng-model="user.newPassword" name="newPassword"
+                                    required ng-class="{'is-invalid': changePasswordForm.newPassword.$touched && changePasswordForm.newPassword.$invalid}">
                             </div>
-                            <div ng-messages="updatePassForm.newPassword.$error"
-                                ng-if="updatePassForm.newPassword.$touched">
-                                <div ng-message="required" class="text-danger mt-0 p-0 mb-3"
-                                    ng-if="updatePassForm.newPassword.$error.required">Password is required</div>
-                                <div ng-message="minlength" class="text-danger mt-0 p-0 mb-3"
-                                    ng-if="updatePassForm.newPassword.$error.minlength">Password must be at least 6
-                                    characters long</div>
-                                <div ng-message="pattern" class="text-danger mt-0 p-0 mb-3"
-                                    ng-if="updatePassForm.newPassword.$error.pattern">
-                                    Password must have at least 1 alphabet
-                                </div>
-                            </div>
-                            <!-- Confirm Password -->
-                            <label class="form-label font-weight-bolder">Confirm New Password</label>
-                            <div class="input-group mb-3">
-                                <input type="{{showConfirmPassword ? 'text' : 'password'}}"
-                                    class="form-control form-control-lg bg-light fs-6" placeholder="Confirm Password"
-                                    ng-model="user.confirmPassword" name="confirmPassword" required ng-minlength="6"
-                                    ng-pattern="/[A-Za-z]/">
-                                <span class="input-group-append">
-                                    <button type="button" class="btn btn-outline-secondary btn-custom"
-                                        ng-click="showConfirmPassword = !showConfirmPassword">
-                                        <i class="fas"
-                                            ng-class="{'fa-eye': !showConfirmPassword, 'fa-eye-slash': showConfirmPassword}"></i>
-                                    </button>
-                                </span>
-                            </div>
-                            <div ng-messages="updatePassForm.confirmPassword.$error"
-                                ng-if="updatePassForm.confirmPassword.$touched">
-                                <div ng-message="required" class="text-danger mt-0 p-0 mb-3"
-                                    ng-if="updatePassForm.confirmPassword.$error.required">
-                                    Confirm Password is required
-                                </div>
-                                <div ng-message="minlength" class="text-danger mt-0 p-0 mb-3"
-                                    ng-if="updatePassForm.confirmPassword.$error.minlength">
-                                    Confirm Password must be at least 6 characters long
-                                </div>
-                                <div ng-message="pattern" class="text-danger mt-0 p-0 mb-3"
-                                    ng-if="updatePassForm.confirmPassword.$error.pattern">
-                                    Confirm Password must have at least 1 alphabet
-                                </div>
-                                <div class="text-danger mt-0 p-0 mb-3"
-                                    ng-if="user.newPassword !== user.confirmPassword">
-                                    Passwords do not match
-                                </div>
-                                <div class="text-danger mt-0 p-0 mb-3" ng-if="user.password === user.newPassword">
-                                    Current Password and New Password is the same
-                                </div>
+                            <div ng-messages="changePasswordForm.newPassword.$error"
+                                ng-if="changePasswordForm.newPassword.$touched">
+                                <div ng-message="required" class="text-danger">New password is required</div>
                             </div>
                             <!-- Submit Button -->
-                            <button type="submit" class="btn w-100" ng-disabled="updatePassForm.$invalid">Change
-                                Password</button>
+                            <button class="btn btn-dark w-100" ng-disabled="changePasswordForm.$invalid">Save Changes</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
         <div ng-controller="logOutDeleteUserCtrl">
             <div class="text-center">
                 <!-- Logout -->

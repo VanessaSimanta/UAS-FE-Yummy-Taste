@@ -25,30 +25,32 @@
             <h4 class="mb-0"><i class="fas fa-users"></i> Users List</h4>
         </div>
         <div class="card-body p-0">
-            <table class="table table-hover table-responsive-md table-bordered text-center mb-0">
-                <thead class="bg-brown-dark text-white">
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Date of Birth</th>
-                        <th>Phone Number</th>
-                        <th>Role</th>
-                        <th>Subscription</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="user in users">
-                        <td>{{ $index + 1 }}</td>
-                        <td>{{ user.name }}</td>
-                        <td>{{ user.email }}</td>
-                        <td>{{ user.date_of_birth | date:'dd MMM yyyy' }}</td>
-                        <td>{{ user.phone_number }}</td>
-                        <td>{{ user.role }}</td>
-                        <td>{{ user.subscription }}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table class="table table-hover text-center mb-0">
+                    <thead class="bg-brown-dark text-white">
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Date of Birth</th>
+                            <th>Phone Number</th>
+                            <th>Role</th>
+                            <th>Subscription</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="user in users">
+                            <td>{{ $index + 1 }}</td>
+                            <td>{{ user.name }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.date_of_birth | date:'dd MMM yyyy' }}</td>
+                            <td>{{ user.phone_number }}</td>
+                            <td>{{ user.role }}</td>
+                            <td>{{ user.subscription }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="alert alert-danger m-3" ng-if="errorMessage">
             <i class="fas fa-exclamation-circle"></i> {{ errorMessage }}
@@ -63,24 +65,26 @@
             <h5 class="mb-0"><i class="fas fa-comments"></i> Comments</h5>
         </div>
         <div class="card-body p-0">
-            <table class="table table-hover table-responsive-md table-bordered text-center mb-0">
-                <thead class="bg-brown-dark text-white">
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Comment</th>
-                        <th>Created At</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="comment in comments">
-                        <td>{{ $index + 1 }}</td>
-                        <td>{{ comment.name }}</td>
-                        <td>{{ comment.comment }}</td>
-                        <td>{{ comment.created_at | date:'yyyy-MM-dd HH:mm' }}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table class="table table-hover text-center mb-0">
+                    <thead class="bg-brown-dark text-white">
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Comment</th>
+                            <th>Created At</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="comment in comments">
+                            <td>{{ $index + 1 }}</td>
+                            <td>{{ comment.name }}</td>
+                            <td>{{ comment.comment }}</td>
+                            <td>{{ comment.created_at | date:'yyyy-MM-dd HH:mm' }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
@@ -92,24 +96,26 @@
             <h5 class="mb-0"><i class="fas fa-envelope"></i> Messages</h5>
         </div>
         <div class="card-body p-0">
-            <table class="table table-hover table-responsive-md table-bordered text-center mb-0">
-                <thead class="bg-brown-dark text-white">
-                    <tr>
-                        <th>#</th>
-                        <th>Email</th>
-                        <th>Message</th>
-                        <th>Created At</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="message in messages">
-                        <td>{{ $index + 1 }}</td>
-                        <td>{{ message.email }}</td>
-                        <td>{{ message.message }}</td>
-                        <td>{{ message.created_at | date:'yyyy-MM-dd HH:mm' }}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table class="table table-hover text-center mb-0">
+                    <thead class="bg-brown-dark text-white">
+                        <tr>
+                            <th>#</th>
+                            <th>Email</th>
+                            <th>Message</th>
+                            <th>Created At</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="message in messages">
+                            <td>{{ $index + 1 }}</td>
+                            <td>{{ message.email }}</td>
+                            <td>{{ message.message }}</td>
+                            <td>{{ message.created_at | date:'yyyy-MM-dd HH:mm' }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
@@ -144,6 +150,12 @@
     .btn-outline-light:hover {
         background-color: #FFF;
         color: #5C4033;
+    }
+
+    @media (max-width: 767px) {
+        .card-header h4, .card-header h5 {
+            font-size: 1.2rem;
+        }
     }
 </style>
 </body>

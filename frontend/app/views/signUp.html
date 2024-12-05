@@ -1,52 +1,17 @@
-<div
-  class="container d-flex justify-content-center align-items-center min-vh-100 bg-light"
->
-  <div
-    class="row border rounded-lg p-4 bg-white shadow-lg box-area"
-    style="max-width: 800px"
-  >
+<div class="container d-flex justify-content-center align-items-center min-vh-100 bg-light">
+  <div class="row border rounded-lg p-4 bg-white shadow-lg box-area" style="max-width: 800px;">
     <!-- Left box: Image and Welcome Text -->
-    <div
-      class="col-md-6 rounded-start d-flex justify-content-center align-items-center flex-column left-box p-4"
-      style="background-color: #e4ccac"
-    >
-      <img
-        src="/assets/logoo.png"
-        class="img-fluid mb-3"
-        style="width: 300px"
-        alt="Logo"
-      />
-      <h2
-        class="text-center"
-        style="
-          font-family: 'Roboto', sans-serif;
-          font-weight: 700;
-          color: #734725;
-        "
-      >
-        Hello !
-      </h2>
-      <p
-        class="text-center px-3"
-        style="
-          font-size: 0.9rem;
-          font-family: 'Roboto', sans-serif;
-          color: #734725;
-        "
-      >
-        Experience the best recipes with us. <br />
-        Sign in to explore more!
+    <div class="col-md-6 rounded-start d-flex justify-content-center align-items-center flex-column left-box p-4" style="background-color: #e4ccac;">
+      <img src="/assets/logoo.png" class="img-fluid mb-3" style="width: 300px;" alt="Logo" />
+      <h2 class="text-center" style="font-family: 'Roboto', sans-serif; font-weight: 700; color: #734725;">Hello !</h2>
+      <p class="text-center px-3" style="font-size: 0.9rem; font-family: 'Roboto', sans-serif; color: #734725;">
+        Experience the best recipes with us. <br /> Sign in to explore more!
       </p>
     </div>
 
     <!-- Right box: Sign Up Form -->
     <div class="col-md-6 right-box p-4">
-      <h3
-        class="header-text mb-4"
-        style="font-family: 'Roboto', sans-serif; color: #734725"
-      >
-        Sign Up
-      </h3>
+      <h3 class="header-text mb-4" style="font-family: 'Roboto', sans-serif; color: #734725;">Sign Up</h3>
 
       <form name="signupForm" ng-submit="signup()" novalidate>
         <!-- Full Name -->
@@ -61,14 +26,8 @@
             ng-class="{'is-invalid': signupForm.name.$touched && signupForm.name.$invalid}"
           />
         </div>
-        <div
-          ng-messages="signupForm.name.$error"
-          ng-if="signupForm.name.$touched && signupForm.name.$invalid"
-          class="text-danger mt-0 p-0 mb-3 mt-3"
-        >
-          <div ng-message="required" class="text-danger mt-0 p-0 mb-3">
-            Full name is required
-          </div>
+        <div ng-messages="signupForm.name.$error" ng-if="signupForm.name.$touched && signupForm.name.$invalid" class="text-danger mt-0 p-0 mb-3 mt-3">
+          <div ng-message="required" class="text-danger mt-0 p-0 mb-3">Full name is required</div>
         </div>
 
         <!-- Email -->
@@ -83,24 +42,9 @@
             ng-class="{'is-invalid': signupForm.email.$touched && signupForm.email.$invalid}"
           />
         </div>
-        <div
-          ng-messages="signupForm.email.$error"
-          ng-if="signupForm.email.$touched"
-        >
-          <div
-            ng-message="required"
-            class="text-danger mt-0 p-0 mb-3"
-            ng-if="signupForm.email.$error.required"
-          >
-            Email is required
-          </div>
-          <div
-            ng-message="email"
-            class="text-danger mt-0 p-0 mb-3"
-            ng-if="signupForm.email.$error.email"
-          >
-            Invalid email format
-          </div>
+        <div ng-messages="signupForm.email.$error" ng-if="signupForm.email.$touched">
+          <div ng-message="required" class="text-danger mt-0 p-0 mb-3" ng-if="signupForm.email.$error.required">Email is required</div>
+          <div ng-message="email" class="text-danger mt-0 p-0 mb-3" ng-if="signupForm.email.$error.email">Invalid email format</div>
         </div>
 
         <!-- Phone Number -->
@@ -117,31 +61,10 @@
             ng-class="{'is-invalid': signupForm.phoneNumber.$touched && signupForm.phoneNumber.$invalid}"
           />
         </div>
-        <div
-          ng-messages="signupForm.phoneNumber.$error"
-          ng-if="signupForm.phoneNumber.$touched"
-        >
-          <div
-            ng-message="required"
-            class="text-danger mt-0 p-0 mb-3"
-            ng-if="signupForm.phoneNumber.$error.required"
-          >
-            Phone number is required
-          </div>
-          <div
-            ng-message="pattern"
-            class="text-danger mt-0 p-0 mb-3"
-            ng-if="signupForm.phoneNumber.$error.pattern"
-          >
-            Phone number must be numeric
-          </div>
-          <div
-            ng-message="minlength"
-            class="text-danger mt-0 p-0 mb-3"
-            ng-if="updateDataForm.phoneNumber.$error.minlength"
-          >
-            Phone number must be at least 10
-          </div>
+        <div ng-messages="signupForm.phoneNumber.$error" ng-if="signupForm.phoneNumber.$touched">
+          <div ng-message="required" class="text-danger mt-0 p-0 mb-3" ng-if="signupForm.phoneNumber.$error.required">Phone number is required</div>
+          <div ng-message="pattern" class="text-danger mt-0 p-0 mb-3" ng-if="signupForm.phoneNumber.$error.pattern">Phone number must be numeric</div>
+          <div ng-message="minlength" class="text-danger mt-0 p-0 mb-3" ng-if="updateDataForm.phoneNumber.$error.minlength">Phone number must be at least 10</div>
         </div>
 
         <!-- Date of Birth -->
@@ -153,20 +76,11 @@
             ng-model="user.dateOfBirth"
             name="dateOfBirth"
             required
-            ng-class="{'is-invalid': signupForm.dateOfBirth.$touched'}"
+            ng-class="{'is-invalid': signupForm.dateOfBirth.$touched}"
           />
         </div>
-        <div
-          ng-messages="signupForm.dateOfBirth.$error"
-          ng-if="signupForm.dateOfBirth.$touched"
-        >
-          <div
-            ng-message="required"
-            class="text-danger mt-0 p-0 mb-3"
-            ng-if="signupForm.dateOfBirth.$error.required"
-          >
-            Date of Birth is required
-          </div>
+        <div ng-messages="signupForm.dateOfBirth.$error" ng-if="signupForm.dateOfBirth.$touched">
+          <div ng-message="required" class="text-danger mt-0 p-0 mb-3" ng-if="signupForm.dateOfBirth.$error.required">Date of Birth is required</div>
         </div>
 
         <!-- Password -->
@@ -183,43 +97,15 @@
             ng-class="{'is-invalid': loginForm.password.$touched && loginForm.password.$invalid}"
           />
           <span class="input-group-append">
-            <button
-              type="button"
-              class="btn btn-outline-secondary btn-custom"
-              ng-click="showPassword = !showPassword"
-            >
-              <i
-                class="fas"
-                ng-class="{'fa-eye': !showPassword, 'fa-eye-slash': showPassword}"
-              ></i>
+            <button type="button" class="btn btn-outline-secondary btn-custom" ng-click="showPassword = !showPassword">
+              <i class="fas" ng-class="{'fa-eye': !showPassword, 'fa-eye-slash': showPassword}"></i>
             </button>
           </span>
         </div>
-        <div
-          ng-messages="signupForm.password.$error"
-          ng-if="signupForm.password.$touched"
-        >
-          <div
-            ng-message="required"
-            class="text-danger mt-0 p-0 mb-3"
-            ng-if="signupForm.password.$error.required"
-          >
-            Password is required
-          </div>
-          <div
-            ng-message="minlength"
-            class="text-danger mt-0 p-0 mb-3"
-            ng-if="signupForm.password.$error.minlength"
-          >
-            Password must be at least 6 characters long
-          </div>
-          <div
-            ng-message="pattern"
-            class="text-danger mt-0 p-0 mb-3"
-            ng-if="signupForm.password.$error.pattern"
-          >
-            Password must have at least 1 alphabet
-          </div>
+        <div ng-messages="signupForm.password.$error" ng-if="signupForm.password.$touched">
+          <div ng-message="required" class="text-danger mt-0 p-0 mb-3" ng-if="signupForm.password.$error.required">Password is required</div>
+          <div ng-message="minlength" class="text-danger mt-0 p-0 mb-3" ng-if="signupForm.password.$error.minlength">Password must be at least 6 characters long</div>
+          <div ng-message="pattern" class="text-danger mt-0 p-0 mb-3" ng-if="signupForm.password.$error.pattern">Password must have at least 1 alphabet</div>
         </div>
 
         <!-- Confirm Password -->
@@ -235,72 +121,27 @@
             ng-pattern="/[A-Za-z]/"
           />
           <span class="input-group-append">
-            <button
-              type="button"
-              class="btn btn-outline-secondary btn-custom"
-              ng-click="showConfirmPassword = !showConfirmPassword"
-            >
-              <i
-                class="fas"
-                ng-class="{'fa-eye': !showConfirmPassword, 'fa-eye-slash': showConfirmPassword}"
-              ></i>
+            <button type="button" class="btn btn-outline-secondary btn-custom" ng-click="showConfirmPassword = !showConfirmPassword">
+              <i class="fas" ng-class="{'fa-eye': !showConfirmPassword, 'fa-eye-slash': showConfirmPassword}"></i>
             </button>
           </span>
         </div>
-        <div
-          ng-messages="signupForm.confirmPassword.$error"
-          ng-if="signupForm.confirmPassword.$touched"
-        >
-          <div
-            ng-message="required"
-            class="text-danger mt-0 p-0 mb-3"
-            ng-if="signupForm.confirmPassword.$error.required"
-          >
-            Confirm Password is required
-          </div>
-          <div
-            ng-message="minlength"
-            class="text-danger mt-0 p-0 mb-3"
-            ng-if="signupForm.confirmPassword.$error.minlength"
-          >
-            Confirm Password must be at least 6 characters long
-          </div>
-          <div
-            ng-message="pattern"
-            class="text-danger mt-0 p-0 mb-3"
-            ng-if="signupForm.confirmPassword.$error.pattern"
-          >
-            Password must have at least 1 alphabet
-          </div>
-          <div
-            class="text-danger mt-0 p-0 mb-3"
-            ng-if="user.password !== user.confirmPassword"
-          >
-            Passwords do not match
-          </div>
+        <div ng-messages="signupForm.confirmPassword.$error" ng-if="signupForm.confirmPassword.$touched">
+          <div ng-message="required" class="text-danger mt-0 p-0 mb-3" ng-if="signupForm.confirmPassword.$error.required">Confirm Password is required</div>
+          <div ng-message="minlength" class="text-danger mt-0 p-0 mb-3" ng-if="signupForm.confirmPassword.$error.minlength">Confirm Password must be at least 6 characters long</div>
+          <div ng-message="pattern" class="text-danger mt-0 p-0 mb-3" ng-if="signupForm.confirmPassword.$error.pattern">Password must have at least 1 alphabet</div>
+          <div class="text-danger mt-0 p-0 mb-3" ng-if="user.password !== user.confirmPassword">Passwords do not match</div>
         </div>
 
         <!-- Submit Button -->
-        <button
-          type="submit"
-          class="btn btn-custom btn-lg w-100 mb-3"
-          ng-disabled="signupForm.$invalid"
-        >
-          Sign Up
-        </button>
+        <button type="submit" class="btn btn-custom btn-lg w-100 mb-3" ng-disabled="signupForm.$invalid">Sign Up</button>
       </form>
 
       <!-- Login Link -->
       <p class="text-center m-0">
-        <small class="text-muted"
-          >Already have an account?
-          <button
-            ng-click="login()"
-            class="btn btn-link"
-            style="color: #734725"
-          >
-            Log In
-          </button>
+        <small class="text-muted">
+          Already have an account?
+          <button ng-click="login()" class="btn btn-link" style="color: #734725">Log In</button>
         </small>
       </p>
     </div>

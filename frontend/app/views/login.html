@@ -1,161 +1,103 @@
-<div
-  class="container d-flex justify-content-center align-items-center min-vh-100 bg-light"
->
-  <div
-    class="row border rounded-lg p-4 bg-white shadow-lg box-area"
-    style="max-width: 800px"
-  >
-    <!-- Left box: Image and Welcome Text -->
-    <div
-      class="col-md-6 rounded-start d-flex justify-content-center align-items-center flex-column left-box p-4"
-      style="background-color: #e4ccac"
-    >
-      <img
-        src="/assets/logoo.png"
-        class="mb-3"
-        style="width: 300px"
-        alt="Logo"
-      />
-      <h2
-        class="text-center"
-        style="
-          font-family: 'Roboto', sans-serif;
-          font-weight: 700;
-          color: #734725;
-        "
-      >
-        Welcome Back!
-      </h2>
-      <p
-        class="text-center px-3"
-        style="
-          font-size: 0.9rem;
-          font-family: 'Roboto', sans-serif;
-          color: #734725;
-        "
-      >
-        Experience the best recipes with us. <br />
-        Login to explore more!
-      </p>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    .btn-custom {
+      background-color: #734725;
+      color: white;
+    }
 
-    <!-- Right box: Login Form -->
-    <div class="col-md-6 right-box p-4">
-      <h3
-        class="header-text mb-4"
-        style="font-family: 'Roboto', sans-serif; color: #734725"
-      >
-        Login
-      </h3>
+    .btn-custom:hover {
+      background-color: #5b3f20;
+    }
 
-      <form name="loginForm" ng-submit="login()" novalidate>
-        <!-- Email -->
-        <div class="input-group mb-3">
-          <input
-            type="email"
-            class="form-control form-control-lg bg-light fs-6"
-            placeholder="Email Address"
-            ng-model="user.email"
-            name="email"
-            required
-            ng-class="{'is-invalid': loginForm.email.$touched && loginForm.email.$invalid}"
-          />
-        </div>
-        <div
-          ng-messages="loginForm.email.$error"
-          ng-if="loginForm.email.$touched"
-        >
-          <div
-            ng-message="required"
-            class="text-danger mt-0 p-0 mb-3"
-            ng-if="loginForm.email.$error.required"
-          >
-            Email is required
-          </div>
-          <div
-            ng-message="email"
-            class="text-danger mt-0 p-0 mb-3"
-            ng-if="loginForm.email.$error.email"
-          >
-            Invalid email format
-          </div>
-        </div>
+    .left-box {
+      background-color: #e4ccac;
+    }
 
-        <!-- Password -->
-        <div class="input-group mb-3">
-          <input
-            type="{{showPassword ? 'text' : 'password'}}"
-            class="form-control form-control-lg bg-light fs-6"
-            placeholder="Password"
-            ng-model="user.password"
-            name="password"
-            required
-            ng-minlength="6"
-            ng-pattern="/[A-Za-z]/"
-            ng-class="{'is-invalid': loginForm.password.$touched && loginForm.password.$invalid}"
-          />
-          <span class="input-group-append">
-            <button
-              type="button"
-              class="btn btn-outline-secondary btn-custom"
-              ng-click="showPassword = !showPassword"
-            >
-              <i
-                class="fas"
-                ng-class="{'fa-eye': !showPassword, 'fa-eye-slash': showPassword}"
-              ></i>
-            </button>
-          </span>
-        </div>
-        <div
-          ng-messages="loginForm.password.$error"
-          ng-if="loginForm.password.$touched"
-        >
-          <div
-            ng-message="required"
-            class="text-danger mt-0 p-0 mb-3"
-            ng-if="loginForm.password.$error.required"
-          >
-            Password is required
-          </div>
-          <div
-            ng-message="minlength"
-            class="text-danger mt-0 p-0 mb-3"
-            ng-if="loginForm.password.$error.minlength"
-          >
-            Password must be at least 6 characters long
-          </div>
-          <div
-            ng-message="pattern"
-            class="text-danger mt-0 p-0 mb-3"
-            ng-if="loginForm.password.$error.pattern"
-          >
-            Password must have at least 1 alphabet
-          </div>
-        </div>
+    .box-area {
+      border-radius: 15px;
+    }
 
-        <div class="d-flex justify-content-between align-items-center mb-4">
-          <a href="#" class="text-decoration-none" style="color: #734725"
-            ><small>Forgot Password?</small></a
-          >
-        </div>
+    .input-group .input-group-append .btn-custom {
+      border-radius: 0 5px 5px 0;
+    }
+  </style>
+</head>
+<body class="bg-light">
 
-        <!-- Submit Button -->
-        <button
-          type="submit"
-          class="btn btn-custom btn-lg w-100 mb-3"
-          ng-disabled="loginForm.$invalid"
-        >
+  <div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="row border rounded-lg p-4 bg-white shadow-lg box-area" style="max-width: 800px; width: 100%">
+
+      <!-- Left box: Image and Welcome Text -->
+      <div class="col-md-6 rounded-start d-flex justify-content-center align-items-center flex-column left-box p-4">
+        <img src="/assets/logoo.png" class="mb-3" style="width: 250px" alt="Logo" />
+        <h2 class="text-center" style="font-family: 'Roboto', sans-serif; font-weight: 700; color: #734725;">
+          Welcome Back!
+        </h2>
+        <p class="text-center px-3" style="font-size: 0.9rem; font-family: 'Roboto', sans-serif; color: #734725;">
+          Experience the best recipes with us. <br />
+          Login to explore more!
+        </p>
+      </div>
+
+      <!-- Right box: Login Form -->
+      <div class="col-md-6 right-box p-4">
+        <h3 class="header-text mb-4" style="font-family: 'Roboto', sans-serif; color: #734725">
           Login
-        </button>
-      </form>
+        </h3>
 
-      <p class="text-center m-0">
-        <small class="text-muted"
-          >Don't have an account?
-          <button ng-click="signup()" class="btn btn-link">Sign Up</button>
-        </small>
-      </p>
+        <form name="loginForm" ng-submit="login()" novalidate>
+          <!-- Email -->
+          <div class="input-group mb-3">
+            <input type="email" class="form-control form-control-lg bg-light fs-6" placeholder="Email Address" ng-model="user.email" name="email" required ng-class="{'is-invalid': loginForm.email.$touched && loginForm.email.$invalid}" />
+          </div>
+          <div ng-messages="loginForm.email.$error" ng-if="loginForm.email.$touched">
+            <div ng-message="required" class="text-danger mt-0 p-0 mb-3" ng-if="loginForm.email.$error.required">Email is required</div>
+            <div ng-message="email" class="text-danger mt-0 p-0 mb-3" ng-if="loginForm.email.$error.email">Invalid email format</div>
+          </div>
+
+          <!-- Password -->
+          <div class="input-group mb-3">
+            <input type="{{showPassword ? 'text' : 'password'}}" class="form-control form-control-lg bg-light fs-6" placeholder="Password" ng-model="user.password" name="password" required ng-minlength="6" ng-pattern="/[A-Za-z]/" ng-class="{'is-invalid': loginForm.password.$touched && loginForm.password.$invalid}" />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-outline-secondary btn-custom" ng-click="showPassword = !showPassword">
+                <i class="fas" ng-class="{'fa-eye': !showPassword, 'fa-eye-slash': showPassword}"></i>
+              </button>
+            </span>
+          </div>
+          <div ng-messages="loginForm.password.$error" ng-if="loginForm.password.$touched">
+            <div ng-message="required" class="text-danger mt-0 p-0 mb-3" ng-if="loginForm.password.$error.required">Password is required</div>
+            <div ng-message="minlength" class="text-danger mt-0 p-0 mb-3" ng-if="loginForm.password.$error.minlength">Password must be at least 6 characters long</div>
+            <div ng-message="pattern" class="text-danger mt-0 p-0 mb-3" ng-if="loginForm.password.$error.pattern">Password must have at least 1 alphabet</div>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <a href="#" class="text-decoration-none" style="color: #734725"><small>Forgot Password?</small></a>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-custom btn-lg w-100 mb-3" ng-disabled="loginForm.$invalid">Login</button>
+        </form>
+
+        <p class="text-center m-0">
+          <small class="text-muted">Don't have an account? <button ng-click="signup()" class="btn btn-link">Sign Up</button></small>
+        </p>
+      </div>
     </div>
   </div>
-</div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- AngularJS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</body>
+</html>
