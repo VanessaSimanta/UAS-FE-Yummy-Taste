@@ -214,6 +214,25 @@ body {
     color: #734725;
 }
 
+.hero-box {
+    background-color: #f8ebe2; /* Background color for the box */
+    min-height: 350px; /* Make the box taller */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-image {
+    width: 100%; /* Smaller image size */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+
+  .hero-image:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 8px 16px rgba(227, 134, 134, 0.745); /* Shadow on hover */
+  }
+
+
 
 /* Admin Style */
 .header {
