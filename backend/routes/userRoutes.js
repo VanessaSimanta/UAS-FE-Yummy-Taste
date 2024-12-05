@@ -27,6 +27,4 @@ router.post('/is-saved', authenticate, savedRecipesController.isRecipeSaved);
 router.get('/saved-recipes', authenticate, savedRecipesController.getSavedRecipes);
 router.delete('/saved-recipes', authenticate, savedRecipesController.deleteSavedRecipe);
 
-
-
 module.exports = router;
