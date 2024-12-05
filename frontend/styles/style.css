@@ -253,3 +253,8 @@ body {
     background-color: #dcdcdc;  
 }
 
+/* Nav Bar */
+.nav-link.active {
+    font-weight: bold;
+    color: #ffc107; /* Warna kuning atau sesuai tema */
+}
