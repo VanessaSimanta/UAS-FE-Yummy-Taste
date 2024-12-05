@@ -167,7 +167,7 @@
         class="col-md-4 mb-4"
         ng-repeat="recipe in recipes | orderBy:'-rating' | limitTo:3"
       >
-        <div class="card shadow-sm">
+        <div class="card shadow-sm hover-effect">
           <div class="card-body" style="background-color: #f8ebe2">
             <h5 class="card-title text-center font-weight-bold">
               {{ recipe.name }}
@@ -205,7 +205,7 @@
         class="col-md-4 mb-4"
         ng-repeat="recipe in recipes"
       >
-        <div class="card shadow-sm">
+        <div class="card shadow-sm hover-effect">
           <div class="card-body" style="background-color: #f8ebe2">
             <h5 class="card-title text-center font-weight-bold">
               {{ recipe.name }}

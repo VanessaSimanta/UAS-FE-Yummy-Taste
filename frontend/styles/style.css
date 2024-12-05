@@ -260,7 +260,16 @@ body {
     box-shadow: 0 8px 16px rgba(227, 134, 134, 0.745); /* Shadow on hover */
   }
 
+/* Hover Effect for Recipe Cards */
+.hover-effect {
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
   
+  .hover-effect:hover {
+    box-shadow: 0 15px 30px rgba(50, 18, 18, 0.744);  /* Lebih besar dan lebih gelap */
+    transform: translateY(-10px) scale(1.05);  /* Terangkat lebih tinggi dan sedikit membesar */
+    cursor: pointer;  /* Mengubah kursor menjadi pointer untuk efek klik */
+  }
 
 
 /* Admin Style */
