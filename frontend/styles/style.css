@@ -6,9 +6,9 @@ html {
     scroll-behavior: smooth;
   }
 
-  #trend {
+#trend {
     padding-top: 200px; /* Sesuaikan jika perlu */
-  }
+}
 
 body {
     font-family: 'poppins', 'sans-serif';
@@ -185,6 +185,25 @@ body {
     font-style: italic;
     line-height: 1.5;
 }
+
+
+.white-container {
+    z-index: 1; /* Menempatkan elemen putih di atas elemen lain */
+    position: absolute; /* Memastikan posisinya relatif terhadap recipe-header */
+    top: 65%; /* Atur posisi vertikal di tengah */
+    left: 50%; /* Atur posisi horizontal di tengah */
+    transform: translate(-50%, -50%); /* Memastikan elemen terpusat sempurna */
+  }
+  
+  .bg-blue {
+    z-index: 0; /* Elemen biru tetap di bawah elemen putih */
+    position: relative; /* Elemen biru menjadi acuan */
+  }
+  
+  .shadow-lg {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Bayangan untuk elemen putih */
+  }  
+
 
 /* My account */
 .justify-content-center {

@@ -107,11 +107,24 @@
   </div>
 </nav>
 
+<div class="recipe-header position-relative">
+  <!-- Blue Background -->
+  <div class="bg-blue" style="height: 200px; background-color: #f1cfb6;"></div>
+  
+  <!-- White Description Container (Now in #f8ebe2) -->
+  <div class="white-container d-flex align-items-center justify-content-center position-absolute top-50 start-50 translate-middle">
+    <div class="container text-center shadow-lg p-4 rounded" style="background-color: #f7ddcb;">
+      <h1 class="fw-bold">Our Recipes</h1>
+      <p class="mt-3">
+        Browse our best recipes based on what you need and find your favorite recipes ! Enjoy Scrolling !
+      </p>
+    </div>
+  </div>
+</div>
+
 
 <!-- Recipes Container -->
 <div class="container mt-5" ng-controller="recipesCtrl">
-  <h1 class="text-center mb-4">Recipes</h1>
-
   <!-- Filter and Reset Buttons -->
 <div class="d-flex justify-content-center gap-5 mb-4 flex-column flex-lg-row">
   <!-- Filter Dropdown -->
@@ -120,7 +133,7 @@
         ng-model="selectedMealType" 
         ng-change="sortByMealType()" 
         required>
-      <option value="" class="btn btn-outline sort-btn" disabled selected>Select a value</option>
+      <option value="" class="btn btn-outline sort-btn" disabled selected>Choose Your Meal</option>
       <option class="btn btn-outline sort-btn" 
               ng-repeat="value in mealType" 
               value="{{value}}">
