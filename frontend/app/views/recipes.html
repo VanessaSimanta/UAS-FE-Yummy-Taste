@@ -80,27 +80,40 @@
 <nav
   class="navbar navbar-expand-lg navbar-dark sticky-top secondary-navbar"
   style="background-color: #734725; z-index: 1020"
+  ng-controller="navCtrl"
 >
   <div class="container">
     <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item mx-3">
-          <a class="nav-link" href="#!/home">
+          <a 
+            class="nav-link" 
+            href="#!/" 
+            ng-class="{'active': isActive('/')}">
             Home <i class="fas fa-home mr-1"></i>
           </a>
         </li>
         <li class="nav-item mx-3">
-          <a class="nav-link" href="#!/recipes">
+          <a 
+            class="nav-link" 
+            href="#!/recipes" 
+            ng-class="{'active': isActive('/recipes')}">
             Our Recipes <i class="fas fa-utensils mr-1"></i>
           </a>
         </li>
         <li class="nav-item mx-3">
-          <a class="nav-link" href="#!/save">
+          <a 
+            class="nav-link" 
+            href="#!/save" 
+            ng-class="{'active': isActive('/save')}">
             Saved Recipes <i class="fas fa-heart mr-1"></i>
           </a>
         </li>
         <li class="nav-item mx-3">
-          <a class="nav-link" href="#!/account">
+          <a 
+            class="nav-link" 
+            href="#!/account" 
+            ng-class="{'active': isActive('/account')}">
             My Account <i class="fas fa-user-circle mr-1"></i>
           </a>
         </li>
@@ -108,6 +121,7 @@
     </div>
   </div>
 </nav>
+
 
 <!-- Recipes Container -->
 <div class="container mt-5" ng-controller="recipesCtrl">
