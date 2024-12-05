@@ -1,11 +1,10 @@
 # Project UAS FE
-Bertemakan lifestyle dimana kami memutuskan untuk membuat sebuah website yang berisikan resep-resep makanan sehat. Dengan memiliki fitur .........
+Bertemakan lifestyle dimana kami memutuskan untuk membuat sebuah website yang berisikan resep-resep makanan sehat. 
 
 
 ## Setup database di postgree SQL 
 1. Install PG ADMIN 4 untuk postgree 
 2. Buat connection database baru 
-3. JELASIN CARANYA !!!
 4. Buka query tool kemudian run query berikut
 Tabel Users
 CREATE TABLE users (

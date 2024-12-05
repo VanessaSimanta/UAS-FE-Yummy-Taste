@@ -20,8 +20,9 @@
           margin-top: 10px;
           margin-right: 180px;
         "
-        >Yummy Taste</span
       >
+        Yummy Taste
+      </span>
     </a>
     <div class="d-flex align-items-center ms-auto me-3">
       <form class="d-flex align-items-center" style="max-width: 400px">
@@ -64,14 +65,16 @@
         href="#!/login"
         class="btn btn-dark rounded-pill px-4"
         style="background-color: #734725; color: #e4ccac"
-        >Login</a
       >
+        Login
+      </a>
       <a
         href="#!/signUp"
         class="btn btn-dark rounded-pill px-4"
         style="background-color: #734725; color: #e4ccac"
-        >Sign up</a
       >
+        Sign up
+      </a>
     </div>
   </div>
 </nav>
@@ -112,33 +115,21 @@
 <!-- Recipe Details -->
 <div class="container mt-5">
   <div class="card shadow-lg" style="background-color: #d9bba9; color: #734725">
-    <div class="card-header text-center" style="background-color: #c6a388">
+    <div class="card-header text-center p-5 font-italic" style="background-color: #c6a388">
       <h1>{{ recipe.name }}</h1>
     </div>
     <div class="card-body text-center">
       <p><strong>Cuisine :</strong> {{ recipe.cuisine }}</p>
       <p><strong>Difficulty :</strong> {{ recipe.difficulty }}</p>
       <p><strong>Prep Time :</strong> {{ recipe.prepTimeMinutes }} Minutes</p>
-      <p>
-        <strong>Cooking Time :</strong> {{ recipe.cookTimeMinutes }} Minutes
-      </p>
+      <p><strong>Cooking Time :</strong> {{ recipe.cookTimeMinutes }} Minutes</p>
       <p><strong>Servings :</strong> {{ recipe.servings }} Servings</p>
-      <p>
-        <strong>Calories per Servings :</strong> {{ recipe.caloriesPerServing }}
-        Kkal
-      </p>
-      <p>
-        <strong>Rating :</strong> {{ recipe.rating }} out of {{
-        recipe.reviewCount }} reviews
-      </p>
-      <img
-        class="img-fluid rounded my-4"
-        src="{{ recipe.image }}"
-        style="max-width: 600px"
-      />
+      <p><strong>Calories per Servings :</strong> {{ recipe.caloriesPerServing }} Kkal</p>
+      <p><strong>Rating :</strong> {{ recipe.rating }} out of {{ recipe.reviewCount }} reviews</p>
+      <img class="img-fluid rounded my-4" src="{{ recipe.image }}" style="max-width: 600px" />
     </div>
     <div class="card-footer">
-      <h5 class="text-center">Ingredients</h5>
+      <h5 class="text-center font-weight-bold p-2">Ingredients</h5>
       <ul class="list-group list-group-flush">
         <li
           class="list-group-item"
@@ -146,19 +137,14 @@
           style="background-color: #f4e4d3; color: #734725"
         >
           <input type="checkbox" id="ingredient-{{$index}}" />
-          <label for="ingredient-{{$index}}" class="ms-2"
-            >{{ ingredient }}</label
-          >
+          <label for="ingredient-{{$index}}" class="ms-2 mt-2 ml-2">{{ ingredient }}</label>
         </li>
       </ul>
     </div>
   </div>
 
   <!-- Instructions Section -->
-  <div
-    class="card mt-4 shadow-lg"
-    style="background-color: #d9bba9; color: #734725"
-  >
+  <div class="card mt-4 shadow-lg mb-5" style="background-color: #d9bba9; color: #734725">
     <div class="card-header text-center" style="background-color: #c6a388">
       <h2>Instructions</h2>
     </div>
@@ -185,29 +171,17 @@
         <h5>Quick Links</h5>
         <ul class="list-unstyled">
           <li><a href="#" class="text-dark text-decoration-none">Home</a></li>
-          <li>
-            <a href="#" class="text-dark text-decoration-none">Our Recipes</a>
-          </li>
-          <li>
-            <a href="#" class="text-dark text-decoration-none">Saved Recipes</a>
-          </li>
-          <li>
-            <a href="#" class="text-dark text-decoration-none">My Account</a>
-          </li>
+          <li><a href="#" class="text-dark text-decoration-none">Our Recipes</a></li>
+          <li><a href="#" class="text-dark text-decoration-none">Saved Recipes</a></li>
+          <li><a href="#" class="text-dark text-decoration-none">My Account</a></li>
         </ul>
       </div>
       <div class="col-md-4">
         <h5>Follow Us</h5>
         <div>
-          <a href="#" class="text-dark mx-2"
-            ><i class="fab fa-instagram"></i
-          ></a>
-          <a href="#" class="text-dark mx-2"
-            ><i class="fab fa-facebook-f"></i
-          ></a>
-          <a href="#" class="text-dark mx-2"
-            ><i class="fab fa-pinterest"></i
-          ></a>
+          <a href="#" class="text-dark mx-2"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="text-dark mx-2"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="text-dark mx-2"><i class="fab fa-pinterest"></i></a>
           <a href="#" class="text-dark mx-2"><i class="fab fa-youtube"></i></a>
         </div>
       </div>
