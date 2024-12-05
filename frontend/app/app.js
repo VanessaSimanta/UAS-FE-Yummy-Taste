@@ -5,6 +5,7 @@ classApp.config(function($routeProvider) {
     //home
     .when('/', {
         templateUrl: 'app/views/home.html',
+        controller:'recipesCtrl'
     })
     //sign up
     .when('/signUp', {  
