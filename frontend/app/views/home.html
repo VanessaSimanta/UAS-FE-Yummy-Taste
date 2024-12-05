@@ -576,15 +576,25 @@
   aria-hidden="true"
 >
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content" style="border-radius: 15px; max-width: 500px; margin: auto;">
+    <div
+      class="modal-content"
+      style="border-radius: 15px; max-width: 500px; margin: auto; overflow: hidden;"
+    >
+      <!-- Modal Header -->
       <div
         class="modal-header"
-        style="background-color: #fdf6f2; border-bottom: none"
+        style="background-color: #fdf6f2; border-bottom: none;"
       >
         <h5
           class="modal-title"
           id="paymentModalLabel"
-          style="color: #734725; font-size: 24px; font-weight: bold; text-align: center; width: 100%;"
+          style="
+            color: #734725;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            width: 100%;
+          "
         >
           Complete Your Payment
         </h5>
@@ -595,37 +605,80 @@
           aria-label="Close"
         ></button>
       </div>
-      <div class="modal-body" style="background-color: #f8ebe2">
-        <p style="color: #734725; font-size: 16px; text-align: center; word-wrap: break-word;">
-          You are subscribing to the <b>{{ selectedPlan }}</b> plan with email: 
+
+      <!-- Modal Body -->
+      <div
+        class="modal-body"
+        style="
+          background-color: #f8ebe2;
+          padding: 20px;
+          word-wrap: break-word;
+        "
+      >
+        <p
+          style="
+            color: #734725;
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 20px;
+          "
+        >
+          You are subscribing to the <b>{{ selectedPlan }}</b> plan with email:
           <b>{{ email }}</b>.
         </p>
+
         <!-- Payment Options -->
         <div class="mb-4">
-          <h6 style="color: #734725; font-size: 18px; font-weight: bold; text-align: center;">
+          <h6
+            style="
+              color: #734725;
+              font-size: 18px;
+              font-weight: bold;
+              text-align: center;
+              margin-bottom: 20px;
+            "
+          >
             Choose Payment Method:
           </h6>
-          <div class="d-flex justify-content-around">
+          <div
+            class="d-flex justify-content-around align-items-center flex-wrap gap-3"
+          >
             <button
               class="btn btn-outline-secondary"
-              style="width: 100px; border-radius: 15px"
+              style="
+                width: 130px;
+                border-radius: 15px;
+                font-size: 14px;
+                white-space: nowrap;
+              "
             >
               Credit Card
             </button>
             <button
               class="btn btn-outline-secondary"
-              style="width: 100px; border-radius: 15px"
+              style="
+                width: 130px;
+                border-radius: 15px;
+                font-size: 14px;
+                white-space: nowrap;
+              "
             >
               E-Wallet
             </button>
             <button
               class="btn btn-outline-secondary"
-              style="width: 100px; border-radius: 15px"
+              style="
+                width: 130px;
+                border-radius: 15px;
+                font-size: 14px;
+                white-space: nowrap;
+              "
             >
               Bank Transfer
             </button>
           </div>
         </div>
+
         <!-- Confirm Button -->
         <div class="text-center">
           <button
@@ -636,6 +689,7 @@
               font-weight: bold;
               font-size: 16px;
               box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.2);
+              width: 200px;
             "
             ng-click="confirmSubscription()"
           >
@@ -646,6 +700,9 @@
     </div>
   </div>
 </div>
+
+
+
 
   <!-- Footer -->
   <footer class="pt-3" style="background-color: #e4ccac">
