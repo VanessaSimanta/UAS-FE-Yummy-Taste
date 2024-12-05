@@ -76,49 +76,38 @@
   </div>
 </nav>
 
-<!-- Sticky Secondary Navbar -->
-<nav
-  class="navbar navbar-expand-lg navbar-dark sticky-top secondary-navbar"
-  style="background-color: #734725; z-index: 1020"
-  ng-controller="navCtrl"
->
+<!-- Sticky Secondary Navbar (Responsive) -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top secondary-navbar" style="background-color: #734725; z-index: 1020" ng-controller="navCtrl">
   <div class="container">
-    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item mx-3">
-          <a 
-            class="nav-link" 
-            href="#!/" 
-            ng-class="{'active': isActive('/')}">
-            Home <i class="fas fa-home mr-1"></i>
-          </a>
-        </li>
-        <li class="nav-item mx-3">
-          <a 
-            class="nav-link" 
-            href="#!/recipes" 
-            ng-class="{'active': isActive('/recipes')}">
-            Our Recipes <i class="fas fa-utensils mr-1"></i>
-          </a>
-        </li>
-        <li class="nav-item mx-3">
-          <a 
-            class="nav-link" 
-            href="#!/save" 
-            ng-class="{'active': isActive('/save')}">
-            Saved Recipes <i class="fas fa-heart mr-1"></i>
-          </a>
-        </li>
-        <li class="nav-item mx-3">
-          <a 
-            class="nav-link" 
-            href="#!/account" 
-            ng-class="{'active': isActive('/account')}">
-            My Account <i class="fas fa-user-circle mr-1"></i>
-          </a>
-        </li>
-      </ul>
-    </div>
+      <!-- Toggle Button for Mobile -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+          <ul class="navbar-nav">
+              <li class="nav-item mx-3">
+                  <a class="nav-link" href="#!/" ng-class="{'active': isActive('/')}">
+                      Home <i class="fas fa-home mr-1"></i>
+                  </a>
+              </li>
+              <li class="nav-item mx-3">
+                  <a class="nav-link" href="#!/recipes" ng-class="{'active': isActive('/recipes')}">
+                      Our Recipes <i class="fas fa-utensils mr-1"></i>
+                  </a>
+              </li>
+              <li class="nav-item mx-3">
+                  <a class="nav-link" href="#!/save" ng-class="{'active': isActive('/save')}">
+                      Saved Recipes <i class="fas fa-heart mr-1"></i>
+                  </a>
+              </li>
+              <li class="nav-item mx-3">
+                  <a class="nav-link" href="#!/account" ng-class="{'active': isActive('/account')}">
+                      My Account <i class="fas fa-user-circle mr-1"></i>
+                  </a>
+              </li>
+          </ul>
+      </div>
   </div>
 </nav>
 
@@ -218,92 +207,38 @@
   <!-- Favorite Recipes Section -->
   <section class="container mt-5" ng-controller="getRandomRecipes">
     <h2
-      class="text-center mb-4 fw-bold text-primary"
-      style="font-family: 'Baloo 2', cursive"
+      class="text-center mb-4 font-weight-bold"
+      style="color: #734725; font-family: 'Baloo 2', cursive"
     >
       Favorite Recipes
     </h2>
-    <div
-      id="recipesCarousel"
-      class="carousel slide"
-      data-bs-ride="carousel"
-      aria-label="Favorite Recipes Carousel"
-    >
-      <!-- Carousel Indicators -->
-      <div class="carousel-indicators">
-        <button
-          type="button"
-          data-bs-target="#recipesCarousel"
-          data-bs-slide-to="0"
-          class="active"
-          aria-label="Slide 1"
-        ></button>
-        <button
-          type="button"
-          data-bs-target="#recipesCarousel"
-          data-bs-slide-to="1"
-          aria-label="Slide 2"
-        ></button>
-        <button
-          type="button"
-          data-bs-target="#recipesCarousel"
-          data-bs-slide-to="2"
-          aria-label="Slide 3"
-        ></button>
-      </div>
-
-      <!-- Carousel Items -->
-      <div class="carousel-inner">
-        <div
-          class="carousel-item"
-          ng-class="{'active': $index === 0}"
-          ng-repeat="chunk in chunkedRecipes"
-        >
-          <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col" ng-repeat="recipe in chunk">
-              <div class="card border-0 shadow-sm h-100 rounded">
-                <img
-                  src="{{ recipe.image }}"
-                  class="card-img-top img-fluid rounded"
-                  alt="{{ recipe.name }}"
-                />
-                <div class="card-body text-center">
-                  <h5 class="card-title fw-bold text-truncate">
-                    {{ recipe.name }}
-                  </h5>
-                  <p class="card-text">
-                    <strong>Rating:</strong> {{ recipe.rating }} ⭐<br />
-                    <strong>Difficulty:</strong> {{ recipe.difficulty }}<br />
-                    <strong>Cooking Time:</strong> {{ recipe.cookTimeMinutes }}
-                    mins
-                  </p>
-                  <button class="btn btn-primary btn-sm">View Recipe</button>
-                </div>
-              </div>
-            </div>
+    <div class="row">
+      <div
+        class="col-md-4 mb-4"
+        ng-repeat="recipe in recipes"
+      >
+        <div class="card shadow-sm">
+          <div class="card-body" style="background-color: #f8ebe2">
+            <h5 class="card-title text-center font-weight-bold">
+              {{ recipe.name }}
+            </h5>
+            <img src="{{ recipe.image }}" class="img-fluid mt-3 mb-3" />
+            <p class="card-text">
+              <strong>Rating:</strong> {{ recipe.rating }} ⭐<br />
+              <strong>Difficulty:</strong> {{ recipe.difficulty }}<br />
+              <strong>Cooking Time:</strong> {{ recipe.cookTimeMinutes }}
+              mins<br />
+            </p>
+            <button
+              ng-click="goToRecipeDetail(recipe.id)"
+              class="btn"
+              style="background-color: #734725; color: #e4ccac"
+            >
+              View Recipe
+            </button>
           </div>
         </div>
       </div>
-
-      <!-- Carousel Controls -->
-      <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#recipesCarousel"
-        data-bs-slide="prev"
-      >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#recipesCarousel"
-        data-bs-slide="next"
-      >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
     </div>
   </section>
 

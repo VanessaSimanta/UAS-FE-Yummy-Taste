@@ -3,16 +3,25 @@ angular.module('recipes').controller('savedRecipesController', ['$scope', '$http
 
     // Cek apakah user sudah login atau belum
     const isLoggedIn = () => {
-        if (!token) return false;
+        if (!token) {
+            console.log('No token found');
+            return false;
+        }
         try {
             const decodedToken = jwt_decode(token); 
             const currentTime = Date.now() / 1000; 
+            console.log('Token decoded:', decodedToken);
             return decodedToken.exp > currentTime; 
         } catch (error) {
             console.error('Invalid token:', error);
             return false;
         }
     };
+    
+
+    if(!isLoggedIn) {
+        alert("Please login to access saved recipes !")
+    }
 
     // Fungsi untuk memuat resep yang disimpan
     const loadSavedRecipes = () => {
