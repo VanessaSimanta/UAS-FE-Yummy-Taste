@@ -243,10 +243,10 @@
   </section>
 
 <!-- Comment and Send Message Section -->
-<section class="container my-5" ng-controller="commentCtrl">
+<section class="container my-5">
   <div class="row g-5">
     <!-- Comment Section -->
-    <div class="col-md-6">
+    <div class="col-md-6" ng-controller="commentCtrl">
       <div
         class="p-4"
         style="
@@ -319,7 +319,7 @@
     </div>
 
     <!-- Send Message Section -->
-    <div class="col-md-6">
+    <div class="col-md-6" ng-controller="messageCtrl">
       <div
         class="p-4"
         style="
@@ -334,7 +334,7 @@
         >
           Send Us a Message
         </h3>
-        <form ng-submit="sendMessage()">
+        <form ng-submit="submitMessage()">
           <div class="mb-3">
             <label
               for="messageEmail"
