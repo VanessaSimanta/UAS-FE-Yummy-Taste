@@ -24,41 +24,26 @@
       >
     </a>
     <div class="d-flex align-items-center ms-auto me-3">
-      <form class="d-flex align-items-center" style="max-width: 400px">
-        <div
-          class="input-group rounded-pill w-140"
-          style="
-            background-color: #f8ebe2;
-            border: 1px solid #734725;
-            height: 40px;
-          "
-        >
-          <input
-            class="form-control border-0 rounded-pill ps-3"
-            type="search"
-            placeholder="Search Recipes..."
-            aria-label="Search"
-            style="
-              background-color: transparent;
-              box-shadow: none;
-              height: 100%;
-            "
-          />
-          <button
-            class="btn d-flex justify-content-center align-items-center"
-            type="submit"
-            style="
-              background-color: #734725;
-              border-radius: 50%;
-              width: 40px;
-              height: 40px;
-            "
-          >
-            <i class="fas fa-search text-white"></i>
-          </button>
+      <form class="d-flex align-items-center" style="max-width: 400px" ng-submit="searchRecipes(searchQuery)">
+        <div class="input-group rounded-pill w-140" style="background-color: #f8ebe2; border: 1px solid #734725; height: 40px;">
+            <input
+                class="form-control border-0 rounded-pill ps-3"
+                type="text"
+                placeholder="Search Recipes..."
+                ng-model="searchQuery"
+                style="background-color: transparent; box-shadow: none; height: 100%;"
+            />
+            <button
+                class="btn d-flex justify-content-center align-items-center"
+                type="submit"
+                style="background-color: #734725; border-radius: 50%; width: 40px; height: 40px;"
+            >
+                <i class="fas fa-search text-white"></i>
+            </button>
         </div>
-      </form>
-    </div>
+    </form>
+  </div>
+
     <div class="d-flex align-items-center" style="gap: 10px">
       <a
         href="#!/login"
@@ -133,8 +118,9 @@
           YUMMY TASTE
         </h2>
         <a
-          href="#"
+          href="#hero"
           class="btn btn-explore btn-lg animate__animated animate__zoomIn"
+          onclick="handleButtonClick(event)"
           >Explore Now</a
         >
       </div>
@@ -142,12 +128,13 @@
   </div>
 
    <!-- Hero Section -->
+<section id="hero">
 <div class="container mt-5">
   <div class="row align-items-center justify-content-center">
     <div class="col-md-20"> <!-- Menambah lebar kolom -->
       <div class="hero-box p-5 rounded shadow-sm">
         <div class="row align-items-center">
-          <div class="col-md-6">
+          <div class="col-md-6"> 
             <h1 class="display-4">Yummy Taste for Best Recipes</h1>
             <p class="lead">
               Let's make the best recipes you've ever made!
@@ -165,6 +152,7 @@
     </div>
   </div>
 </div>
+</section>
 
   <!-- Trending Recipes Section -->
   <section class="container mt-5" ng-controller="recipesCtrl">

@@ -24,41 +24,26 @@
       >
     </a>
     <div class="d-flex align-items-center ms-auto me-3">
-      <form class="d-flex align-items-center" style="max-width: 400px">
-        <div
-          class="input-group rounded-pill w-140"
-          style="
-            background-color: #f8ebe2;
-            border: 1px solid #734725;
-            height: 40px;
-          "
-        >
-          <input
-            class="form-control border-0 rounded-pill ps-3"
-            type="search"
-            placeholder="Search Recipes..."
-            aria-label="Search"
-            style="
-              background-color: transparent;
-              box-shadow: none;
-              height: 100%;
-            "
-          />
-          <button
-            class="btn d-flex justify-content-center align-items-center"
-            type="submit"
-            style="
-              background-color: #734725;
-              border-radius: 50%;
-              width: 40px;
-              height: 40px;
-            "
-          >
-            <i class="fas fa-search text-white"></i>
-          </button>
+      <form class="d-flex align-items-center" style="max-width: 400px" ng-submit="searchRecipes(searchQuery)">
+        <div class="input-group rounded-pill w-140" style="background-color: #f8ebe2; border: 1px solid #734725; height: 40px;">
+            <input
+                class="form-control border-0 rounded-pill ps-3"
+                type="text"
+                placeholder="Search Recipes..."
+                ng-model="searchQuery"
+                style="background-color: transparent; box-shadow: none; height: 100%;"
+            />
+            <button
+                class="btn d-flex justify-content-center align-items-center"
+                type="submit"
+                style="background-color: #734725; border-radius: 50%; width: 40px; height: 40px;"
+            >
+                <i class="fas fa-search text-white"></i>
+            </button>
         </div>
-      </form>
-    </div>
+    </form>
+  </div>
+  
     <div class="d-flex align-items-center" style="gap: 10px">
       <a
         href="#!/login"
@@ -76,38 +61,49 @@
   </div>
 </nav>
 
-<!-- Sticky Secondary Navbar (Responsive) -->
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top secondary-navbar" style="background-color: #734725; z-index: 1020" ng-controller="navCtrl">
+<!-- Sticky Secondary Navbar -->
+<nav
+  class="navbar navbar-expand-lg navbar-dark sticky-top secondary-navbar"
+  style="background-color: #734725; z-index: 1020"
+  ng-controller="navCtrl"
+>
   <div class="container">
-      <!-- Toggle Button for Mobile -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-          <ul class="navbar-nav">
-              <li class="nav-item mx-3">
-                  <a class="nav-link" href="#!/" ng-class="{'active': isActive('/')}">
-                      Home <i class="fas fa-home mr-1"></i>
-                  </a>
-              </li>
-              <li class="nav-item mx-3">
-                  <a class="nav-link" href="#!/recipes" ng-class="{'active': isActive('/recipes')}">
-                      Our Recipes <i class="fas fa-utensils mr-1"></i>
-                  </a>
-              </li>
-              <li class="nav-item mx-3">
-                  <a class="nav-link" href="#!/save" ng-class="{'active': isActive('/save')}">
-                      Saved Recipes <i class="fas fa-heart mr-1"></i>
-                  </a>
-              </li>
-              <li class="nav-item mx-3">
-                  <a class="nav-link" href="#!/account" ng-class="{'active': isActive('/account')}">
-                      My Account <i class="fas fa-user-circle mr-1"></i>
-                  </a>
-              </li>
-          </ul>
-      </div>
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item mx-3">
+          <a 
+            class="nav-link" 
+            href="#!/" 
+            ng-class="{'active': isActive('/')}">
+            Home <i class="fas fa-home mr-1"></i>
+          </a>
+        </li>
+        <li class="nav-item mx-3">
+          <a 
+            class="nav-link" 
+            href="#!/recipes" 
+            ng-class="{'active': isActive('/recipes')}">
+            Our Recipes <i class="fas fa-utensils mr-1"></i>
+          </a>
+        </li>
+        <li class="nav-item mx-3">
+          <a 
+            class="nav-link" 
+            href="#!/save" 
+            ng-class="{'active': isActive('/save')}">
+            Saved Recipes <i class="fas fa-heart mr-1"></i>
+          </a>
+        </li>
+        <li class="nav-item mx-3">
+          <a 
+            class="nav-link" 
+            href="#!/account" 
+            ng-class="{'active': isActive('/account')}">
+            My Account <i class="fas fa-user-circle mr-1"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>
 
@@ -116,18 +112,43 @@
 <div class="container mt-5" ng-controller="recipesCtrl">
   <h1 class="text-center mb-4">Recipes</h1>
 
-  <!-- Sorting Buttons -->
-  <div class="d-flex justify-content-center gap-5 mb-4">
-    <button class="btn btn-outline sort-btn" ng-click="sortByDifficulty()">
-      Difficulty <i class="fas fa-tasks mr-1"></i>
-    </button>
-    <button class="btn btn-outline sort-btn" ng-click="sortByCookingTime()">
-      Cooking Time <i class="fas fa-clock mr-1"></i>
-    </button>
-    <button class="btn btn-outline sort-btn" ng-click="sortByRating()">
-      Rating <i class="fas fa-star mr-1"></i>
-    </button>
+  <!-- Filter and Reset Buttons -->
+<div class="d-flex justify-content-center gap-5 mb-4 flex-column flex-lg-row">
+  <!-- Filter Dropdown -->
+  <div class="mb-3 mb-lg-0">
+    <select id="dropdown" class="btn btn-outline sort-btn" 
+        ng-model="selectedMealType" 
+        ng-change="sortByMealType()" 
+        required>
+      <option value="" class="btn btn-outline sort-btn" disabled selected>Select a value</option>
+      <option class="btn btn-outline sort-btn" 
+              ng-repeat="value in mealType" 
+              value="{{value}}">
+          {{value}}
+      </option>
+    </select>
   </div>
+  
+  <!-- Reset Button -->
+  <div class="mb-3 mb-lg-0">
+    <button class="btn btn-outline sort-btn" ng-click="resetFilter()">Reset Filter</button>
+  </div>
+</div>
+
+<!-- Sorting Buttons -->
+<div class="d-flex justify-content-center gap-5 mb-4">
+  <button class="btn btn-outline sort-btn" ng-click="sortByDifficulty()">
+    Difficulty <i class="fas fa-tasks mr-1"></i>
+  </button>
+  <button class="btn btn-outline sort-btn" ng-click="sortByCookingTime()">
+    Cooking Time <i class="fas fa-clock mr-1"></i>
+  </button>
+  <button class="btn btn-outline sort-btn" ng-click="sortByRating()">
+    Rating <i class="fas fa-star mr-1"></i>
+  </button>
+</div>
+
+
 
   <div class="row">
     <div class="col-md-4 mb-4" ng-repeat="recipe in paginatedRecipes">
@@ -199,11 +220,6 @@
     </button>
 </div>
 </div>
-
-<!-- Back to Top Button -->
-<button id="backToTopBtn" class="btn btn rounded-circle" ng-class="{'show': isScrolled}" ng-click="scrollToTop()"   ng-controller="MainCtrl" style="position: fixed; bottom: 50px; right: 50px; background-color: #734725; color: #E4CCAC; border-radius: 50%; width: 65px; height: 65px; z-index: 1050; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-  <i class="fas fa-arrow-up"></i>
-  </button>
   
   
 <!-- Footer -->
