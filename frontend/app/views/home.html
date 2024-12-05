@@ -562,15 +562,15 @@
   aria-hidden="true"
 >
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content rounded-3">
+    <div class="modal-content" style="border-radius: 15px; max-width: 500px; margin: auto;">
       <div
-        class="modal-header bg-light"
-        style="border-bottom: none"
+        class="modal-header"
+        style="background-color: #fdf6f2; border-bottom: none"
       >
         <h5
           class="modal-title"
           id="paymentModalLabel"
-          style="color: #734725; font-size: 24px; font-weight: bold"
+          style="color: #734725; font-size: 24px; font-weight: bold; text-align: center; width: 100%;"
         >
           Complete Your Payment
         </h5>
@@ -582,31 +582,31 @@
         ></button>
       </div>
       <div class="modal-body" style="background-color: #f8ebe2">
-        <p class="text-center" style="color: #734725; font-size: 16px;">
-          You are subscribing to the <b>{{ selectedPlan }}</b> plan with
-          email: <b>{{ email }}</b>.
+        <p style="color: #734725; font-size: 16px; text-align: center; word-wrap: break-word;">
+          You are subscribing to the <b>{{ selectedPlan }}</b> plan with email: 
+          <b>{{ email }}</b>.
         </p>
         <!-- Payment Options -->
         <div class="mb-4">
-          <h6
-            class="fw-bold"
-            style="color: #734725; font-size: 18px;"
-          >
+          <h6 style="color: #734725; font-size: 18px; font-weight: bold; text-align: center;">
             Choose Payment Method:
           </h6>
-          <div class="d-flex justify-content-center flex-wrap gap-2">
+          <div class="d-flex justify-content-around">
             <button
-              class="btn btn-outline-secondary text-nowrap px-3 py-2 rounded-3"
+              class="btn btn-outline-secondary"
+              style="width: 100px; border-radius: 15px"
             >
               Credit Card
             </button>
             <button
-              class="btn btn-outline-secondary text-nowrap px-3 py-2 rounded-3"
+              class="btn btn-outline-secondary"
+              style="width: 100px; border-radius: 15px"
             >
               E-Wallet
             </button>
             <button
-              class="btn btn-outline-secondary text-nowrap px-3 py-2 rounded-3"
+              class="btn btn-outline-secondary"
+              style="width: 100px; border-radius: 15px"
             >
               Bank Transfer
             </button>
