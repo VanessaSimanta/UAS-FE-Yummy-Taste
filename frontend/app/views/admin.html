@@ -1,150 +1,175 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="adminApp">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
 <body class="bg-light text-dark">
-
-<!-- Header -->
-<div class="bg-brown-dark text-white py-3 px-4 d-flex justify-content-between align-items-center shadow-sm">
-    <h1 class="mb-0"><i class="fas fa-cogs"></i> Admin Dashboard</h1>
-    <div>
-        <a href="#!/login" class="btn btn-outline-light btn-sm rounded-pill me-2"><i class="fas fa-sign-in-alt"></i> Login</a>
+    <!-- Header -->
+    <div
+      class="bg-brown-dark text-white py-3 px-4 d-flex justify-content-between align-items-center shadow-sm"
+    >
+      <h1 class="mb-0"><i class="fas fa-cogs"></i> Admin Dashboard</h1>
+      <div>
+        <a
+          href="#!/login"
+          class="btn btn-outline-light btn-sm rounded-pill me-2 pt-2 m-2 font-weight-bold"
+          style="
+            font-size: 1rem;
+            padding: 0.5rem 1rem; 
+            border-width: 2px; 
+            border-radius: 50px;
+            display: inline-flex; 
+            align-items: center; 
+            gap: 0.5rem;
+          "
+        >
+          <i class="fas fa-sign-in-alt"></i> Login
+        </a>
+        <a
+          href="#!/"
+          class="btn btn-outline-light btn-sm rounded-pill me-2 pt-2 m-2 font-weight-bold"
+          style="
+            font-size: 1rem;
+            padding: 0.5rem 1rem; 
+            border-width: 2px; 
+            border-radius: 50px;
+            display: inline-flex; 
+            align-items: center; 
+            gap: 0.5rem;
+          "
+        >
+          <i class="fas fa-sign-in-alt"></i> Home
+        </a>
+      </div>
     </div>
-</div>
 
-<!-- User Data -->
-<div class="container mt-5" ng-controller="getUserAdminCtrl">
-    <div class="card shadow-lg border-0 bg-brown-light text-dark">
+    <!-- User Data -->
+    <div class="container mt-5" ng-controller="getUserAdminCtrl">
+      <div class="card shadow-lg border-0 bg-brown-light text-dark">
         <div class="card-header bg-brown-dark text-white">
-            <h4 class="mb-0"><i class="fas fa-users"></i> Users List</h4>
+          <h4 class="mb-0"><i class="fas fa-users"></i> Users List</h4>
         </div>
         <div class="card-body p-0">
-            <table class="table table-hover table-responsive-md table-bordered text-center mb-0">
-                <thead class="bg-brown-dark text-white">
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Date of Birth</th>
-                        <th>Phone Number</th>
-                        <th>Role</th>
-                        <th>Subscription</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="user in users">
-                        <td>{{ $index + 1 }}</td>
-                        <td>{{ user.name }}</td>
-                        <td>{{ user.email }}</td>
-                        <td>{{ user.date_of_birth | date:'dd MMM yyyy' }}</td>
-                        <td>{{ user.phone_number }}</td>
-                        <td>{{ user.role }}</td>
-                        <td>{{ user.subscription }}</td>
-                    </tr>
-                </tbody>
-            </table>
+          <table
+            class="table table-hover table-responsive-md table-bordered text-center mb-0"
+          >
+            <thead class="bg-brown-dark text-white">
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Date of Birth</th>
+                <th>Phone Number</th>
+                <th>Role</th>
+                <th>Subscription</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="user in users">
+                <td>{{ $index + 1 }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.date_of_birth | date:'dd MMM yyyy' }}</td>
+                <td>{{ user.phone_number }}</td>
+                <td>{{ user.role }}</td>
+                <td>{{ user.subscription }}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div class="alert alert-danger m-3" ng-if="errorMessage">
-            <i class="fas fa-exclamation-circle"></i> {{ errorMessage }}
+          <i class="fas fa-exclamation-circle"></i> {{ errorMessage }}
         </div>
+      </div>
     </div>
-</div>
 
-<!-- User Comments -->
-<div class="container mt-5" ng-controller="AdminCtrl">
-    <div class="card shadow-lg border-0 bg-brown-light text-dark">
+    <!-- User Comments -->
+    <div class="container mt-5" ng-controller="AdminCtrl">
+      <div class="card shadow-lg border-0 bg-brown-light text-dark">
         <div class="card-header bg-brown-dark text-white">
-            <h5 class="mb-0"><i class="fas fa-comments"></i> Comments</h5>
+          <h5 class="mb-0"><i class="fas fa-comments"></i> Comments</h5>
         </div>
         <div class="card-body p-0">
-            <table class="table table-hover table-responsive-md table-bordered text-center mb-0">
-                <thead class="bg-brown-dark text-white">
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Comment</th>
-                        <th>Created At</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="comment in comments">
-                        <td>{{ $index + 1 }}</td>
-                        <td>{{ comment.name }}</td>
-                        <td>{{ comment.comment }}</td>
-                        <td>{{ comment.created_at | date:'yyyy-MM-dd HH:mm' }}</td>
-                    </tr>
-                </tbody>
-            </table>
+          <table
+            class="table table-hover table-responsive-md table-bordered text-center mb-0"
+          >
+            <thead class="bg-brown-dark text-white">
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Comment</th>
+                <th>Created At</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="comment in comments">
+                <td>{{ $index + 1 }}</td>
+                <td>{{ comment.name }}</td>
+                <td>{{ comment.comment }}</td>
+                <td>{{ comment.created_at | date:'yyyy-MM-dd HH:mm' }}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+      </div>
     </div>
-</div>
 
-<!-- User Messages -->
-<div class="container mt-5" ng-controller="messageCtrl">
-    <div class="card shadow-lg border-0 bg-brown-light text-dark">
+    <!-- User Messages -->
+    <div class="container mt-5" ng-controller="messageCtrl">
+      <div class="card shadow-lg border-0 bg-brown-light text-dark">
         <div class="card-header bg-brown-dark text-white">
-            <h5 class="mb-0"><i class="fas fa-envelope"></i> Messages</h5>
+          <h5 class="mb-0"><i class="fas fa-envelope"></i> Messages</h5>
         </div>
         <div class="card-body p-0">
-            <table class="table table-hover table-responsive-md table-bordered text-center mb-0">
-                <thead class="bg-brown-dark text-white">
-                    <tr>
-                        <th>#</th>
-                        <th>Email</th>
-                        <th>Message</th>
-                        <th>Created At</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="message in messages">
-                        <td>{{ $index + 1 }}</td>
-                        <td>{{ message.email }}</td>
-                        <td>{{ message.message }}</td>
-                        <td>{{ message.created_at | date:'yyyy-MM-dd HH:mm' }}</td>
-                    </tr>
-                </tbody>
-            </table>
+          <table
+            class="table table-hover table-responsive-md table-bordered text-center mb-0"
+          >
+            <thead class="bg-brown-dark text-white">
+              <tr>
+                <th>#</th>
+                <th>Email</th>
+                <th>Message</th>
+                <th>Created At</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="message in messages">
+                <td>{{ $index + 1 }}</td>
+                <td>{{ message.email }}</td>
+                <td>{{ message.message }}</td>
+                <td>{{ message.created_at | date:'yyyy-MM-dd HH:mm' }}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+      </div>
     </div>
-</div>
 
-<!-- Footer -->
-<footer class="bg-brown-dark text-white text-center py-4 mt-5">
-    <p>&copy; 2024 Yummy Taste. All rights reserved.</p>
-    <p><a href="#" class="text-white text-decoration-underline">Privacy Policy</a> | <a href="#" class="text-white text-decoration-underline">Terms of Service</a></p>
-</footer>
+    <!-- Footer -->
+    <footer class="bg-brown-dark text-white text-center py-4 mt-5">
+      <p>&copy; 2024 Yummy Taste. All rights reserved.</p>
+      <p>
+        <a href="#" class="text-white text-decoration-underline"
+          >Privacy Policy</a
+        >
+        |
+        <a href="#" class="text-white text-decoration-underline"
+          >Terms of Service</a
+        >
+      </p>
+    </footer>
 
-<!-- Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<!-- AngularJS -->
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+      .bg-brown-dark {
+        background-color: #5c4033; /* Coklat gelap */
+      }
 
-<style>
-    .bg-brown-dark {
-        background-color: #5C4033; /* Coklat gelap */
-    }
+      .bg-brown-light {
+        background-color: #d2b48c; /* Coklat muda */
+      }
 
-    .bg-brown-light {
-        background-color: #D2B48C; /* Coklat muda */
-    }
+      .btn-outline-light {
+        color: #fff;
+        border-color: #fff;
+      }
 
-    .btn-outline-light {
-        color: #FFF;
-        border-color: #FFF;
-    }
-
-    .btn-outline-light:hover {
-        background-color: #FFF;
-        color: #5C4033;
-    }
-</style>
-</body>
-</html>
+      .btn-outline-light:hover {
+        background-color: #fff;
+        color: #5c4033;
+      }
+    </style>

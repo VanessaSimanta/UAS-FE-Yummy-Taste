@@ -1,27 +1,18 @@
 angular.module('recipes').controller('getRandomRecipes', ['$scope', 'recipesModel', function ($scope, recipesModel) {
-    $scope.recipes = []; 
-    $scope.chunkedRecipes = [];
+  $scope.recipes = []; 
 
-    // Memecah recipes agar tidak ditampilkan semua dalam 1 page
-    function chunkArray(array, chunkSize) {
-      let results = [];
-      for (let i = 0; i < array.length; i += chunkSize) {
-        results.push(array.slice(i, i + chunkSize));
-      }
-      return results;
-    }
-
-    // Ambil data dari recipesModel
-    recipesModel.getRecipes()
+  // Ambil data dari recipesModel
+  recipesModel.getRecipes()
       .then(function (data) {
-        if (data && data.recipes) {
-          $scope.recipes = data.recipes; // Simpan semua resep
-          $scope.chunkedRecipes = chunkArray($scope.recipes, 4); // Bagi menjadi 4
-        } else {
-          console.error('No recipes found in the response.');
-        }
+          if (data && data.recipes) {
+              // Ambil hanya 3 resep pertama
+              $scope.recipes = data.recipes.slice(0, 3);
+              console.log('Limited recipes:', $scope.recipes);
+          } else {
+              console.error('No recipes found in the response.');
+          }
       })
       .catch(function (error) {
-        console.error('Error fetching recipes:', error);
+          console.error('Error fetching recipes:', error);
       });
-  }]);
+}]);
