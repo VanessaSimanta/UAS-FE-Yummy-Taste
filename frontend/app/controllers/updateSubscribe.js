@@ -26,7 +26,7 @@ angular.module('recipes').controller('SubscriptionController', ['$scope', '$http
         // Kirim data subscription ke server
         $http.post('http://localhost:3000/api/subscribe', { email: $scope.email, subscription: $scope.selectedPlan })
             .then(function (response) {
-                alert('Subscription updated successfully!');
+                alert('Subscription updated successfully! Please Login again to enjoy your subscription');
 
                 $scope.email = ''; 
                 $scope.selectedPlan = null;

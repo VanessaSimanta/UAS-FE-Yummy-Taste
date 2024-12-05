@@ -10,14 +10,16 @@ angular.module('recipes').controller('recipesCtrl', ['$scope', '$location', '$ht
     
     // Fungsi untuk memeriksa token dan membatasi akses
     const isLoggedIn = () => {
-        if (!token) return false;
+        const token = localStorage.getItem('token');
+        if (!token) return false; // Tidak ada token berarti belum login
+    
         try {
             const decodedToken = jwt_decode(token);
-            const currentTime = Date.now() / 1000; 
-            return decodedToken.exp > currentTime; 
+            const currentTime = Math.floor(Date.now() / 1000); // Waktu saat ini dalam detik
+            return decodedToken.exp > currentTime; // Cek apakah token expired
         } catch (error) {
-            console.error('Invalid token:', error);
-            return false;
+            console.error('Error decoding token:', error.message);
+            return false; // Token tidak valid atau rusak
         }
     };
 
@@ -49,10 +51,12 @@ angular.module('recipes').controller('recipesCtrl', ['$scope', '$location', '$ht
     $scope.changePage = function(page) {
         // Decode token untuk mendapatkan tipe langganan
         let subscriptionType; 
+        
         if (isLoggedIn()) {
             try {
                 const decodedToken = jwt_decode(token);
                 subscriptionType = decodedToken.subscription ;
+                console.log(decodedToken)
             } catch (error) {
                 console.error('Error decoding token:', error);
             }
@@ -63,7 +67,7 @@ angular.module('recipes').controller('recipesCtrl', ['$scope', '$location', '$ht
             alert('Upgrade your subscription to access more pages.');
             return; 
         }
-
+        
         $scope.currentPage = page;
         let startIndex = (page - 1) * $scope.itemsPerPage;
         let endIndex = startIndex + $scope.itemsPerPage;
@@ -79,8 +83,13 @@ angular.module('recipes').controller('recipesCtrl', ['$scope', '$location', '$ht
 
     // Fungsi untuk berpindah ke halaman berikutnya
     $scope.nextPage = function() {
-        if ($scope.currentPage < $scope.pages.length) {
-            $scope.changePage($scope.currentPage + 1);
+        if (!isLoggedIn()) {
+            alert("Please Login / Sign Up to access this page !")
+        }
+        else {
+            if ($scope.currentPage < $scope.pages.length) {
+                $scope.changePage($scope.currentPage + 1);
+            }
         }
     };
 
