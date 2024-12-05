@@ -302,407 +302,414 @@
     </div>
   </section>
 
-  <!-- Comment and Send Message Section -->
-  <section class="container my-5" ng-controller="commentCtrl">
-    <div class="row g-5">
-      <!-- Comment Section -->
-      <div class="col-md-6">
-        <div
-          class="p-4"
-          style="
-            background-color: #f8ebe2;
-            border-radius: 15px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-          "
-        >
-          <h3
-            class="mb-4 font-weight-bold"
-            style="font-family: 'Baloo 2', cursive; color: #734725"
-          >
-            Leave a Comment
-          </h3>
-          <form ng-submit="submitComment()">
-            <div class="mb-3">
-              <label
-                for="commentName"
-                class="form-label"
-                style="font-weight: bold; color: #734725"
-                >Name</label
-              >
-              <input
-                type="text"
-                class="form-control rounded-pill px-3"
-                id="commentName"
-                ng-model="commentData.name"
-                placeholder="Your Name"
-                style="
-                  height: 50px;
-                  background-color: #fff;
-                  border: 1px solid #734725;
-                "
-                required
-              />
-            </div>
-            <div class="mb-3">
-              <label
-                for="commentText"
-                class="form-label"
-                style="font-weight: bold; color: #734725"
-                >Comment</label
-              >
-              <textarea
-                class="form-control rounded-3 px-3"
-                id="commentText"
-                ng-model="commentData.comment"
-                rows="5"
-                placeholder="Write your comment here..."
-                style="background-color: #fff; border: 1px solid #734725"
-                required
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              class="btn w-100 py-2 rounded-pill"
-              style="
-                background-color: #734725;
-                color: #e4ccac;
-                font-weight: bold;
-                font-size: 16px;
-              "
-            >
-              Submit Comment
-            </button>
-          </form>
-        </div>
-      </div>
-
-      <!-- Send Message Section -->
-      <div class="col-md-6">
-        <div
-          class="p-4"
-          style="
-            background-color: #f8ebe2;
-            border-radius: 15px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-          "
-        >
-          <h3
-            class="mb-4 font-weight-bold"
-            style="font-family: 'Baloo 2', cursive; color: #734725"
-          >
-            Send Us a Message
-          </h3>
-          <form ng-submit="sendMessage()">
-            <div class="mb-3">
-              <label
-                for="messageEmail"
-                class="form-label"
-                style="font-weight: bold; color: #734725"
-                >Email</label
-              >
-              <input
-                type="email"
-                class="form-control rounded-pill px-3"
-                id="messageEmail"
-                ng-model="messageData.email"
-                placeholder="Your Email"
-                style="
-                  height: 50px;
-                  background-color: #fff;
-                  border: 1px solid #734725;
-                "
-                required
-              />
-            </div>
-            <div class="mb-3">
-              <label
-                for="messageContent"
-                class="form-label"
-                style="font-weight: bold; color: #734725"
-                >Message</label
-              >
-              <textarea
-                class="form-control rounded-3 px-3"
-                id="messageContent"
-                ng-model="messageData.message"
-                rows="5"
-                placeholder="Write your message here..."
-                style="background-color: #fff; border: 1px solid #734725"
-                required
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              class="btn w-100 py-2 rounded-pill"
-              style="
-                background-color: #734725;
-                color: #e4ccac;
-                font-weight: bold;
-                font-size: 16px;
-              "
-            >
-              Send Message
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Subscribe Section -->
-  <section class="text-center" ng-controller="SubscriptionController">
-    <div
-      class="p-5"
-      style="
-        background-color: #f8ebe2;
-        border-radius: 20px;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-      "
-    >
-      <h3
-        class="mb-4"
-        style="
-          color: #734725;
-          font-family: 'Baloo 2', cursive;
-          font-size: 32px;
-          font-weight: bold;
-        "
-      >
-        Subscribe to Our Yummy Paste
-      </h3>
-      <p class="mb-5" style="color: #734725; font-size: 16px">
-        Get exclusive recipes, cooking tips, and special offers straight to your
-        inbox.
-      </p>
-
-      <!-- Email Input -->
-    <form
-        class="d-flex justify-content-center align-items-center flex-column flex-md-row gap-3 mb-4"
-        style="max-width: 600px; margin: 0 auto"
-        >
-        <input
-            type="email"
-            class="form-control rounded-pill ps-4"
-            placeholder="Enter your email address"
-            ng-model="email"
-            style="
-            height: 50px;
-            background-color: #ffffff;
-            border: 1px solid #734725;
-            font-size: 16px;
-            width: 100%;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-            "
-            required
-        />
-    </form>
-<!-- Subscription Plans -->
-<div class="mb-4">
-  <h5 style="color: #734725; font-size: 20px; font-weight: bold">
-    Choose Your Subscription Plan:
-  </h5>
-  <div class="row justify-content-center g-3">
-    <!-- Basic Plan -->
-    <div class="col-12 col-md-4">
+<!-- Comment and Send Message Section -->
+<section class="container my-5" ng-controller="commentCtrl">
+  <div class="row g-5">
+    <!-- Comment Section -->
+    <div class="col-md-6">
       <div
-        class="p-4 text-center"
-        style="
-          background-color: #fdf6f2;
-          border-radius: 15px;
-          color: #734725;
-          font-size: 18px;
-          font-weight: bold;
-          cursor: pointer;
-          margin: 10px;
-          box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-        "
-        ng-click="openPaymentModal('Basic')"
-      >
-        <h6 class="mb-2" style="margin: 0; font-size: 20px">Basic</h6>
-        <p style="font-size: 16px; margin: 0">Free</p>
-      </div>
-    </div>
-
-    <!-- Pro Plan -->
-    <div class="col-12 col-md-4">
-      <div
-        class="p-4 text-center"
-        style="
-          background-color: #fdf6f2;
-          border-radius: 15px;
-          color: #734725;
-          font-size: 18px;
-          font-weight: bold;
-          cursor: pointer;
-          margin: 10px;
-          box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-        "
-        ng-click="openPaymentModal('Pro')"
-      >
-        <h6 class="mb-2" style="margin: 0; font-size: 20px">Pro</h6>
-        <p style="font-size: 16px; margin: 0">$9.99/month</p>
-      </div>
-    </div>
-
-    <!-- Premium Plan -->
-    <div class="col-12 col-md-4">
-      <div
-        class="p-4 text-center"
-        style="
-          background-color: #fdf6f2;
-          border-radius: 15px;
-          color: #734725;
-          font-size: 18px;
-          font-weight: bold;
-          cursor: pointer;
-          margin: 10px;
-          box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-        "
-        ng-click="openPaymentModal('Premium')"
-      >
-        <h6 class="mb-2" style="margin: 0; font-size: 20px">Premium</h6>
-        <p style="font-size: 16px; margin: 0">$19.99/month</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Payment Modal -->
-<div
-  class="modal fade"
-  id="paymentModal"
-  tabindex="-1"
-  aria-labelledby="paymentModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog modal-dialog-centered">
-    <div
-      class="modal-content"
-      style="border-radius: 15px; max-width: 500px; margin: auto; overflow: hidden;"
-    >
-      <!-- Modal Header -->
-      <div
-        class="modal-header"
-        style="background-color: #fdf6f2; border-bottom: none;"
-      >
-        <h5
-          class="modal-title"
-          id="paymentModalLabel"
-          style="
-            color: #734725;
-            font-size: 24px;
-            font-weight: bold;
-            text-align: center;
-            width: 100%;
-          "
-        >
-          Complete Your Payment
-        </h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-
-      <!-- Modal Body -->
-      <div
-        class="modal-body"
+        class="p-4"
         style="
           background-color: #f8ebe2;
-          padding: 20px;
-          word-wrap: break-word;
+          border-radius: 15px;
+          box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         "
       >
-        <p
-          style="
-            color: #734725;
-            font-size: 16px;
-            text-align: center;
-            margin-bottom: 20px;
-          "
+        <h3
+          class="mb-4 font-weight-bold"
+          style="font-family: 'Baloo 2', cursive; color: #734725"
         >
-          You are subscribing to the <b>{{ selectedPlan }}</b> plan with email:
-          <b>{{ email }}</b>.
-        </p>
-
-        <!-- Payment Options -->
-        <div class="mb-4">
-          <h6
-            style="
-              color: #734725;
-              font-size: 18px;
-              font-weight: bold;
-              text-align: center;
-              margin-bottom: 20px;
-            "
-          >
-            Choose Payment Method:
-          </h6>
-          <div
-            class="d-flex justify-content-around align-items-center flex-wrap gap-3"
-          >
-            <button
-              class="btn btn-outline-secondary"
-              style="
-                width: 130px;
-                border-radius: 15px;
-                font-size: 14px;
-                white-space: nowrap;
-              "
+          Leave a Comment
+        </h3>
+        <form ng-submit="submitComment()">
+          <div class="mb-3">
+            <label
+              for="commentName"
+              class="form-label"
+              style="font-weight: bold; color: #734725"
+              >Name</label
             >
-              Credit Card
-            </button>
-            <button
-              class="btn btn-outline-secondary"
+            <input
+              type="text"
+              class="form-control px-3"
+              id="commentName"
+              ng-model="commentData.name"
+              placeholder="Your Name"
               style="
-                width: 130px;
-                border-radius: 15px;
-                font-size: 14px;
-                white-space: nowrap;
+                height: 50px;
+                background-color: #fff;
+                border: 1px solid #734725;
+                border-radius: 0;
               "
-            >
-              E-Wallet
-            </button>
-            <button
-              class="btn btn-outline-secondary"
-              style="
-                width: 130px;
-                border-radius: 15px;
-                font-size: 14px;
-                white-space: nowrap;
-              "
-            >
-              Bank Transfer
-            </button>
+              required
+            />
           </div>
-        </div>
-
-        <!-- Confirm Button -->
-        <div class="text-center">
+          <div class="mb-3">
+            <label
+              for="commentText"
+              class="form-label"
+              style="font-weight: bold; color: #734725"
+              >Comment</label
+            >
+            <textarea
+              class="form-control px-3"
+              id="commentText"
+              ng-model="commentData.comment"
+              rows="5"
+              placeholder="Write your comment here..."
+              style="background-color: #fff; border: 1px solid #734725; border-radius: 0"
+              required
+            ></textarea>
+          </div>
           <button
-            class="btn btn-lg rounded-pill"
+            type="submit"
+            class="btn w-100 py-2"
             style="
               background-color: #734725;
               color: #e4ccac;
               font-weight: bold;
               font-size: 16px;
-              box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.2);
-              width: 200px;
+              border-radius: 0;
             "
-            ng-click="confirmSubscription()"
           >
-            Confirm Payment
+            Submit Comment
           </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Send Message Section -->
+    <div class="col-md-6">
+      <div
+        class="p-4"
+        style="
+          background-color: #f8ebe2;
+          border-radius: 15px;
+          box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        "
+      >
+        <h3
+          class="mb-4 font-weight-bold"
+          style="font-family: 'Baloo 2', cursive; color: #734725"
+        >
+          Send Us a Message
+        </h3>
+        <form ng-submit="sendMessage()">
+          <div class="mb-3">
+            <label
+              for="messageEmail"
+              class="form-label"
+              style="font-weight: bold; color: #734725"
+              >Email</label
+            >
+            <input
+              type="email"
+              class="form-control px-3"
+              id="messageEmail"
+              ng-model="messageData.email"
+              placeholder="Your Email"
+              style="
+                height: 50px;
+                background-color: #fff;
+                border: 1px solid #734725;
+                border-radius: 0;
+              "
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label
+              for="messageContent"
+              class="form-label"
+              style="font-weight: bold; color: #734725"
+              >Message</label
+            >
+            <textarea
+              class="form-control px-3"
+              id="messageContent"
+              ng-model="messageData.message"
+              rows="5"
+              placeholder="Write your message here..."
+              style="background-color: #fff; border: 1px solid #734725; border-radius: 0"
+              required
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="btn w-100 py-2"
+            style="
+              background-color: #734725;
+              color: #e4ccac;
+              font-weight: bold;
+              font-size: 16px;
+              border-radius: 0;
+            "
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Subscribe Section -->
+<section class="text-center" ng-controller="SubscriptionController">
+  <div
+    class="p-5"
+    style="
+      background-color: #f8ebe2;
+      border-radius: 20px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    "
+  >
+    <h3
+      class="mb-4"
+      style="
+        color: #734725;
+        font-family: 'Baloo 2', cursive;
+        font-size: 32px;
+        font-weight: bold;
+      "
+    >
+      Subscribe to Our Yummy Paste
+    </h3>
+    <p class="mb-5" style="color: #734725; font-size: 16px">
+      Get exclusive recipes, cooking tips, and special offers straight to your
+      inbox.
+    </p>
+
+    <!-- Email Input -->
+    <form
+      class="d-flex justify-content-center align-items-center flex-column flex-md-row gap-3 mb-4"
+      style="max-width: 600px; margin: 0 auto"
+    >
+      <input
+        type="email"
+        class="form-control ps-4"
+        placeholder="Enter your email address"
+        ng-model="email"
+        style="
+          height: 50px;
+          background-color: #ffffff;
+          border: 1px solid #734725;
+          font-size: 16px;
+          width: 100%;
+          box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+          border-radius: 0; /* Removed the border-radius to make it square */
+        "
+        required
+      />
+    </form>
+
+    <!-- Subscription Plans -->
+    <div class="mb-4">
+      <h5 style="color: #734725; font-size: 20px; font-weight: bold">
+        Choose Your Subscription Plan:
+      </h5>
+      <div class="row justify-content-center g-3">
+        <!-- Basic Plan -->
+        <div class="col-12 col-md-4">
+          <div
+            class="p-4 text-center"
+            style="
+              background-color: #fdf6f2;
+              border-radius: 15px;
+              color: #734725;
+              font-size: 18px;
+              font-weight: bold;
+              cursor: pointer;
+              margin: 10px;
+              box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            "
+            ng-click="openPaymentModal('Basic')"
+          >
+            <h6 class="mb-2" style="margin: 0; font-size: 20px">Basic</h6>
+            <p style="font-size: 16px; margin: 0">Free</p>
+          </div>
+        </div>
+
+        <!-- Pro Plan -->
+        <div class="col-12 col-md-4">
+          <div
+            class="p-4 text-center"
+            style="
+              background-color: #fdf6f2;
+              border-radius: 15px;
+              color: #734725;
+              font-size: 18px;
+              font-weight: bold;
+              cursor: pointer;
+              margin: 10px;
+              box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            "
+            ng-click="openPaymentModal('Pro')"
+          >
+            <h6 class="mb-2" style="margin: 0; font-size: 20px">Pro</h6>
+            <p style="font-size: 16px; margin: 0">$9.99/month</p>
+          </div>
+        </div>
+
+        <!-- Premium Plan -->
+        <div class="col-12 col-md-4">
+          <div
+            class="p-4 text-center"
+            style="
+              background-color: #fdf6f2;
+              border-radius: 15px;
+              color: #734725;
+              font-size: 18px;
+              font-weight: bold;
+              cursor: pointer;
+              margin: 10px;
+              box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            "
+            ng-click="openPaymentModal('Premium')"
+          >
+            <h6 class="mb-2" style="margin: 0; font-size: 20px">Premium</h6>
+            <p style="font-size: 16px; margin: 0">$19.99/month</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div
+      class="modal fade"
+      id="paymentModal"
+      tabindex="-1"
+      aria-labelledby="paymentModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div
+          class="modal-content"
+          style="border-radius: 15px; max-width: 500px; margin: auto; overflow: hidden;"
+        >
+          <!-- Modal Header -->
+          <div
+            class="modal-header"
+            style="background-color: #fdf6f2; border-bottom: none;"
+          >
+            <h5
+              class="modal-title"
+              id="paymentModalLabel"
+              style="
+                color: #734725;
+                font-size: 24px;
+                font-weight: bold;
+                text-align: center;
+                width: 100%;
+              "
+            >
+              Complete Your Payment
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <!-- Modal Body -->
+          <div
+            class="modal-body"
+            style="
+              background-color: #f8ebe2;
+              padding: 20px;
+              word-wrap: break-word;
+            "
+          >
+            <p
+              style="
+                color: #734725;
+                font-size: 16px;
+                text-align: center;
+                margin-bottom: 20px;
+              "
+            >
+              You are subscribing to the <b>{{ selectedPlan }}</b> plan with email:
+              <b>{{ email }}</b>.
+            </p>
+
+            <!-- Payment Options -->
+            <div class="mb-4">
+              <h6
+                style="
+                  color: #734725;
+                  font-size: 18px;
+                  font-weight: bold;
+                  text-align: center;
+                  margin-bottom: 20px;
+                "
+              >
+                Choose Payment Method:
+              </h6>
+              <div
+                class="d-flex justify-content-around align-items-center flex-wrap gap-3"
+              >
+                <button
+                  class="btn btn-outline-secondary"
+                  style="
+                    width: 130px;
+                    border-radius: 0; /* Made button square */
+                    font-size: 14px;
+                    white-space: nowrap;
+                  "
+                >
+                  Credit Card
+                </button>
+                <button
+                  class="btn btn-outline-secondary"
+                  style="
+                    width: 130px;
+                    border-radius: 0; /* Made button square */
+                    font-size: 14px;
+                    white-space: nowrap;
+                  "
+                >
+                  E-Wallet
+                </button>
+                <button
+                  class="btn btn-outline-secondary"
+                  style="
+                    width: 130px;
+                    border-radius: 0; /* Made button square */
+                    font-size: 14px;
+                    white-space: nowrap;
+                  "
+                >
+                  Bank Transfer
+                </button>
+              </div>
+            </div>
+
+            <!-- Confirm Button -->
+            <div class="text-center">
+              <button
+                class="btn btn-lg"
+                style="
+                  background-color: #734725;
+                  color: #e4ccac;
+                  font-weight: bold;
+                  font-size: 16px;
+                  box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.2);
+                  width: 200px;
+                  border-radius: 0; /* Made button square */
+                "
+                ng-click="confirmSubscription()"
+              >
+                Confirm Payment
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-
-
+</section>
 
   <!-- Footer -->
   <footer class="pt-3" style="background-color: #e4ccac">
