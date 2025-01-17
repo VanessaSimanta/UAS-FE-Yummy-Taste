@@ -1,5 +1,5 @@
-# Project UAS FE
-Bertemakan lifestyle dimana kami memutuskan untuk membuat sebuah website yang berisikan resep-resep makanan sehat. 
+# Yummy Taste
+Website bertemakan resep makanan yang dibuat menggunakan HTML, CSS, Bootstrap, Java Script, AngularJS, NodeJS, ExpressJS, dan Postgree SQL pada database untuk penilaian UAS Front-End Programming
 
 
 ## Setup database di postgree SQL 
@@ -63,10 +63,10 @@ CREATE TABLE message (
 
 ## Cara Run Program
 Cara menjalankan program :
-1. pada terminal vs code run "npm install" 
-2. untuk run angular bisa run "cd frontend" kemudian "npm install -g live-server" kemudian run "live-server"
-3. setup env database pada file .env kemudian sesuaikan env dengan db masing-masing
-4. untuk run backend bisa run "cd backend" kemudian run "nodemon server.js"
+1. Pada terminal vs code run "npm install" 
+2. Untuk run angular bisa run "cd frontend" kemudian "npm install -g live-server" kemudian run "live-server"
+3. Setup env database pada file .env kemudian sesuaikan env dengan db masing-masing
+4. Untuk run backend bisa run "cd backend" kemudian run "nodemon server.js"
 
 
 
